@@ -10,6 +10,16 @@
                 "${workspaceFolder}/Point4D.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "${workspaceFolder}/Point4D.csproj"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }
