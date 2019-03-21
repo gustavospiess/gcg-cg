@@ -18,7 +18,7 @@ Pré-requisitos _________________
    Para os passos a seguir é possível utilzar o prompt do Windows (cmd) ou o terminal do VSCode.
 
 Crie uma nova pasta que será o diretório do projeto OpenTK no VSCode e navegue até ela. Nesse exemplo o nome da pasta será 'OlaMundo':
-	$ mkdir OlaMundo && cd OlaMundo
+	$ mkdir OlaMundo; cd OlaMundo
 
 Em seguida crie um Console Application nessa pasta:
 	$ dotnet new console
@@ -29,6 +29,7 @@ Nesse ponto um novo arquivo Program.cs contendo um método main é criado automa
 Se o projeto foi criado corretamente a mensagem 'Hello World' aparecer no terminal.
 
 Agora para incluir o OpenTK e os outros pacotes necessários no projeto digite:
+
 	$ dotnet add package OpenTK --version 3.0.1
 	$ dotnet add package Microsoft.Win32.SystemEvents --version 4.5.0
 	$ dotnet add package System.Drawing.Common --version 4.5.0
