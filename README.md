@@ -1,7 +1,7 @@
 # gcg-cg
 Material da disciplina de Computação Gráfica que utiliza o OpenTK como renderizador.
 
-# OpenTK
+# OpenTK / SDK do .NET Core / VSCode
 Como executar aplicações utilizando o OpenTK no Visual Studio Code
 
 Pré-requisitos _________________
