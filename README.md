@@ -14,7 +14,7 @@ Pré-requisitos _________________
    - C# (https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
    - NuGet Package Manager (https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager)
 
-Passo a passo __________________
+# Passo a passo
    Para os passos a seguir é possível utilzar o prompt do Windows (cmd) ou o terminal do VSCode.
 
 Crie uma nova pasta que será o diretório do projeto OpenTK no VSCode e navegue até ela. Nesse exemplo o nome da pasta será 'OlaMundo':
