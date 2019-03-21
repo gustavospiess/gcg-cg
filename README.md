@@ -43,6 +43,7 @@ Esses comandos estão disponíveis, respectivamente, em:
 	(https://www.nuget.org/packages/System.Drawing.Common/)
 
 Nesse ponto, para testar se o OpenTK está funcionando, acrescente as duas linhas de código a seguir no método main e re-execute o projeto (não se esqueça de adicionar a linha 'using OpentTK;' no cabeçalho da classe):
+
 	using OpenTK;
 	...
 	GameWindow window = new GameWindow(500, 500);
