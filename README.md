@@ -26,6 +26,7 @@ Em seguida crie um Console Application nessa pasta:
 	$ dotnet new console
 
 Nesse ponto um novo arquivo Program.cs contendo um método main é criado automaticamente. Para executar o projeto digite:
+
 	$ dotnet run
 
 Se o projeto foi criado corretamente a mensagem 'Hello World' aparecer no terminal.
