@@ -17,7 +17,8 @@ namespace gcgcg
     // Operator overloaded
     public static Ponto4D operator +(Ponto4D pto1, Ponto4D pto2) => new Ponto4D(pto1.X + pto2.X, pto1.Y + pto2.Y, pto1.Z + pto2.Z);
 
-    public static Ponto4D operator --(Ponto4D pto) => new Ponto4D(-pto.X, -pto.Y, -pto.Z);
+    //TODO: a sobreescreção do operador + funciona mais o - ou -- não
+    // public static Ponto4D operator -(Ponto4D pto) => new Ponto4D(-pto.X, -pto.Y, -pto.Z);
 
     //TODO: Testar estas funções e ver se precisam existir
     // public static bool operator ==(Ponto4D pto1, Ponto4D pto2) {
