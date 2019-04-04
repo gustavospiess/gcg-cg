@@ -7,7 +7,7 @@ namespace gcgcg
 {
   class Mundo
   {
-    private Ponto4D ptoDirCim = new Ponto4D(100, 100);
+    private Ponto4D ptoDirCim = new Ponto4D(200, 200);
     private Ponto4D ptoOrigem = new Ponto4D(0,0);
 
     public void Desenha()
@@ -16,11 +16,11 @@ Console.WriteLine("[6] .. Desenha");
       
       GL.LineWidth(5);
       GL.PointSize(10);
-      GL.Color3(Color.Black);
-
+      GL.Color3(Color.Red);
       GL.Begin(PrimitiveType.Points);
-        GL.Vertex2(ptoDirCim.X, ptoDirCim.Y);
+        GL.Vertex2(200,200);
       GL.End();
+
 
       GL.Color3(Color.Yellow);
       GL.Begin(PrimitiveType.Lines);

@@ -22,7 +22,7 @@ Console.WriteLine("[3] .. OnUpdateFrame");
 
       GL.MatrixMode(MatrixMode.Projection);
       GL.LoadIdentity();
-      GL.Ortho(-400, 400, 400, -400, -1, 1);
+      GL.Ortho(-400, 400, -400, 400, -1, 1);
     }
     protected override void OnRenderFrame(FrameEventArgs e)
     {
