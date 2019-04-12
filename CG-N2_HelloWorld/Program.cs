@@ -2,12 +2,15 @@
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
+using OpenTK.Input;
 
 namespace gcgcg
 {
   class Render : GameWindow
   {
     Mundo mundo = new Mundo();
+    Camera camera = new Camera(-400,400,-400,400);
+    bool mouse = false;
     public Render(int width, int height) : base(width, height) { }
 
     protected override void OnLoad(EventArgs e)
@@ -22,7 +25,7 @@ Console.WriteLine("[3] .. OnUpdateFrame");
 
       GL.MatrixMode(MatrixMode.Projection);
       GL.LoadIdentity();
-      GL.Ortho(-400, 400, -400, 400, -1, 1);
+      GL.Ortho(camera.xmin,camera.xmax,camera.ymin,camera.ymax,camera.zmin,camera.zmax);
     }
     protected override void OnRenderFrame(FrameEventArgs e)
     {
@@ -33,10 +36,22 @@ Console.WriteLine("[4] .. OnRenderFrame");
       GL.ClearColor(Color.White);
       GL.MatrixMode(MatrixMode.Modelview);
 
-      mundo.SRU3D();
       mundo.Desenha();
 
       this.SwapBuffers();
+    }
+
+    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e) {
+      if (e.Key == Key.Escape)
+        mouse = !mouse;
+    }
+
+    protected override void OnMouseMove(MouseMoveEventArgs e) {
+      if (mouse)
+      {
+        mundo.MouseMove(e.Position.X,e.Position.Y);
+      }
+  
     }
   }
 

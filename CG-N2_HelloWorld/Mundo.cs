@@ -7,31 +7,27 @@ namespace gcgcg
 {
   class Mundo
   {
-    private Ponto4D ptoDirCim = new Ponto4D(200, 200);
-    private Ponto4D ptoOrigem = new Ponto4D(0,0);
+    private Objeto objeto = new Objeto();
+    public Mundo()
+    {
+    }
 
     public void Desenha()
     {
-Console.WriteLine("[6] .. Desenha");
-      
-      GL.LineWidth(5);
-      GL.PointSize(10);
-      GL.Color3(Color.Red);
-      GL.Begin(PrimitiveType.Points);
-        GL.Vertex2(200,200);
-      GL.End();
+      Console.WriteLine("[6] .. Desenha");
 
+      SRU3D();
 
-      GL.Color3(Color.Yellow);
-      GL.Begin(PrimitiveType.Lines);
-        GL.Vertex2(ptoOrigem.X,ptoOrigem.Y);
-        GL.Vertex2(ptoDirCim.X,ptoDirCim.Y);
-      GL.End();
+      objeto.Desenha();
     }
-
-    public void SRU3D()
+    //FIXME: não está considerando o NDC
+    public void MouseMove(int x, int y)
     {
-Console.WriteLine("[5] .. SRU3D");
+      objeto.Move(x,y);
+    }
+    private void SRU3D()
+    {
+      Console.WriteLine("[5] .. SRU3D");
 
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
