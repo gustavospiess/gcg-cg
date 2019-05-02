@@ -60,7 +60,7 @@ simplesmente pesquise o nome do arquivo que está faltando no site https://www.n
 
 Para criar Class library _________________
 
-Crie um Class library (não esqueça de criar uma nova pasta para este projeto):
+Se caso for preciso criar uma biblioteca - Class library (não esqueça de criar uma nova pasta para este projeto):
 
 	$ dotnet new classlib
 
