@@ -58,3 +58,10 @@ OBS: Caso apareça algum erro do tipo:
 	'System.IO.FileNotFoundException: Could not load file or assembly...' 
 simplesmente pesquise o nome do arquivo que está faltando no site https://www.nuget.org/ e execute a versão do comando .NET CLI no diretório do projeto pelo terminal.
 
+Para criar Class library _________________
+
+Crie um Class library (não esqueça de criar uma nova pasta para este projeto):
+
+	$ dotnet new classlib
+
+Nesse ponto um novo arquivo Class1.cs contendo a definição de uma classe é criada automaticamente.
