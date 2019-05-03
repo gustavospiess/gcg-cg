@@ -9,7 +9,7 @@ namespace gcgcg
   class Render : GameWindow
   {
     Mundo mundo = new Mundo();
-    Camera camera = new Camera(-400,400,-400,400);
+    CG_Biblioteca.Camera camera = new CG_Biblioteca.Camera(-400,400,-400,400);
     bool mouse = false;
     public Render(int width, int height) : base(width, height) { }
 

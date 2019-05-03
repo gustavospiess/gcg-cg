@@ -1,6 +1,7 @@
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
+using CG_Biblioteca;
 
 namespace gcgcg
 {
