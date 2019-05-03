@@ -2,8 +2,8 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 
-namespace gcgcg {
-  internal class BBox {
+namespace CG_Biblioteca {
+  public class BBox {
     private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;
     private Ponto4D centro = new Ponto4D();
     public BBox(double menorX=0, double menorY=0, double menorZ=0, double maiorX=0, double maiorY=0, double maiorZ=0) {

@@ -1,11 +1,11 @@
 using System;
 
-namespace gcgcg
+namespace CG_Biblioteca
 {
   /// <summary>
   /// Classe com funções matemáticas.
   /// </summary>
-  internal class Matematica {
+  public class Matematica {
     /// <summary>
     /// Função para calcular um ponto sobre o perímetro de um círculo informando um ângulo e raio.
     /// </summary>

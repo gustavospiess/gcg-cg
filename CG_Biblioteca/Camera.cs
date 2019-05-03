@@ -1,12 +1,21 @@
-namespace gcgcg
+namespace CG_Biblioteca
 {
   /// <summary>
   /// Classe para controlar a câmera sintética.
   /// </summary>
-  internal class Camera
+  public class Camera
   {
     private double xMin, xMax, yMin, yMax, zMin, zMax;
 
+    /// <summary>
+    /// Construtor da classe inicializando com valores padrões
+    /// </summary>
+    /// <param name="xMin"></param>
+    /// <param name="xMax"></param>
+    /// <param name="yMin"></param>
+    /// <param name="yMax"></param>
+    /// <param name="zMin"></param>
+    /// <param name="zMax"></param>
     public Camera(double xMin = -300,double xMax = 300,double yMin = -300,double yMax = 300,double zMin = -1, double zMax = 1)
     {
       this.xMin = xMin; this.xMax = xMax;
