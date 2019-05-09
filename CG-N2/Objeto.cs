@@ -10,15 +10,9 @@ namespace gcgcg
     private Ponto4D ptoA = new Ponto4D(200, 200);
     private Ponto4D ptoB = new Ponto4D(100, 100);
     private BBox bBox = new BBox();
-
+    
     public Objeto()
     {
-      bBox.atribuirBBox(ptoA);
-      bBox.atualizarBBox(ptoB);
-      bBox.processarCentroBBox();
-    }
-
-    private void atualizarBBox() {
       bBox.atribuirBBox(ptoA);
       bBox.atualizarBBox(ptoB);
       bBox.processarCentroBBox();
@@ -33,9 +27,13 @@ namespace gcgcg
       GL.End();
 
       bBox.desenhaBBox();
-
     }
-
+    private void atualizarBBox()
+    {
+      bBox.atribuirBBox(ptoA);
+      bBox.atualizarBBox(ptoB);
+      bBox.processarCentroBBox();
+    }
     public void Move(int x, int y)
     {
       ptoA.X = x;
@@ -45,7 +43,4 @@ namespace gcgcg
       // Console.WriteLine(" ..y: " + y);
     }
   }
-
-
-
 }
