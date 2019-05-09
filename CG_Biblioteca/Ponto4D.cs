@@ -55,7 +55,15 @@ namespace CG_Biblioteca
     /// </summary>
     /// <value>coordeanda y</value>
     public double Y { get => y; set => y = value; }
+    /// <summary>
+    /// Obter e atribuir a coordenada z
+    /// </summary>
+    /// <value>coordeanda z</value>
     public double Z { get => z; set => z = value; }
+    /// <summary>
+    /// Obter e atribuir a coordenada homogênea w
+    /// </summary>
+    /// <value>coordeanda w</value>
     public double W { get => w; set => w = value; }
 
   }
