@@ -7,8 +7,8 @@ namespace gcgcg
 {
   internal class Objeto
   {
-    private Ponto4D ptoA = new Ponto4D(200, 200);
-    private Ponto4D ptoB = new Ponto4D(100, 100);
+    private Ponto4D ptoA = new Ponto4D(100, 100);
+    private Ponto4D ptoB = new Ponto4D(200, 200);
     private BBox bBox = new BBox();
     
     public Objeto()
@@ -36,8 +36,8 @@ namespace gcgcg
     }
     public void Move(int x, int y)
     {
-      ptoA.X = x;
-      ptoA.Y = y;
+      ptoB.X = x;
+      ptoB.Y = y;
       atualizarBBox();
       // Console.WriteLine(" ..x: " + x);
       // Console.WriteLine(" ..y: " + y);
