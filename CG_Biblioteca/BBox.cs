@@ -1,3 +1,7 @@
+/*
+  Autor: Dalton Solano dos Reis
+*/
+
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
