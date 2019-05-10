@@ -1,3 +1,7 @@
+/*
+  Autor: Dalton Solano dos Reis
+*/
+
 using System;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
@@ -5,6 +9,9 @@ using OpenTK.Input;
 
 namespace gcgcg
 {
+  /// <summary>
+  /// Classe que define o mundo virtual
+  /// </summary>
   class Mundo
   {
     private Objeto objeto_1 = new Objeto();
