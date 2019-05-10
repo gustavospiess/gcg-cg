@@ -12,13 +12,13 @@ namespace CG_Biblioteca
     private double y;
     private double z;
     private double w;
-/// <summary>
-/// Instância um ponto 3D com a coordenada homogênea w
-/// </summary>
-/// <param name="x">coordenada eixo x</param>
-/// <param name="y">coordenada eixo y</param>
-/// <param name="z">coordenada eixo z</param>
-/// <param name="w">coordenada espaço homogêneo</param>
+    /// <summary>
+    /// Instância um ponto 3D com a coordenada homogênea w
+    /// </summary>
+    /// <param name="x">coordenada eixo x</param>
+    /// <param name="y">coordenada eixo y</param>
+    /// <param name="z">coordenada eixo z</param>
+    /// <param name="w">coordenada espaço homogêneo</param>
     public Ponto4D(double x = 0.0, double y = 0.0, double z = 0.0, double w = 1.0)
     {
       this.x = x;
@@ -65,6 +65,17 @@ namespace CG_Biblioteca
     /// </summary>
     /// <value>coordeanda w</value>
     public double W { get => w; set => w = value; }
+/// <summary>
+/// Inverte todos os valores das coordenadas do ponto
+/// </summary>
+    public void inverterSinal()
+    {
+      x *= -1;
+      y *= -1;
+      z *= -1;
+    }
+    //TODO: poderia sobreescrever o sinal negativo no lugar do "inverterSinal()".
+    // public static Ponto4D operator -(Ponto4D pto) => new Ponto4D(-pto.X, -pto.Y, -pto.Z);
 
   }
 }
