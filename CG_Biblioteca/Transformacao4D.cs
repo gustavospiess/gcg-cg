@@ -19,7 +19,7 @@ namespace CG_Biblioteca
   /// </summary>
   public class Transformacao4D
   {
-    static public double DEG_TO_RAD = 0.017453292519943295769236907684886;
+    static public readonly double DEG_TO_RAD = 0.017453292519943295769236907684886;
 
     /// \brief Cria uma matriz de Trasnformacao com uma matriz Identidade.
 	  private double[] matriz = {
