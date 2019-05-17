@@ -11,7 +11,7 @@ namespace CG_Biblioteca
     private double x;
     private double y;
     private double z;
-    private double w;
+    private readonly double w;
     /// <summary>
     /// Instância um ponto 3D com a coordenada homogênea w
     /// </summary>
@@ -64,7 +64,7 @@ namespace CG_Biblioteca
     /// Obter e atribuir a coordenada homogênea w
     /// </summary>
     /// <value>coordeanda w</value>
-    public double W { get => w; set => w = value; }
+    public double W { get => w; }
 /// <summary>
 /// Inverte todos os valores das coordenadas do ponto
 /// </summary>
