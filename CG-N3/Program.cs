@@ -12,7 +12,7 @@ namespace gcgcg
 {
   class Render : GameWindow
   {
-    Mundo mundo = new Mundo();
+    Mundo mundo = Mundo.getInstance();
     //* Usando os valores padrão da câmera para não ter problemas com o NDC */
     CG_Biblioteca.Camera camera = new CG_Biblioteca.Camera();
     bool mouse = false;
@@ -38,8 +38,9 @@ namespace gcgcg
       // Console.WriteLine("[4] .. OnRenderFrame");
 
       GL.Clear(ClearBufferMask.ColorBufferBit);
-      GL.ClearColor(Color.White);
+      GL.ClearColor(Color.Gray);
       GL.MatrixMode(MatrixMode.Modelview);
+      GL.LoadIdentity();
 
       mundo.Desenha();
 

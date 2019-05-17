@@ -11,13 +11,27 @@ namespace gcgcg
 {
   /// <summary>
   /// Classe que define o mundo virtual
+  /// Padrão Singleton
   /// </summary>
+  /// 
+  
   class Mundo
   {
+    public static Mundo instance = null;
     private Objeto objeto_1 = new Objeto();
     private Objeto objeto_2 = new Objeto();
-    public Mundo()
+    private Mundo()
     {
+    }
+
+//TODO: pesquisar outras formas de implementar padrão singleton
+// Preferência site de documentação do CSharp
+// http://www.linhadecodigo.com.br/artigo/3397/singleton-padrao-de-projeto-com-microsoft-net-c-sharp.aspx
+// 
+    public static Mundo getInstance() {
+      if (instance == null)
+        instance = new Mundo();
+      return instance;
     }
 
     public void Desenha()
