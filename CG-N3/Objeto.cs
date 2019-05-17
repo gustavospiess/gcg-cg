@@ -28,8 +28,8 @@ namespace gcgcg
     }
     public void Desenha()
     {
-      GL.LineWidth(2);
-      GL.Color3(Color.Cyan);
+      GL.LineWidth(4);
+      GL.Color3(Color.White);
 
       GL.PushMatrix();
       GL.MultMatrix(matriz.GetDate());
