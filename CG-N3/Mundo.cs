@@ -86,9 +86,14 @@ namespace gcgcg
         objeto_2.escalaXYZPtoFixo(2,new CG_Biblioteca.Ponto4D(-150,-150));
         else
         if (e.Key == Key.Number1)
-        objeto_2.rotacaoZPtoFixo(10,new CG_Biblioteca.Ponto4D(-150,-150));
+        objeto_2.rotacaoZ(10);
         else
         if (e.Key == Key.Number2)
+        objeto_2.rotacaoZ(-10);
+        if (e.Key == Key.Number3)
+        objeto_2.rotacaoZPtoFixo(10,new CG_Biblioteca.Ponto4D(-150,-150));
+        else
+        if (e.Key == Key.Number4)
         objeto_2.rotacaoZPtoFixo(-10,new CG_Biblioteca.Ponto4D(-150,-150));
     }
 

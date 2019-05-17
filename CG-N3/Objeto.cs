@@ -20,6 +20,7 @@ namespace gcgcg
     private static Transformacao4D matrizTmpTranslacao = new Transformacao4D();
     private static Transformacao4D matrizTmpTranslacaoInversa = new Transformacao4D();
     private static Transformacao4D matrizTmpEscala = new Transformacao4D();
+    private static Transformacao4D matrizTmpRotacao = new Transformacao4D();
     private static Transformacao4D matrizGlobal = new Transformacao4D();
 
     public Objeto()
@@ -101,6 +102,11 @@ namespace gcgcg
 
       matriz = matriz.transformMatrix(matrizGlobal);
     }
+    public void rotacaoZ(double angulo)
+    {
+      matrizTmpRotacao.atribuirRotacaoZ(Transformacao4D.DEG_TO_RAD * angulo);
+      matriz = matrizTmpRotacao.transformMatrix(matriz);
+    }
     public void rotacaoZPtoFixo(double angulo, Ponto4D ptoFixo)
     {
       matrizGlobal.atribuirIdentidade();
@@ -108,8 +114,8 @@ namespace gcgcg
       matrizTmpTranslacao.atribuirTranslacao(ptoFixo.X, ptoFixo.Y, ptoFixo.Z);
       matrizGlobal = matrizTmpTranslacao.transformMatrix(matrizGlobal);
 
-      matrizTmpEscala.atribuirRotacaoZ(Transformacao4D.DEG_TO_RAD * angulo);
-      matrizGlobal = matrizTmpEscala.transformMatrix(matrizGlobal);
+      matrizTmpRotacao.atribuirRotacaoZ(Transformacao4D.DEG_TO_RAD * angulo);
+      matrizGlobal = matrizTmpRotacao.transformMatrix(matrizGlobal);
 
       ptoFixo.inverterSinal();
       matrizTmpTranslacaoInversa.atribuirTranslacao(ptoFixo.X, ptoFixo.Y, ptoFixo.Z);
@@ -117,7 +123,5 @@ namespace gcgcg
 
       matriz = matriz.transformMatrix(matrizGlobal);
     }
-
-
   }
 }
