@@ -10,9 +10,9 @@ Mundo : pegarObjetoSelecionado()
 Objeto : cor
 Objeto : mudarCor()
 Objeto : primitiva
+Objeto : mudarPrimitiva()
 Objeto : Ponto4D[]
 Objeto : Objeto[]
-Objeto : mudarPrimitiva()
 Objeto <|-up- Mundo
 
 Camera : xMin
@@ -21,6 +21,8 @@ Camera : yMin
 Camera : yMax
 Camera : near  /' zMin '/
 Camera : far   /' zMax '/
+Camera : zoom()
+Camera : pan()
 Camera <-left- Mundo
 
 Transformacao4D : matriz[4x4]
