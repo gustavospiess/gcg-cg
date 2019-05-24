@@ -2,10 +2,13 @@
 
 @startuml
 
+!include ../../CG_Biblioteca/docs/umlClasses.wsd
+
 Mundo : Camera
 Mundo : Objeto[]
 Mundo : objetoSelecionado
 Mundo : pegarObjetoSelecionado()
+Camera <-left- Mundo
 
 Objeto : cor
 Objeto : mudarCor()
@@ -14,49 +17,8 @@ Objeto : mudarPrimitiva()
 Objeto : Ponto4D[]
 Objeto : Objeto[]
 Objeto <|-up- Mundo
-
-Camera : xMin
-Camera : xMax
-Camera : yMin
-Camera : yMax
-Camera : near  /' zMin '/
-Camera : far   /' zMax '/
-Camera : zoom()
-Camera : pan()
-Camera <-left- Mundo
-
-Transformacao4D : matriz[4x4]
-Transformacao4D : DEG_TO_RAD
-Transformacao4D : atribuirIdentidade()
-Transformacao4D : atribuirTranslacao(tx,ty,tz)
-Transformacao4D : atribuirEscala(sX,sY,sZ)
-Transformacao4D : atribuirRotacaoX(radians)
-Transformacao4D : atribuirRotacaoY(radians)
-Transformacao4D : atribuirRotacaoZ(radians)
-Transformacao4D : transformPoint(pto)
-Transformacao4D : transformMatrix(t)
-Transformacao4D : elemento GetElement(index)
-Transformacao4D : SetElement(index,value)
-Transformacao4D : elemento[] GetDate()
-Transformacao4D : SetData(data[])
-Transformacao4D : exibeMatriz()
 Transformacao4D <-right- Objeto
-
-BBox : xMin
-BBox : xMax
-BBox : yMin
-BBox : yMax
-BBox : zMin
-BBox : zMax
 BBox <-down- Objeto
-
-Ponto4D : x
-Ponto4D : y
-Ponto4D : z
-Ponto4D : w
 Ponto4D <-Objeto
-
-Matematica : pto ptoCirculo(angulo,raio)
-Matematica : valor ptoCirculoSimétrico(raio)
 
 @enduml
