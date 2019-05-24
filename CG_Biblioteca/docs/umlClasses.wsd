@@ -1,0 +1,43 @@
+@startuml
+
+BBox : xMin
+BBox : xMax
+BBox : yMin
+BBox : yMax
+BBox : zMin
+BBox : zMax
+
+Camera : xMin
+Camera : xMax
+Camera : yMin
+Camera : yMax
+Camera : near  /' zMin '/
+Camera : far   /' zMax '/
+Camera : zoom()
+Camera : pan()
+
+Matematica : pto ptoCirculo(angulo,raio)
+Matematica : valor ptoCirculoSimétrico(raio)
+
+Ponto4D : x
+Ponto4D : y
+Ponto4D : z
+Ponto4D : w
+
+Transformacao4D : matriz[4x4]
+Transformacao4D : DEG_TO_RAD
+Transformacao4D : atribuirIdentidade()
+Transformacao4D : atribuirTranslacao(tx,ty,tz)
+Transformacao4D : atribuirEscala(sX,sY,sZ)
+Transformacao4D : atribuirRotacaoX(radians)
+Transformacao4D : atribuirRotacaoY(radians)
+Transformacao4D : atribuirRotacaoZ(radians)
+Transformacao4D : transformPoint(pto)
+Transformacao4D : transformMatrix(t)
+Transformacao4D : elemento GetElement(index)
+Transformacao4D : SetElement(index,value)
+Transformacao4D : elemento[] GetDate()
+Transformacao4D : SetData(data[])
+Transformacao4D : exibeMatriz()
+
+@enduml
