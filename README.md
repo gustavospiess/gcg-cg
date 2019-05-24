@@ -67,4 +67,4 @@ Se caso for preciso criar uma biblioteca - Class library (não esqueça de criar
 Nesse ponto um novo arquivo Class1.cs contendo a definição de uma classe é criada automaticamente.
 
 Modelo de Classes _________________
-![alternative text](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/dalton-reis/gcg-cg/master/CG-N3/docs/umlClasses.wsd
+![Diagrama de Classe](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/dalton-reis/gcg-cg/master/CG-N3/docs/umlClasses.wsd)
