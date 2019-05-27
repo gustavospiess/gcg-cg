@@ -18,7 +18,6 @@ namespace CG_Biblioteca {
 	public void atribuirBBox(Ponto4D pto) {
 		this.menorX = pto.X; this.menorY = pto.Y; this.menorZ = pto.Z;
 		this.maiorX = pto.X; this.maiorY = pto.Y; this.maiorZ = pto.Z;
-		processarCentroBBox();
 	}
 		
 	public void atualizarBBox(Ponto4D pto) {
