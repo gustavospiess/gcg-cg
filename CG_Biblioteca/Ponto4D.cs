@@ -26,6 +26,11 @@ namespace CG_Biblioteca
       this.z = z;
       this.w = w;
     }
+    public Ponto4D(Ponto4D pto) {
+      this.x = pto.x;
+      this.y = pto.y;
+      this.z = pto.z;
+    }
     // Operator overloaded
     /// <summary>
     /// 
