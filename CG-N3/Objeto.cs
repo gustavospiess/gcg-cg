@@ -6,15 +6,16 @@ using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 using CG_Biblioteca;
 using System;
+using System.Collections.Generic;
 
 namespace gcgcg
 {
   internal class Objeto
   {
-    private Ponto4D[] listaPto = {
-      new Ponto4D(100, 100),new Ponto4D(200, 200) };
+    protected List<Ponto4D> listaPto = new List<Ponto4D>();
     private BBox bBox = new BBox();
     private Transformacao4D matriz = new Transformacao4D();
+    //TODO: por default ter o atributo do tipo point
 
     /// Matrizes temporarias que sempre sao inicializadas com matriz Identidade entao podem ser "static".
     private static Transformacao4D matrizTmpTranslacao = new Transformacao4D();
@@ -25,7 +26,10 @@ namespace gcgcg
 
     public Objeto()
     {
-      atualizarBBox();
+    }
+
+    public void AdicionaPto(Ponto4D pto) {
+      listaPto.Add(pto);
     }
     public void Desenha()
     {
@@ -35,6 +39,7 @@ namespace gcgcg
       GL.PushMatrix();
       GL.MultMatrix(matriz.GetDate());
 
+      //TODO: usar atributo do Objeto.
       GL.Begin(PrimitiveType.Lines);
       GL.Vertex2(listaPto[0].X, listaPto[0].Y);
       GL.Vertex2(listaPto[1].X, listaPto[1].Y);
@@ -46,11 +51,16 @@ namespace gcgcg
 
       bBox.desenhaBBox();
     }
-    private void atualizarBBox()
+    public void atualizarBBox()
     {
-      bBox.atribuirBBox(listaPto[0]);
-      bBox.atualizarBBox(listaPto[1]);
-      bBox.processarCentroBBox();
+      if (listaPto.Count > 0) {
+        bBox.atribuirBBox(listaPto[0]);             // inicializa BBox
+        for (int i = 1; i < listaPto.Count; i++)
+        {
+          bBox.atualizarBBox(listaPto[i]);
+        }
+        bBox.processarCentroBBox();
+      }
     }
     public void Move(int x, int y)
     {

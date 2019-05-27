@@ -6,6 +6,7 @@ using System;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 using OpenTK.Input;
+using CG_Biblioteca;
 
 namespace gcgcg
 {
@@ -18,10 +19,20 @@ namespace gcgcg
   class Mundo
   {
     public static Mundo instance = null;
-    private Objeto objeto_1 = new Objeto();
-    private Objeto objeto_2 = new Objeto();
+    private Retangulo objeto_1 = new Retangulo();
+    private Retangulo objeto_2 = new Retangulo(new Ponto4D(100,100), new Ponto4D(200,200));
+    private Circulo objeto_3 = new Circulo(new Ponto4D(150,150),100);
+    
     private Mundo()
     {
+      // adicionar os ptos para objeto 1
+      objeto_1.AdicionaPto(new Ponto4D(100,100));
+      objeto_1.AdicionaPto(new Ponto4D(200,200));
+      objeto_1.atualizarBBox();
+      // adicionar os ptos para objeto 2 pelo seu constructor
+      objeto_2.atualizarBBox();
+      // adicionar centro e raio para objeto 3 pelo seu constructor
+      objeto_3.atualizarBBox();
     }
 
 //TODO: pesquisar outras formas de implementar padrão singleton
@@ -42,6 +53,7 @@ namespace gcgcg
 
       objeto_1.Desenha();
       objeto_2.Desenha();
+      objeto_3.Desenha();
     }
     //FIXME: não está considerando o NDC
     public void MouseMove(int x, int y)
@@ -80,10 +92,10 @@ namespace gcgcg
         objeto_2.escalaXYZ(0.5,0.5);
         else
         if (e.Key == Key.Home)
-        objeto_2.escalaXYZPtoFixo(0.5,new CG_Biblioteca.Ponto4D(-150,-150));
+        objeto_2.escalaXYZPtoFixo(0.5,new Ponto4D(-150,-150));
         else
         if (e.Key == Key.End)
-        objeto_2.escalaXYZPtoFixo(2,new CG_Biblioteca.Ponto4D(-150,-150));
+        objeto_2.escalaXYZPtoFixo(2,new Ponto4D(-150,-150));
         else
         if (e.Key == Key.Number1)
         objeto_2.rotacaoZ(10);
@@ -91,10 +103,10 @@ namespace gcgcg
         if (e.Key == Key.Number2)
         objeto_2.rotacaoZ(-10);
         if (e.Key == Key.Number3)
-        objeto_2.rotacaoZPtoFixo(10,new CG_Biblioteca.Ponto4D(-150,-150));
+        objeto_2.rotacaoZPtoFixo(10,new Ponto4D(-150,-150));
         else
         if (e.Key == Key.Number4)
-        objeto_2.rotacaoZPtoFixo(-10,new CG_Biblioteca.Ponto4D(-150,-150));
+        objeto_2.rotacaoZPtoFixo(-10,new Ponto4D(-150,-150));
     }
 
     private void SRU3D()
