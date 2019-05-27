@@ -16,9 +16,13 @@ Objeto : primitiva
 Objeto : mudarPrimitiva()
 Objeto : Ponto4D[]
 Objeto : Objeto[]
-Objeto <|-up- Mundo
+Objeto <-down- Mundo
 Transformacao4D <-right- Objeto
 BBox <-down- Objeto
-Ponto4D <-Objeto
+Ponto4D <-down- Objeto
+
+Circulo : Raio
+Circulo : ptoCentro
+Circulo <|- Objeto
 
 @enduml
