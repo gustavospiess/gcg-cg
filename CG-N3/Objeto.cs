@@ -38,11 +38,12 @@ namespace gcgcg
 
       GL.PushMatrix();
       GL.MultMatrix(matriz.GetDate());
-
-      //TODO: usar atributo do Objeto.
-      GL.Begin(PrimitiveType.Lines);
-      GL.Vertex2(listaPto[0].X, listaPto[0].Y);
-      GL.Vertex2(listaPto[1].X, listaPto[1].Y);
+      
+      GL.Begin(PrimitiveType.LineLoop);
+      foreach (Ponto4D pto in listaPto)
+      {
+        GL.Vertex2(pto.X, pto.Y);          
+      }
       GL.End();
 
       //////////// ATENCAO: chamar desenho dos filhos... 
