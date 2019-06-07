@@ -17,6 +17,8 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
+      
+      GL.ClearColor(Color.Gray);
       // Console.WriteLine("[2] .. OnLoad");
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
@@ -34,7 +36,6 @@ namespace gcgcg
       // Console.WriteLine("[4] .. OnRenderFrame");
 
       GL.Clear(ClearBufferMask.ColorBufferBit);
-      GL.ClearColor(Color.White);
       GL.MatrixMode(MatrixMode.Modelview);
 
       mundo.Desenha();

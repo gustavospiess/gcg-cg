@@ -21,12 +21,12 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-      // Console.WriteLine("[2] .. OnLoad");
+      
+      GL.ClearColor(Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
       base.OnUpdateFrame(e);
-      // Console.WriteLine("[3] .. OnUpdateFrame");
 
       GL.MatrixMode(MatrixMode.Projection);
       GL.LoadIdentity();
@@ -35,10 +35,8 @@ namespace gcgcg
     protected override void OnRenderFrame(FrameEventArgs e)
     {
       base.OnRenderFrame(e);
-      // Console.WriteLine("[4] .. OnRenderFrame");
 
       GL.Clear(ClearBufferMask.ColorBufferBit);
-      GL.ClearColor(Color.Gray);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadIdentity();
 
@@ -68,7 +66,6 @@ namespace gcgcg
   {
     static void Main(string[] args)
     {
-      // Console.WriteLine("[1] .. Main");
       //* Usando os valores padrão da câmera para não ter problemas com o NDC */
       Render window = new Render(600, 600);
       window.Run();
