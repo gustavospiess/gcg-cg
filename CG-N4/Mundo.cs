@@ -15,18 +15,19 @@ namespace gcgcg
   /// Padrão Singleton
   /// </summary>
   /// 
-  
+
   class Mundo
   {
     public static Mundo instance = null;
     private Cubo objeto = new Cubo();
-    
+
     private Mundo()
     {
       objeto.atualizarBBox();
     }
 
-    public static Mundo getInstance() {
+    public static Mundo getInstance()
+    {
       if (instance == null)
         instance = new Mundo();
       return instance;
@@ -63,29 +64,32 @@ namespace gcgcg
       else
         if (e.Key == Key.Down)
         objeto.translacaoXYZ(0, -10, 0);
-        else
+      else
         if (e.Key == Key.PageUp)
-        objeto.escalaXYZ(2,2);
-        else
+        objeto.escalaXYZ(2, 2);
+      else
         if (e.Key == Key.PageDown)
-        objeto.escalaXYZ(0.5,0.5);
-        else
+        objeto.escalaXYZ(0.5, 0.5);
+      else
         if (e.Key == Key.Home)
-        objeto.escalaXYZPtoFixo(0.5,new Ponto4D(-150,-150));
-        else
+        objeto.escalaXYZPtoFixo(0.5, new Ponto4D(-150, -150));
+      else
         if (e.Key == Key.End)
-        objeto.escalaXYZPtoFixo(2,new Ponto4D(-150,-150));
-        else
+        objeto.escalaXYZPtoFixo(2, new Ponto4D(-150, -150));
+      else
         if (e.Key == Key.Number1)
         objeto.rotacaoZ(10);
-        else
+      else
         if (e.Key == Key.Number2)
         objeto.rotacaoZ(-10);
-        if (e.Key == Key.Number3)
-        objeto.rotacaoZPtoFixo(10,new Ponto4D(-150,-150));
-        else
-        if (e.Key == Key.Number4)
-        objeto.rotacaoZPtoFixo(-10,new Ponto4D(-150,-150));
+      if (e.Key == Key.Number3)
+        objeto.rotacaoZPtoFixo(10, new Ponto4D(-150, -150));
+      else
+      if (e.Key == Key.Number4)
+        objeto.rotacaoZPtoFixo(-10, new Ponto4D(-150, -150));
+      else
+      if (e.Key == Key.V)
+        objeto.trocaExibeVetorNormal();
     }
 
     private void SRU3D()
