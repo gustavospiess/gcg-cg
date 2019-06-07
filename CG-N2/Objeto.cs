@@ -20,7 +20,7 @@ namespace gcgcg
     public void Desenha()
     {
       GL.LineWidth(1);
-      GL.Color3(Color.Yellow);
+      GL.Color3(Color.White);
       GL.Begin(PrimitiveType.Lines);
       GL.Vertex2(ptoA.X, ptoA.Y);
       GL.Vertex2(ptoB.X, ptoB.Y);
