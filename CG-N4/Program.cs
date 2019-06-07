@@ -68,31 +68,31 @@ namespace gcgcg
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
-      if (e.Key == Key.Number1)
+      if (e.Key == Key.Q)
         eye.X = eye.Y = eye.Z = 15;
       else
-        if (e.Key == Key.Number2)
+        if (e.Key == Key.W)
         eye.X = eye.Y = eye.Z = 10;
       else
-          if (e.Key == Key.Number3)
+          if (e.Key == Key.E)
         eye.X = eye.Y = eye.Z = 5;
       else
-            if (e.Key == Key.Number4)
+            if (e.Key == Key.R)
         eye.X = eye.Y = eye.Z = 1;
       else
-            if (e.Key == Key.Number5)
+            if (e.Key == Key.T)
         eye.X = eye.Y = eye.Z = 0;
       else
-            if (e.Key == Key.Number6)
+            if (e.Key == Key.Y)
         eye.X = eye.Y = eye.Z = -1;
       else
-            if (e.Key == Key.Number7)
+            if (e.Key == Key.U)
         eye.X = eye.Y = eye.Z = -5;
       else
-            if (e.Key == Key.Number8)
+            if (e.Key == Key.I)
         eye.X = eye.Y = eye.Z = -10;
       else
-            if (e.Key == Key.Number9)
+            if (e.Key == Key.O)
         eye.X = eye.Y = eye.Z = -15;
       else
             if (e.Key == Key.A)
@@ -123,7 +123,6 @@ namespace gcgcg
         target.X = target.Y = target.Z = -15;
 
       mundo.OnKeyDown(e);
-
     }
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
