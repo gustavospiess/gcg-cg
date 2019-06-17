@@ -56,7 +56,7 @@ namespace CG_Biblioteca {
       GL.Vertex2(centro.X,centro.Y);
     GL.End();
 
-    GL.LineWidth(1);
+    GL.LineWidth(3);
 		GL.Begin(PrimitiveType.LineLoop);
 			GL.Vertex3(menorX, maiorY, menorZ);
 			GL.Vertex3(maiorX, maiorY, menorZ);
