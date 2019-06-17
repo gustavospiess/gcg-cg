@@ -1,6 +1,6 @@
 # Diagrama de Classes
 Classes utilizadas neste exemplo.
 
-![Diagrama de Classes](https://www.plantuml.com/plantuml/svg/0/NP4nJyCm48Lt_mgpbI79meGoL34I4sfLs112L_lQ6jc-wEnG1duyfacTAfANzzrxlcTv7HDm6hmJuiu6xGQ3igwRVDJpPsVtpb923OqX7PjiKmvYn5YVen7YPGY6vADKu96XoCt-2nEzVnH05_2A3hMb08RAfCSZy6OvNjsByKhPLWuFgP8Nln2ZC-SqyIpyO80LSOuLrhFrDjblMDYsLtvhtb98zF2K6nTKtZ2HjZ9q3jSYRmmX7eWzQCZ1F6LxFEMUerjq7VsKoCIc9Kiib6KzkF-TEx1q8_j42aFYcRM_SsoDmUJ_-0C0 "Diagrama de Classes")
+![Diagrama de Classe](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/dalton-reis/gcg-cg/master/CG-N3/docs/umlClasses.wsd)
 
 by PlantUML.
