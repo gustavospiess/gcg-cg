@@ -1,6 +1,7 @@
 @startuml
 
-@startuml
+title Diagrama de Casos de Uso
+footer Computação Gráfica
 
 (Função 1) as fu1
 usecase "Função 2" as fu2

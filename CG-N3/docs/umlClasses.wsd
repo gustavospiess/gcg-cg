@@ -2,6 +2,9 @@
 
 @startuml
 
+title Diagrama de Classes
+footer Computação Gráfica
+
 !include ../../CG_Biblioteca/docs/umlClasses.wsd
 
 Mundo : Camera
