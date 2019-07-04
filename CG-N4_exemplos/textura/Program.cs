@@ -14,7 +14,6 @@ namespace textura
   class Render : GameWindow
   {
     //FIXME: precisei instalar $ brew install mono-libgdiplus
-    Vector3 eye = Vector3.Zero, target = Vector3.Zero, up = Vector3.UnitY;
     Bitmap bitmap = new Bitmap("logoGCG.png");
 
     int texture;
@@ -26,7 +25,6 @@ namespace textura
       base.OnLoad(e);
       GL.ClearColor(Color.Gray);
       GL.Enable(EnableCap.DepthTest);
-      eye.X = eye.Y = eye.Z = 5;
 
       GL.Hint(HintTarget.PerspectiveCorrectionHint, HintMode.Nicest);
       GL.GenTextures(1, out texture);
@@ -51,10 +49,6 @@ namespace textura
     protected override void OnResize(EventArgs e)
     {
       base.OnResize(e);
-      // GL.Viewport(0, 0, Width, Height);
-      // GL.MatrixMode(MatrixMode.Projection);
-      // GL.LoadIdentity();
-      // GL.Ortho(-1.0, 1.0, -1.0, 1.0, 0.0, 4.0);
       GL.Viewport(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, ClientRectangle.Height);
       Matrix4 projection = Matrix4.CreatePerspectiveFieldOfView((float)Math.PI / 4, Width / (float)Height, 1.0f, 50.0f);
       GL.MatrixMode(MatrixMode.Projection);
@@ -67,20 +61,33 @@ namespace textura
 
     protected override void OnRenderFrame(FrameEventArgs e)
     {
-      // GL.Clear(ClearBufferMask.ColorBufferBit);
-      // GL.MatrixMode(MatrixMode.Modelview);
-      // GL.LoadIdentity();
-
-      GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit); // GL.Clear(ClearBufferMask.ColorBufferBit);
-      Matrix4 modelview = Matrix4.LookAt(eye, target, up);
+      GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+      Matrix4 modelview = Matrix4.LookAt(eye: new Vector3(5,5,5), target: new Vector3(0,0,0), up: Vector3.UnitY);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadMatrix(ref modelview);
 
       SRU3D();
 
-      GL.Color3(Color.White);
       GL.Enable(EnableCap.Texture2D);
       GL.BindTexture(TextureTarget.Texture2D, texture);
+        DesenhaCubo();
+      GL.Disable(EnableCap.Texture2D);
+
+      SwapBuffers();
+    }
+
+    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
+    {
+      if (e.Key == Key.Escape)
+        this.Exit();
+    }
+
+    protected override void OnMouseMove(MouseMoveEventArgs e)
+    {
+    }
+
+    private void DesenhaCubo() {
+      GL.Color3(Color.White);
       GL.Begin(PrimitiveType.Quads);
 
       // Face da frente
@@ -121,19 +128,6 @@ namespace textura
       GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(-1.0f, -1.0f, -1.0f);
 
       GL.End();
-      GL.Disable(EnableCap.Texture2D);
-
-      SwapBuffers();
-    }
-
-    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
-    {
-      if (e.Key == Key.Escape)
-        this.Exit();
-    }
-
-    protected override void OnMouseMove(MouseMoveEventArgs e)
-    {
     }
 
     private void SRU3D()
