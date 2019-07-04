@@ -32,7 +32,7 @@ namespace gcgcg
         GL.MultMatrix(matriz.GetDate());
 
         GL.Begin(PrimitiveType.Quads);
-        // // Face da frente
+        // Face da frente
         GL.Color3(1.0, 0.0, 0.0);
         GL.Normal3(0, 0, 1);
         GL.Vertex3(listaPto[0].X, listaPto[0].Y, listaPto[0].Z);    // PtoA
@@ -41,7 +41,7 @@ namespace gcgcg
         GL.Vertex3(listaPto[3].X, listaPto[3].Y, listaPto[3].Z);    // PtoD
         // Face do fundo
         GL.Color3(0.0, 1.0, 0.0);
-        // GL.Normal3(0, 0, -1);
+        GL.Normal3(0, 0, -1);
         GL.Vertex3(listaPto[4].X, listaPto[4].Y, listaPto[4].Z);    // PtoE
         GL.Vertex3(listaPto[7].X, listaPto[7].Y, listaPto[7].Z);    // PtoH
         GL.Vertex3(listaPto[6].X, listaPto[6].Y, listaPto[6].Z);    // PtoG
