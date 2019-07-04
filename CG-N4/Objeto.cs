@@ -13,8 +13,10 @@ namespace gcgcg
   internal class Objeto
   {
     protected List<Ponto4D> listaPto = new List<Ponto4D>();
+    private bool exibeObjeto = true;
     private BBox bBox = new BBox();
-    private Transformacao4D matriz = new Transformacao4D();
+    private bool exibeBBox = false;
+    protected Transformacao4D matriz = new Transformacao4D();
     //TODO: por default ter o atributo do tipo point
 
     /// Matrizes temporarias que sempre sao inicializadas com matriz Identidade entao podem ser "static".
@@ -23,39 +25,30 @@ namespace gcgcg
     private static Transformacao4D matrizTmpEscala = new Transformacao4D();
     private static Transformacao4D matrizTmpRotacao = new Transformacao4D();
     private static Transformacao4D matrizGlobal = new Transformacao4D();
+    private char eixoRotacao = 'x';
+
+    public void TrocaEixoRotacao(char eixo) => eixoRotacao = eixo;
 
     public Objeto()
     {
     }
 
-    public void AdicionaPto(Ponto4D pto) {
-      listaPto.Add(pto);
-    }
-    //TODO: entender o uso da keyword virtual ... e replicar para os outros projetos
     public virtual void Desenha()
     {
-      GL.LineWidth(4);
-      GL.Color3(Color.White);
+      //FIXME: ////// ATENCAO: chamar desenho dos filhos... 
 
-      GL.PushMatrix();
-      GL.MultMatrix(matriz.GetDate());
-      
-      GL.Begin(PrimitiveType.LineLoop);
-      foreach (Ponto4D pto in listaPto)
-      {
-        GL.Vertex2(pto.X, pto.Y);          
-      }
-      GL.End();
-
-      //////////// ATENCAO: chamar desenho dos filhos... 
-
-      GL.PopMatrix();
-
-      bBox.desenhaBBox();
+      //FIXME: a BBox deve ser atualizada com as transformações do objeto.
+      if (exibeBBox)
+        bBox.desenhaBBox();
     }
+    protected bool pegaExibeObjeto { get => exibeObjeto; }
+    public void trocaExibeObjeto() => exibeObjeto = !exibeObjeto;
+    public void trocaExibeBBox() => exibeBBox = !exibeBBox;
+
     public void atualizarBBox()
     {
-      if (listaPto.Count > 0) {
+      if (listaPto.Count > 0)
+      {
         bBox.atribuirBBox(listaPto[0]);             // inicializa BBox
         for (int i = 1; i < listaPto.Count; i++)
         {
@@ -64,23 +57,14 @@ namespace gcgcg
         bBox.processarCentroBBox();
       }
     }
-    // public void Move(int x, int y)
-    // {
-    //   listaPto[1].X = x;
-    //   listaPto[1].Y = y;
-    //   atualizarBBox();
-    //   // Console.WriteLine(" ..x: " + x);
-    //   // Console.WriteLine(" ..y: " + y);
-    // }
     public void exibeMatriz()
     {
       matriz.exibeMatriz();
     }
-    public void exibePontos()
+    public void exibePontos() => listaPto.ForEach(delegate (Ponto4D pto)
     {
-      Console.WriteLine("P0[" + listaPto[0].X + "," + listaPto[0].Y + "," + listaPto[0].Z + "," + listaPto[0].W + "]");
-      Console.WriteLine("P1[" + listaPto[1].X + "," + listaPto[1].Y + "," + listaPto[1].Z + "," + listaPto[1].W + "]");
-    }
+      Console.WriteLine("P[" + pto.X + "," + pto.Y + "," + pto.Z + "," + pto.W + "]");
+    });
     public void atribuirIdentidade()
     {
       matriz.atribuirIdentidade();
@@ -91,10 +75,10 @@ namespace gcgcg
       matrizTranslate.atribuirTranslacao(tx, ty, tz);
       matriz = matrizTranslate.transformMatrix(matriz);
     }
-    public void escalaXYZ(double Sx, double Sy)
+    public void escalaXYZ(double Sx, double Sy, double Sz)
     {
       Transformacao4D matrizScale = new Transformacao4D();
-      matrizScale.atribuirEscala(Sx, Sy, 1.0);
+      matrizScale.atribuirEscala(Sx, Sy, Sz);
       matriz = matrizScale.transformMatrix(matriz);
     }
 
@@ -105,7 +89,7 @@ namespace gcgcg
       matrizTmpTranslacao.atribuirTranslacao(ptoFixo.X, ptoFixo.Y, ptoFixo.Z);
       matrizGlobal = matrizTmpTranslacao.transformMatrix(matrizGlobal);
 
-      matrizTmpEscala.atribuirEscala(escala, escala, 1.0);
+      matrizTmpEscala.atribuirEscala(escala, escala, escala);
       matrizGlobal = matrizTmpEscala.transformMatrix(matrizGlobal);
 
       ptoFixo.inverterSinal();
@@ -114,19 +98,33 @@ namespace gcgcg
 
       matriz = matriz.transformMatrix(matrizGlobal);
     }
-    public void rotacaoZ(double angulo)
+    public void rotacaoEixo(double angulo)
     {
-      matrizTmpRotacao.atribuirRotacaoZ(Transformacao4D.DEG_TO_RAD * angulo);
+      switch (eixoRotacao)
+      {
+        case 'x':
+          matrizTmpRotacao.atribuirRotacaoX(Transformacao4D.DEG_TO_RAD * angulo);
+          break;
+        case 'y':
+          matrizTmpRotacao.atribuirRotacaoY(Transformacao4D.DEG_TO_RAD * angulo);
+          break;
+        case 'z':
+          matrizTmpRotacao.atribuirRotacaoZ(Transformacao4D.DEG_TO_RAD * angulo);
+          break;
+        default:
+          Console.WriteLine("ERRO: eixo de rotação não definido.");
+          break;
+      }
       matriz = matrizTmpRotacao.transformMatrix(matriz);
     }
-    public void rotacaoZPtoFixo(double angulo, Ponto4D ptoFixo)
+    public void rotacaoEixoPtoFixo(double angulo, Ponto4D ptoFixo)
     {
       matrizGlobal.atribuirIdentidade();
 
       matrizTmpTranslacao.atribuirTranslacao(ptoFixo.X, ptoFixo.Y, ptoFixo.Z);
       matrizGlobal = matrizTmpTranslacao.transformMatrix(matrizGlobal);
 
-      matrizTmpRotacao.atribuirRotacaoZ(Transformacao4D.DEG_TO_RAD * angulo);
+      rotacaoEixo(angulo);
       matrizGlobal = matrizTmpRotacao.transformMatrix(matrizGlobal);
 
       ptoFixo.inverterSinal();
