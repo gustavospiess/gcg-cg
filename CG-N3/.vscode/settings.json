@@ -1,0 +1,4 @@
+{
+  "plantuml.includepaths": ["docs/diagrams"],
+  "plantuml.exportOutDir": "docs/diagrams"
+}
