@@ -102,6 +102,7 @@ namespace textura
 
       GL.End();
     }
+    
     private void SRU3D()
     {
       GL.LineWidth(3);
