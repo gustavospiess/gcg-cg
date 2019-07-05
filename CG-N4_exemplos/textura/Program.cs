@@ -25,7 +25,9 @@ namespace textura
       base.OnLoad(e);
       GL.ClearColor(Color.Gray);
       GL.Enable(EnableCap.DepthTest);
+      GL.Enable(EnableCap.CullFace);
 
+      //TODO: o que faz está linha abaixo?
       GL.Hint(HintTarget.PerspectiveCorrectionHint, HintMode.Nicest);
       GL.GenTextures(1, out texture);
       GL.BindTexture(TextureTarget.Texture2D, texture);
@@ -62,7 +64,7 @@ namespace textura
     protected override void OnRenderFrame(FrameEventArgs e)
     {
       GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-      Matrix4 modelview = Matrix4.LookAt(eye: new Vector3(5,5,5), target: new Vector3(0,0,0), up: Vector3.UnitY);
+      Matrix4 modelview = Matrix4.LookAt(eye: new Vector3(5, 5, 5), target: new Vector3(0, 0, 0), up: Vector3.UnitY);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadMatrix(ref modelview);
 
@@ -70,7 +72,7 @@ namespace textura
 
       GL.Enable(EnableCap.Texture2D);
       GL.BindTexture(TextureTarget.Texture2D, texture);
-        DesenhaCubo();
+      DesenhaCubo();
       GL.Disable(EnableCap.Texture2D);
 
       SwapBuffers();
@@ -80,51 +82,60 @@ namespace textura
     {
       if (e.Key == Key.Escape)
         this.Exit();
+      else
+        if (e.Key == Key.F)
+        GL.CullFace(CullFaceMode.Front);
+      if (e.Key == Key.B)
+        GL.CullFace(CullFaceMode.Back);
+      if (e.Key == Key.A)
+      //FIXME: aqui deveria aplicar a textura no lado de fora e dentro, mas não aparece nada
+        GL.CullFace(CullFaceMode.FrontAndBack);
     }
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
     }
 
-    private void DesenhaCubo() {
+    private void DesenhaCubo()
+    {
       GL.Color3(Color.White);
       GL.Begin(PrimitiveType.Quads);
 
       // Face da frente
       GL.Normal3(0, 0, 1);
       GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, -1.0f, 1.0f);
-      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3( 1.0f, -1.0f, 1.0f);
-      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3( 1.0f,  1.0f, 1.0f);
-      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(-1.0f,  1.0f, 1.0f);
+      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(1.0f, -1.0f, 1.0f);
+      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(1.0f, 1.0f, 1.0f);
+      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(-1.0f, 1.0f, 1.0f);
       // Face do fundo
       GL.Normal3(0, 0, -1);
       GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, -1.0f, -1.0f);
-      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(-1.0f,  1.0f, -1.0f);
-      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3( 1.0f,  1.0f, -1.0f);
-      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3( 1.0f, -1.0f, -1.0f);
+      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(-1.0f, 1.0f, -1.0f);
+      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(1.0f, 1.0f, -1.0f);
+      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(1.0f, -1.0f, -1.0f);
       // Face de cima
       GL.Normal3(0, 1, 0);
-      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, 1.0f,  1.0f);
-      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3( 1.0f, 1.0f,  1.0f);
-      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3( 1.0f, 1.0f, -1.0f);
+      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, 1.0f, 1.0f);
+      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(1.0f, 1.0f, 1.0f);
+      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(1.0f, 1.0f, -1.0f);
       GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(-1.0f, 1.0f, -1.0f);
       // Face de baixo
       GL.Normal3(0, -1, 0);
-      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, -1.0f,  1.0f);
+      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, -1.0f, 1.0f);
       GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(-1.0f, -1.0f, -1.0f);
-      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3( 1.0f, -1.0f, -1.0f);
-      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3( 1.0f, -1.0f,  1.0f);
+      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(1.0f, -1.0f, -1.0f);
+      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(1.0f, -1.0f, 1.0f);
       // Face da direita
       GL.Normal3(1, 0, 0);
-      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(1.0f, -1.0f,  1.0f);
+      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(1.0f, -1.0f, 1.0f);
       GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(1.0f, -1.0f, -1.0f);
-      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(1.0f,  1.0f, -1.0f);
-      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(1.0f,  1.0f,  1.0f);
+      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(1.0f, 1.0f, -1.0f);
+      GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(1.0f, 1.0f, 1.0f);
       // Face da esquerda
       GL.Normal3(-1, 0, 0);
-      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, -1.0f,  1.0f);
-      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(-1.0f,  1.0f,  1.0f);
-      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(-1.0f,  1.0f, -1.0f);
+      GL.TexCoord2(0.0f, 1.0f); GL.Vertex3(-1.0f, -1.0f, 1.0f);
+      GL.TexCoord2(1.0f, 1.0f); GL.Vertex3(-1.0f, 1.0f, 1.0f);
+      GL.TexCoord2(1.0f, 0.0f); GL.Vertex3(-1.0f, 1.0f, -1.0f);
       GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(-1.0f, -1.0f, -1.0f);
 
       GL.End();
