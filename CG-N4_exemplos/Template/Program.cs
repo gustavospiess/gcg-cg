@@ -17,6 +17,7 @@ namespace textura
       base.OnLoad(e);
       GL.ClearColor(Color.Gray);
       GL.Enable(EnableCap.DepthTest);
+      GL.Enable(EnableCap.CullFace);
     }
 
     protected override void OnUnload(EventArgs e)
