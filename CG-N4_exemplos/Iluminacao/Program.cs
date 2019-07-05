@@ -8,11 +8,14 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 
-namespace textura
+namespace Iluminacao
 {
   class Render : GameWindow
   {
     private bool ligaLuz = true;
+    private Color cor = Color.White;
+    private float x_angle;
+
     public Render(int width, int height) : base(width, height) { }
 
     protected override void OnLoad(EventArgs e)
@@ -20,9 +23,10 @@ namespace textura
       base.OnLoad(e);
       GL.ClearColor(Color.Gray);
       GL.Enable(EnableCap.DepthTest);
+      GL.Enable(EnableCap.CullFace);
 
       // Enable Light 0 and set its parameters.
-      GL.Light(LightName.Light0, LightParameter.Position, new float[] { 1.0f, 1.0f, -0.5f });
+      GL.Light(LightName.Light0, LightParameter.Position, new float[] { 0.0f, 2.0f, 0.0f });
       GL.Light(LightName.Light0, LightParameter.Ambient, new float[] { 0.3f, 0.3f, 0.3f, 1.0f });
       GL.Light(LightName.Light0, LightParameter.Diffuse, new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
       GL.Light(LightName.Light0, LightParameter.Specular, new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
@@ -36,6 +40,9 @@ namespace textura
       GL.Material(MaterialFace.Front, MaterialParameter.Diffuse, new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
       GL.Material(MaterialFace.Front, MaterialParameter.Specular, new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
       GL.Material(MaterialFace.Front, MaterialParameter.Emission, new float[] { 0.0f, 0.0f, 0.0f, 1.0f });
+
+//FIXME: cor só aparece nas superfícies laterais. Ter mais tipos de luz.      
+      GL.Material(MaterialFace.Front, MaterialParameter.ColorIndexes, cor);
     }
 
     protected override void OnUnload(EventArgs e)
@@ -53,6 +60,14 @@ namespace textura
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
       base.OnUpdateFrame(e);
+      x_angle += 0.5f;
+
+
+      // Do not leave x_angle drift too far away, as this will cause inaccuracies.
+      if (x_angle > 360.0f)
+        x_angle -= 360.0f;
+      else if (x_angle < -360.0f)
+        x_angle += 360.0f;
     }
 
     protected override void OnRenderFrame(FrameEventArgs e)
@@ -64,12 +79,17 @@ namespace textura
 
       SRU3D();
 
-      if (ligaLuz) {
+      if (ligaLuz)
+      {
         GL.Enable(EnableCap.Lighting);
         GL.Enable(EnableCap.Light0);
+
+        GL.Enable(EnableCap.ColorMaterial);
       }
+      GL.Rotate(x_angle, 0.0f, 1.0f, 0.0f);
       DesenhaCubo();
-      if (ligaLuz) {
+      if (ligaLuz)
+      {
         GL.Disable(EnableCap.Lighting);
         GL.Disable(EnableCap.Light0);
       }
@@ -84,15 +104,24 @@ namespace textura
       else
         if (e.Key == Key.L)
         ligaLuz = !ligaLuz;
+      else if (e.Key == Key.W)
+        cor = Color.White;
+      else if (e.Key == Key.R)
+        cor = Color.Red;
+      else if (e.Key == Key.G)
+        cor = Color.Green;
+      else if (e.Key == Key.B)
+        cor = Color.Blue;
     }
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
+      x_angle = e.Mouse.X;
     }
 
     private void DesenhaCubo()
     {
-      GL.Color3(Color.White);
+      GL.Color3(cor);
       GL.Begin(PrimitiveType.Quads);
 
       // Face da frente
