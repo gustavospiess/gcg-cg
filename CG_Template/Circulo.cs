@@ -1,4 +1,3 @@
-using System;
 using CG_Biblioteca;
 
 namespace gcgcg
