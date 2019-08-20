@@ -46,7 +46,7 @@ Nesse ponto, para testar se o OpenTK está funcionando, acrescente as duas linha
 
 	using OpenTK;
 	...
-	GameWindow window = new GameWindow(500, 500);
+	GameWindow window = new GameWindow(600, 600);
 	window.Run(1.0/60.0);
 
 
