@@ -1,44 +1,76 @@
+/' http://plantuml.com/class-diagram '/ 
 @startuml CG_Biblioteca
 
-BBox : xMin
-BBox : xMax
-BBox : yMin
-BBox : yMax
-BBox : zMin
-BBox : zMax
+BBox : double menorX
+BBox : double menorY
+BBox : double menorZ
+BBox : double maiorX
+BBox : double maiorY
+BBox : double maiorZ
+BBox : Ponto4D centro
+BBox : BBox(double menorX, double menorY, double menorZ, double maiorX, double maiorY, double maiorZ)
+BBox : void atribuirBBox(Ponto4D pto)	
+BBox : void atualizarBBox(Ponto4D pto)
+BBox : void atualizarBBox(double x, double y, double z)
+BBox : void processarCentroBBox()
+BBox : void desenhaBBox()
+BBox : double obterMenorX
+BBox : double obterMenorY
+BBox : double obterMenorZ
+BBox : double obterMaiorX
+BBox : double obterMaiorY
+BBox : double obterMaiorZ
+BBox : Ponto4D obterCentro
+BBox o-- Ponto4D
 
-Camera : xMin
-Camera : xMax
-Camera : yMin
-Camera : yMax
-Camera : near  /' zMin '/
-Camera : far   /' zMax '/
-Camera : zoom()
-Camera : pan()
+Camera : double xMin
+Camera : double xMax
+Camera : double yMin
+Camera : double yMax
+Camera : double zMin
+Camera : double zMax
+Camera : Camera(double xMin,double xMax,double yMin,double yMax,double zMin, double zMax)
+Camera : double xmin
+Camera : double xmax
+Camera : double ymin
+Camera : double ymax
+Camera : double zmin
+Camera : double zmax
+Camera : void panEsq()
+Camera : void panDir()
+Camera : void panCim()
+Camera : void panBai()
+Camera : void zoomIn()
+Camera : void zoomOut()
 
-Matematica : pto ptoCirculo(angulo,raio)
-Matematica : valor ptoCirculoSimétrico(raio)
+Matematica : Ponto4D ptoCirculo(double angulo, double raio)
+Matematica : double ptoCirculoSimétrico(double raio)
 
-Ponto4D : x
-Ponto4D : y
-Ponto4D : z
-Ponto4D : w
-Ponto4D : inverterSinal()
+Ponto4D : double x;
+Ponto4D : double y;
+Ponto4D : double z;
+Ponto4D : readonly double w;
+Ponto4D : Ponto4D(double x, double y, double z, double w)
+Ponto4D : Ponto4D(Ponto4D pto) {
+Ponto4D : double X
+Ponto4D : double Y
+Ponto4D : double Z
+Ponto4D : double W
+Ponto4D : void inverterSinal()
 
 Transformacao4D : matriz[4x4]
-Transformacao4D : DEG_TO_RAD
-Transformacao4D : atribuirIdentidade()
-Transformacao4D : atribuirTranslacao(tx,ty,tz)
-Transformacao4D : atribuirEscala(sX,sY,sZ)
-Transformacao4D : atribuirRotacaoX(radians)
-Transformacao4D : atribuirRotacaoY(radians)
-Transformacao4D : atribuirRotacaoZ(radians)
-Transformacao4D : transformPoint(pto)
-Transformacao4D : transformMatrix(t)
-Transformacao4D : elemento GetElement(index)
-Transformacao4D : SetElement(index,value)
-Transformacao4D : elemento[] GetDate()
-Transformacao4D : SetData(data[])
-Transformacao4D : exibeMatriz()
+Transformacao4D : void atribuirIdentidade()
+Transformacao4D : void atribuirTranslacao(double tx, double ty, double tz)
+Transformacao4D : void atribuirEscala(double sX, double sY, double sZ)
+Transformacao4D : void atribuirRotacaoX(double radians)
+Transformacao4D : void atribuirRotacaoY(double radians)
+Transformacao4D : void atribuirRotacaoZ(double radians)
+Transformacao4D : Ponto4D transformPoint(Ponto4D pto)
+Transformacao4D : Transformacao4D transformMatrix(Transformacao4D t)
+Transformacao4D : double GetElement(int index)
+Transformacao4D : void SetElement(int index, double value)
+Transformacao4D : double[] GetDate()
+Transformacao4D : void SetData(double[] data)
+Transformacao4D : void exibeMatriz()
 
 @enduml
