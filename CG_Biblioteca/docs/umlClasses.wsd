@@ -1,4 +1,4 @@
-@startuml
+@startuml CG_Biblioteca
 
 BBox : xMin
 BBox : xMax
