@@ -1,0 +1,52 @@
+@startuml CG_Template
+
+title Diagrama de Classes
+footer Computação Gráfica
+
+!include ../../CG_Biblioteca/docs/umlClasses.wsd
+
+Mundo : camera
+Mundo : objetosLista[]
+Mundo : OnLoad()
+Mundo : OnUpdateFrame()
+Mundo : OnRenderFrame()
+Mundo : OnKeyDown()
+Mundo : OnMouseMove()
+Mundo : Sru3D()
+Camera <-left- Mundo
+
+Objeto : rotulo
+Objeto : primitivaTipo
+Objeto : PrimitivaTipo()
+Objeto : primitivaTamanho
+Objeto : PrimitivaTamanho()
+Objeto : bBox
+Objeto : matriz
+Objeto : objetosLista[]
+Objeto : Desenhar()
+Objeto : DesenharAramado()
+Objeto : FilhoAdicionar(filho)
+Objeto : FilhoRemover(filho)
+Objeto : TransladarXY(tx,ty)
+Objeto <-down- Mundo
+Transformacao4D <-right- Objeto
+BBox <-left- Objeto
+
+ObjetoAramado : pontosLista[]
+ObjetoAramado : DesenharAramado()
+ObjetoAramado : PontosAdicionar(pto)
+ObjetoAramado : PontosExibir()
+ObjetoAramado <-down- Objeto
+
+Ponto4D <-right- ObjetoAramado
+
+Circulo : ptoCentro
+Circulo : raio
+Circulo : geraPtosCirculo()
+Circulo <|- ObjetoAramado
+
+Retangulo : ptoInferiorEsquerdo
+Retangulo : ptoSuperiorDireito
+Retangulo <|- ObjetoAramado
+
+@enduml
