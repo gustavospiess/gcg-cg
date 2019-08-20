@@ -23,6 +23,7 @@ Ponto4D : x
 Ponto4D : y
 Ponto4D : z
 Ponto4D : w
+Ponto4D : inverterSinal()
 
 Transformacao4D : matriz[4x4]
 Transformacao4D : DEG_TO_RAD
