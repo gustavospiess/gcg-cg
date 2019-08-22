@@ -1,44 +1,56 @@
+/' http://plantuml.com/class-diagram '/ 
 @startuml CG_Template
 
 title Diagrama de Classes
 footer Computação Gráfica
 
-!include ../../CG_Biblioteca/docs/umlClasses.wsd
+!include ../../gcg-cg/CG_Biblioteca/docs/umlClasses.wsd
 
-Mundo : camera
-Mundo : objetosLista[]
-Mundo : moverPto
-Mundo : retanguloA
-Mundo : retanguloB
-Mundo : OnLoad()
-Mundo : OnUpdateFrame()
-Mundo : OnRenderFrame()
-Mundo : OnKeyDown()
-Mundo : OnMouseMove()
-Mundo : Sru3D()
+Program : Mundo window
+Program : void Main()
+Program o-down- Mundo
+
+Mundo : getInstance()
+Mundo : Camera camera
+Mundo : List<Objeto> objetosLista[]
+Mundo : Mundo(int width, int height)
+Mundo : override void OnLoad(EventArgs e)
+Mundo : override void OnUpdateFrame(FrameEventArgs e)
+Mundo : override void OnRenderFrame(FrameEventArgs e)
+Mundo : override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
+Mundo : override void OnMouseMove(MouseMoveEventArgs e)
+Mundo : void Sru3D()
+Mundo o-down- Objeto
 Camera <-left- Mundo
 
-Objeto : rotulo
-Objeto : primitivaTipo
-Objeto : PrimitivaTipo()
-Objeto : primitivaTamanho
-Objeto : PrimitivaTamanho()
-Objeto : Desenhar()
-Objeto : DesenharAramado()
-Objeto <-down- Mundo
+Objeto : string rotulo
+Objeto : PrimitiveType primitivaTipo
+Objeto : float primitivaTamanho
+Objeto : BBox bBox
+Objeto : List<Objeto> objetosLista[]
+Objeto : Objeto(string rotulo)
+Objeto : PrimitiveType PrimitivaTipo
+Objeto : float PrimitivaTamanho
+Objeto : void Desenhar()
+Objeto : abstract void DesenharAramado()
+Objeto : void FilhoAdicionar(Objeto filho)
+Objeto : void FilhoRemover(Objeto filho)
+Objeto : void TransladarXY(double tx, double ty)
+Objeto <|-down- ObjetoAramado
+Transformacao4D <-right- Objeto
+BBox <-left- Objeto
 
-ObjetoAramado : pontosLista[]
-ObjetoAramado : DesenharAramado()
-ObjetoAramado : PontosAdicionar(pto)
-ObjetoAramado : PontosRemoverTodos()
-ObjetoAramado <-down- Objeto
+ObjetoAramado : List<Ponto4D> pontosLista[]
+ObjetoAramado : ObjetoAramado(string rotulo)
+ObjetoAramado : void DesenharAramado()
+ObjetoAramado : void PontosAdicionar(Ponto4D pto)
+ObjetoAramado : void PontosRemoverTodos()
+ObjetoAramado : void PontosExibir()
+ObjetoAramado o-down- Ponto4D
+ObjetoAramado <|-down- Retangulo
 
-Ponto4D <-right- ObjetoAramado
-
-Retangulo : ptoInferiorEsquerdo
-Retangulo : ptoSuperiorDireito
-Retangulo : MoverPtoSuperiorDireito()
-Retangulo : MoverPtoSuperiorDireito(ptoMover)
-Retangulo <|- ObjetoAramado
+Retangulo : Ponto4D ptoInfEsq
+Retangulo : Ponto4D ptoSupDir
+Retangulo : Retangulo(string rotulo,Ponto4D ptoInfEsq, Ponto4D ptoSupDir)
 
 @enduml
