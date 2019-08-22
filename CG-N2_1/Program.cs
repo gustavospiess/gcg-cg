@@ -28,8 +28,8 @@ namespace OlaMundo
       GL.MatrixMode(MatrixMode.Modelview);
       GL.Color3(Color.Black);
       GL.Begin(PrimitiveType.Lines);
-      GL.Vertex3(100, 100, 0); GL.Vertex3(500, 500, 0);
-      GL.Vertex3(100, 100, 0); GL.Vertex3(500, 500, 0);
+        GL.Vertex2(100, 100); GL.Vertex2(500, 500);
+        GL.Vertex2(100, 100); GL.Vertex2(500, 500);
       GL.End();
       this.SwapBuffers();
     }
