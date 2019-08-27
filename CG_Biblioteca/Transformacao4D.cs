@@ -33,7 +33,7 @@ namespace CG_Biblioteca
     }
 
     /// Atribui os valores de uma matriz Identidade a matriz de Transformacao.
-    public void atribuirIdentidade()
+    public void AtribuirIdentidade()
     {
       for (int i = 0; i < 16; ++i)
       {
@@ -44,9 +44,9 @@ namespace CG_Biblioteca
 
     /// Atribui os valores de Translacao (tx,ty,tz) a matriz de Transformacao.
     /// Elemento Neutro eh 0 (zero).
-    public void atribuirTranslacao(double tx, double ty, double tz)
+    public void AtribuirTranslacao(double tx, double ty, double tz)
     {
-      atribuirIdentidade();
+      AtribuirIdentidade();
       matriz[12] = tx;
       matriz[13] = ty;
       matriz[14] = tz;
@@ -55,9 +55,9 @@ namespace CG_Biblioteca
     /// Atribui o valor de Escala (Ex,Ey,Ez) a matriz de Transformacao.
     /// Elemento Neutro eh 1 (um).
     /// Se manter os valores iguais de Ex,Ey e Ez o objeto vai ser reduzido ou ampliado proporcionalmente.
-    public void atribuirEscala(double sX, double sY, double sZ)
+    public void AtribuirEscala(double sX, double sY, double sZ)
     {
-      atribuirIdentidade();
+      AtribuirIdentidade();
       matriz[0] = sX;
       matriz[5] = sY;
       matriz[10] = sZ;
@@ -65,9 +65,9 @@ namespace CG_Biblioteca
 
     /// Atribui o valor de Rotacao (angulo) no eixo X a matriz de Transformacao.
     /// Elemento Neutro eh 0 (zero).
-    public void atribuirRotacaoX(double radians)
+    public void AtribuirRotacaoX(double radians)
     {
-      atribuirIdentidade();
+      AtribuirIdentidade();
       matriz[5] = Math.Cos(radians);
       matriz[9] = -Math.Sin(radians);
       matriz[6] = Math.Sin(radians);
@@ -76,9 +76,9 @@ namespace CG_Biblioteca
 
     /// Atribui o valor de Rotacao (angulo) no eixo Y a matriz de Transformacao.
     /// Elemento Neutro eh 0 (zero).
-    public void atribuirRotacaoY(double radians)
+    public void AtribuirRotacaoY(double radians)
     {
-      atribuirIdentidade();
+      AtribuirIdentidade();
       matriz[0] = Math.Cos(radians);
       matriz[8] = Math.Sin(radians);
       matriz[2] = -Math.Sin(radians);
@@ -87,16 +87,16 @@ namespace CG_Biblioteca
 
     /// Atribui o valor de Rotacao (angulo) no eixo Z a matriz de Transformacao.
     /// Elemento Neutro eh 0 (zero).
-    public void atribuirRotacaoZ(double radians)
+    public void AtribuirRotacaoZ(double radians)
     {
-      atribuirIdentidade();
+      AtribuirIdentidade();
       matriz[0] = Math.Cos(radians);
       matriz[4] = -Math.Sin(radians);
       matriz[1] = Math.Sin(radians);
       matriz[5] = Math.Cos(radians);
     }
 
-    public Ponto4D transformPoint(Ponto4D pto)
+    public Ponto4D TransformPoint(Ponto4D pto)
     {
       Ponto4D pointResult = new Ponto4D(
           matriz[0] * pto.X + matriz[4] * pto.Y + matriz[8] * pto.Z + matriz[12] * pto.W,
@@ -106,7 +106,7 @@ namespace CG_Biblioteca
       return pointResult;
     }
 
-    public Transformacao4D transformMatrix(Transformacao4D t)
+    public Transformacao4D TransformMatrix(Transformacao4D t)
     {
       Transformacao4D result = new Transformacao4D();
       for (int i = 0; i < 16; ++i)
@@ -141,7 +141,7 @@ namespace CG_Biblioteca
       }
     }
 
-    public void exibeMatriz()
+    public void ExibeMatriz()
     {
       Console.WriteLine("______________________");
       Console.WriteLine("|" + GetElement(0) + " | " + GetElement(4) + " | " + GetElement(8) + " | " + GetElement(12));

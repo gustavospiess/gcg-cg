@@ -58,19 +58,21 @@ Ponto4D : double Z
 Ponto4D : double W
 Ponto4D : void inverterSinal()
 
-Transformacao4D : matriz[4x4]
-Transformacao4D : void atribuirIdentidade()
-Transformacao4D : void atribuirTranslacao(double tx, double ty, double tz)
-Transformacao4D : void atribuirEscala(double sX, double sY, double sZ)
-Transformacao4D : void atribuirRotacaoX(double radians)
-Transformacao4D : void atribuirRotacaoY(double radians)
-Transformacao4D : void atribuirRotacaoZ(double radians)
-Transformacao4D : Ponto4D transformPoint(Ponto4D pto)
-Transformacao4D : Transformacao4D transformMatrix(Transformacao4D t)
-Transformacao4D : double GetElement(int index)
-Transformacao4D : void SetElement(int index, double value)
-Transformacao4D : double[] GetDate()
-Transformacao4D : void SetData(double[] data)
-Transformacao4D : void exibeMatriz()
+Transformacao4D : {static} + readonly double DEG_TO_RAD
+Transformacao4D : -double[4x4] matriz
+Transformacao4D : +Transformacao4D()
+Transformacao4D : +void AtribuirIdentidade()
+Transformacao4D : +void AtribuirTranslacao(double tx, double ty, double tz)
+Transformacao4D : +void AtribuirEscala(double sX, double sY, double sZ)
+Transformacao4D : +void AtribuirRotacaoX(double radians)
+Transformacao4D : +void AtribuirRotacaoY(double radians)
+Transformacao4D : +void AtribuirRotacaoZ(double radians)
+Transformacao4D : +Ponto4D TransformPoint(Ponto4D pto)
+Transformacao4D : +Transformacao4D TransformMatrix(Transformacao4D t)
+Transformacao4D : +double GetElement(int index)
+Transformacao4D : +void SetElement(int index, double value)
+Transformacao4D : +double[] GetDate()
+Transformacao4D : +void SetData(double[] data)
+Transformacao4D : +void ExibeMatriz()
 
 @enduml
