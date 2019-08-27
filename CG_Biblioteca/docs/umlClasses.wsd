@@ -30,12 +30,12 @@ Camera : - double yMax
 Camera : - double zMin
 Camera : - double zMax
 Camera : + Camera(double xMin,double xMax,double yMin,double yMax,double zMin, double zMax)
-Camera : + double xmin { get => xMin; set => xMin = value; }
-Camera : + double xmax { get => xMax; set => xMax = value; }
-Camera : + double ymin { get => yMin; set => yMin = value; }
-Camera : + double ymax { get => yMax; set => yMax = value; }
-Camera : + double zmin { get => zMin; set => zMin = value; }
-Camera : + double zmax { get => zMax; set => zMax = value; }
+Camera : + double xmin { get; set }
+Camera : + double xmax { get; set }
+Camera : + double ymin { get; set }
+Camera : + double ymax { get; set }
+Camera : + double zmin { get; set }
+Camera : + double zmax { get; set }
 Camera : + void PanEsquerda()
 Camera : + void PanDireita()
 Camera : + void PanCima()
@@ -53,10 +53,10 @@ Ponto4D : - readonly double w
 Ponto4D : + Ponto4D(double x, double y, double z, double w)
 Ponto4D : + Ponto4D(Ponto4D pto)
 Ponto4D : + static Ponto4D operator +()
-Ponto4D : + double X { get => x; set => x = value; }
-Ponto4D : + double Y { get => y; set => y = value; }
-Ponto4D : + double Z { get => z; set => z = value; }
-Ponto4D : + double W { get => w; }
+Ponto4D : + double X { get; set }
+Ponto4D : + double Y { get; set }
+Ponto4D : + double Z { get; set }
+Ponto4D : + double W { get }
 Ponto4D : + void InverterSinal()
 
 Transformacao4D : {static} + readonly double DEG_TO_RAD
