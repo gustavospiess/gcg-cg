@@ -29,9 +29,18 @@ namespace gcgcg
       pontosLista.Add(pto);
     }
 
-    protected void PontosRemoverTodos() {
+    protected void PontosRemoverTodos()
+    {
       pontosLista.Clear();
     }
 
+    protected override void PontosExibir()
+    {
+      Console.WriteLine("__ Objeto: " + base.rotulo);
+      for (var i = 0; i < pontosLista.Count; i++)
+      {
+        Console.WriteLine("P" + i + "[" + pontosLista[i].X + "," + pontosLista[i].Y + "," + pontosLista[i].Z + "," + pontosLista[i].W + "]");
+      }
+    }
   }
 }

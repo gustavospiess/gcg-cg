@@ -5,25 +5,25 @@ namespace gcgcg
 {
   internal class Retangulo : ObjetoAramado
   {
-    private Ponto4D ptoInferiorEsquerdo, ptoSuperiorDireito;
-    public Retangulo(string rotulo,Ponto4D ptoInferiorEsquerdo, Ponto4D ptoSuperiorDireito) : base(rotulo)
+    private Ponto4D ptoInfEsq, ptoSupDir;
+    public Retangulo(string rotulo,Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo)
     {
-      this.ptoInferiorEsquerdo = ptoInferiorEsquerdo;
-      this.ptoSuperiorDireito = ptoSuperiorDireito;
-      geraPtosRetangulo();
+      this.ptoInfEsq = ptoInfEsq;
+      this.ptoSupDir = ptoSupDir;
+      GerarPtosRetangulo();
     }
 
-    private void geraPtosRetangulo() {
+    private void GerarPtosRetangulo() {
       base.PontosRemoverTodos();
-      base.PontosAdicionar(ptoInferiorEsquerdo);
-      base.PontosAdicionar(new Ponto4D(ptoSuperiorDireito.X,ptoInferiorEsquerdo.Y));
-      base.PontosAdicionar(ptoSuperiorDireito);
-      base.PontosAdicionar(new Ponto4D(ptoInferiorEsquerdo.X,ptoSuperiorDireito.Y));
+      base.PontosAdicionar(ptoInfEsq);
+      base.PontosAdicionar(new Ponto4D(ptoSupDir.X,ptoInfEsq.Y));
+      base.PontosAdicionar(ptoSupDir);
+      base.PontosAdicionar(new Ponto4D(ptoInfEsq.X,ptoSupDir.Y));
     }
 
-    public void MoverPtoSuperiorDireito(Ponto4D ptoMover) {
-      ptoSuperiorDireito = ptoMover;
-      geraPtosRetangulo();
+    public void MoverPtoSupDir(Ponto4D ptoMover) {
+      ptoSupDir = ptoMover;
+      GerarPtosRetangulo();
     }
   }
 }

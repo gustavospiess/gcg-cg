@@ -10,20 +10,29 @@ namespace gcgcg
 {
   class Mundo : GameWindow
   {
-    Camera camera = new Camera();
-    protected List<Objeto> objetosLista = new List<Objeto>();
-    private bool moverPto = false;
-    private Retangulo retanguloA;
-    private Retangulo retanguloB;
+    public static Mundo instance = null;
 
     public Mundo(int width, int height) : base(width, height) { }
+
+    public static Mundo getInstance()
+    {
+      if (instance == null)
+        instance = new Mundo(600,600);
+      return instance;
+    }
+
+    private Camera camera = new Camera();
+    protected List<Objeto> objetosLista = new List<Objeto>();
+    private bool moverPto = false;
+    //FIXME: estes objetos não devem ser atributos do Mundo
+    private Retangulo retanguloA, retanguloB;
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
 
-      retanguloA = new Retangulo("A",new Ponto4D( 50,  50,0),new Ponto4D(150,150,0));
-      retanguloB = new Retangulo("B",new Ponto4D( 50, 150,0),new Ponto4D(150,250,0));
+      retanguloA = new Retangulo("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      retanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
       objetosLista.Add(retanguloA);
       objetosLista.Add(retanguloB);
 
@@ -59,14 +68,25 @@ namespace gcgcg
       if (e.Key == Key.Escape)
         Exit();
       else
-        if (e.Key == Key.M) {
-          moverPto = !moverPto;
+      if (e.Key == Key.E)
+      {
+        for (var i = 0; i < objetosLista.Count; i++)
+        {
+          objetosLista[i].PontosExibirObjeto();
         }
+      }
+      else
+      if (e.Key == Key.M)
+      {
+        moverPto = !moverPto;
+      }
     }
 
-    protected override void OnMouseMove(MouseMoveEventArgs e) { 
-      if (moverPto) {
-        retanguloB.MoverPtoSuperiorDireito(new Ponto4D(e.Position.X,600-e.Position.Y,0));
+    protected override void OnMouseMove(MouseMoveEventArgs e)
+    {
+      if (moverPto)
+      {
+        retanguloB.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y, 0));
       }
     }
 
@@ -94,5 +114,5 @@ namespace gcgcg
       window.Run(1.0 / 60.0);
     }
   }
-  
+
 }
