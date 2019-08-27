@@ -23,25 +23,25 @@ BBox : double obterMaiorZ
 BBox : Ponto4D obterCentro
 BBox o-- Ponto4D
 
-Camera : double xMin
-Camera : double xMax
-Camera : double yMin
-Camera : double yMax
-Camera : double zMin
-Camera : double zMax
-Camera : Camera(double xMin,double xMax,double yMin,double yMax,double zMin, double zMax)
-Camera : double xmin
-Camera : double xmax
-Camera : double ymin
-Camera : double ymax
-Camera : double zmin
-Camera : double zmax
-Camera : void panEsq()
-Camera : void panDir()
-Camera : void panCim()
-Camera : void panBai()
-Camera : void zoomIn()
-Camera : void zoomOut()
+Camera : - double xMin
+Camera : - double xMax
+Camera : - double yMin
+Camera : - double yMax
+Camera : - double zMin
+Camera : - double zMax
+Camera : + Camera(double xMin,double xMax,double yMin,double yMax,double zMin, double zMax)
+Camera : + double xmin { get => xMin; set => xMin = value; }
+Camera : + double xmax { get => xMax; set => xMax = value; }
+Camera : + double ymin { get => yMin; set => yMin = value; }
+Camera : + double ymax { get => yMax; set => yMax = value; }
+Camera : + double zmin { get => zMin; set => zMin = value; }
+Camera : + double zmax { get => zMax; set => zMax = value; }
+Camera : + void PanEsquerda()
+Camera : + void PanDireita()
+Camera : + void PanCima()
+Camera : + void PanBaixo()
+Camera : + void ZoomIn()
+Camera : + void ZoomOut()
 
 Matematica : + Ponto4D PtoCirculo(double angulo, double raio)
 Matematica : + double PtoCirculoSimétrico(double raio)

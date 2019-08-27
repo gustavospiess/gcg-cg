@@ -33,16 +33,16 @@ namespace CG_Biblioteca
     public double zmin { get => zMin; set => zMin = value; }
     public double zmax { get => zMax; set => zMax = value; }
 
-    public void panEsq() { xMin += 2; xMax += 2; }
-    public void panDir() { xMin -= 2; xMax -= 2; }
-    public void panCim() { yMin -= 2; yMax -= 2; }
-    public void panBai() { yMin += 2; yMax += 2; }
+    public void PanEsquerda() { xMin += 2; xMax += 2; }
+    public void PanDireita() { xMin -= 2; xMax -= 2; }
+    public void PanCima() { yMin -= 2; yMax -= 2; }
+    public void PanBaixo() { yMin += 2; yMax += 2; }
 //TODO: falta testa os limites de zoom    
-    public void zoomIn() { 
+    public void ZoomIn() { 
       xMin += 2; xMax -= 2; yMin += 2; yMax -= 2; 
     }
 //TODO: falta testa os limites de zoom    
-    public void zoomOut() { 
+    public void ZoomOut() { 
       xMin -= 2; xMax += 2; yMin -= 2; yMax += 2; 
     }
 
