@@ -43,8 +43,8 @@ Camera : void panBai()
 Camera : void zoomIn()
 Camera : void zoomOut()
 
-Matematica : Ponto4D ptoCirculo(double angulo, double raio)
-Matematica : double ptoCirculoSimétrico(double raio)
+Matematica : + Ponto4D PtoCirculo(double angulo, double raio)
+Matematica : + double PtoCirculoSimétrico(double raio)
 
 Ponto4D : - double x
 Ponto4D : - double y
