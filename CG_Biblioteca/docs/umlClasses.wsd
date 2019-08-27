@@ -46,17 +46,18 @@ Camera : void zoomOut()
 Matematica : Ponto4D ptoCirculo(double angulo, double raio)
 Matematica : double ptoCirculoSimétrico(double raio)
 
-Ponto4D : double x;
-Ponto4D : double y;
-Ponto4D : double z;
-Ponto4D : readonly double w;
-Ponto4D : Ponto4D(double x, double y, double z, double w)
-Ponto4D : Ponto4D(Ponto4D pto) {
-Ponto4D : double X
-Ponto4D : double Y
-Ponto4D : double Z
-Ponto4D : double W
-Ponto4D : void inverterSinal()
+Ponto4D : - double x
+Ponto4D : - double y
+Ponto4D : - double z
+Ponto4D : - readonly double w
+Ponto4D : + Ponto4D(double x, double y, double z, double w)
+Ponto4D : + Ponto4D(Ponto4D pto)
+Ponto4D : + static Ponto4D operator +()
+Ponto4D : + double X { get => x; set => x = value; }
+Ponto4D : + double Y { get => y; set => y = value; }
+Ponto4D : + double Z { get => z; set => z = value; }
+Ponto4D : + double W { get => w; }
+Ponto4D : + void InverterSinal()
 
 Transformacao4D : {static} + readonly double DEG_TO_RAD
 Transformacao4D : -double[4x4] matriz

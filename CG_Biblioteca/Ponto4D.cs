@@ -73,7 +73,7 @@ namespace CG_Biblioteca
 /// <summary>
 /// Inverte todos os valores das coordenadas do ponto
 /// </summary>
-    public void inverterSinal()
+    public void InverterSinal()
     {
       x *= -1;
       y *= -1;
