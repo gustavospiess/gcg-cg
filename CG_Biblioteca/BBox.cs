@@ -15,16 +15,16 @@ namespace CG_Biblioteca {
       this.maiorX = maiorX; this.maiorY = maiorY; this.maiorZ = maiorZ;
     }
 
-	public void atribuirBBox(Ponto4D pto) {
+	public void Atribuir(Ponto4D pto) {
 		this.menorX = pto.X; this.menorY = pto.Y; this.menorZ = pto.Z;
 		this.maiorX = pto.X; this.maiorY = pto.Y; this.maiorZ = pto.Z;
 	}
 		
-	public void atualizarBBox(Ponto4D pto) {
-	    atualizarBBox(pto.X, pto.Y, pto.Z);
+	public void Atualizar(Ponto4D pto) {
+	    Atualizar(pto.X, pto.Y, pto.Z);
 	}
 
-	public void atualizarBBox(double x, double y, double z) {
+	public void Atualizar(double x, double y, double z) {
 	    if (x < menorX)
 	        menorX = x;
 	    else {
@@ -42,13 +42,13 @@ namespace CG_Biblioteca {
 	    }
 	}
 	
-	public void processarCentroBBox() {
+	public void ProcessarCentro() {
 	    centro.X = (maiorX + menorX)/2;
 	    centro.Y = (maiorY + menorY)/2;
 	    centro.Z = (maiorZ + menorZ)/2;
 	}
 
-	public void desenhaBBox() {
+	public void Desenhar() {
     GL.Color3(Color.Brown);
 
     GL.PointSize(5);

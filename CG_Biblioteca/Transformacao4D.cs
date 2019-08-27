@@ -96,7 +96,7 @@ namespace CG_Biblioteca
       matriz[5] = Math.Cos(radians);
     }
 
-    public Ponto4D TransformPoint(Ponto4D pto)
+    public Ponto4D MultiplicarPonto(Ponto4D pto)
     {
       Ponto4D pointResult = new Ponto4D(
           matriz[0] * pto.X + matriz[4] * pto.Y + matriz[8] * pto.Z + matriz[12] * pto.W,
@@ -106,7 +106,7 @@ namespace CG_Biblioteca
       return pointResult;
     }
 
-    public Transformacao4D TransformMatrix(Transformacao4D t)
+    public Transformacao4D MultiplicarMatriz(Transformacao4D t)
     {
       Transformacao4D result = new Transformacao4D();
       for (int i = 0; i < 16; ++i)
@@ -116,22 +116,22 @@ namespace CG_Biblioteca
       return result;
     }
 
-    public double GetElement(int index)
+    public double ObterElemento(int index)
     {
       return matriz[index];
     }
 
-    public void SetElement(int index, double value)
+    public void AtribuirElemento(int index, double value)
     {
       matriz[index] = value;
     }
 
-    public double[] GetDate()
+    public double[] ObterDados()
     {
       return matriz;
     }
 
-    public void SetData(double[] data)
+    public void AtribuirDados(double[] data)
     {
       int i;
 
@@ -144,10 +144,10 @@ namespace CG_Biblioteca
     public void ExibeMatriz()
     {
       Console.WriteLine("______________________");
-      Console.WriteLine("|" + GetElement(0) + " | " + GetElement(4) + " | " + GetElement(8) + " | " + GetElement(12));
-      Console.WriteLine("|" + GetElement(1) + " | " + GetElement(5) + " | " + GetElement(9) + " | " + GetElement(13));
-      Console.WriteLine("|" + GetElement(2) + " | " + GetElement(6) + " | " + GetElement(10) + " | " + GetElement(14));
-      Console.WriteLine("|" + GetElement(3) + " | " + GetElement(7) + " | " + GetElement(11) + " | " + GetElement(15));
+      Console.WriteLine("|" + ObterElemento(0) + " | " + ObterElemento(4) + " | " + ObterElemento(8) + " | " + ObterElemento(12));
+      Console.WriteLine("|" + ObterElemento(1) + " | " + ObterElemento(5) + " | " + ObterElemento(9) + " | " + ObterElemento(13));
+      Console.WriteLine("|" + ObterElemento(2) + " | " + ObterElemento(6) + " | " + ObterElemento(10) + " | " + ObterElemento(14));
+      Console.WriteLine("|" + ObterElemento(3) + " | " + ObterElemento(7) + " | " + ObterElemento(11) + " | " + ObterElemento(15));
     }
 
   }

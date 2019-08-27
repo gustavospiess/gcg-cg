@@ -1,26 +1,26 @@
 /' http://plantuml.com/class-diagram '/ 
 @startuml CG_Biblioteca
 
-BBox : double menorX
-BBox : double menorY
-BBox : double menorZ
-BBox : double maiorX
-BBox : double maiorY
-BBox : double maiorZ
-BBox : Ponto4D centro
-BBox : BBox(double menorX, double menorY, double menorZ, double maiorX, double maiorY, double maiorZ)
-BBox : void atribuirBBox(Ponto4D pto)	
-BBox : void atualizarBBox(Ponto4D pto)
-BBox : void atualizarBBox(double x, double y, double z)
-BBox : void processarCentroBBox()
-BBox : void desenhaBBox()
-BBox : double obterMenorX
-BBox : double obterMenorY
-BBox : double obterMenorZ
-BBox : double obterMaiorX
-BBox : double obterMaiorY
-BBox : double obterMaiorZ
-BBox : Ponto4D obterCentro
+BBox : - double menorX
+BBox : - double menorY
+BBox : - double menorZ
+BBox : - double maiorX
+BBox : - double maiorY
+BBox : - double maiorZ
+BBox : - Ponto4D centro = new Ponto4D()
+BBox : + BBox(double menorX, double menorY, double menorZ, double maiorX, double maiorY, double maiorZ)
+BBox : + void Atribuir(Ponto4D pto)
+BBox : + void Atualizar(Ponto4D pto)
+BBox : + void Atualizar(double x, double y, double z)
+BBox : + void ProcessarCentro()
+BBox : + void Desenhar()
+BBox : + double obterMenorX => menorX
+BBox : + double obterMenorY => menorY
+BBox : + double obterMenorZ => menorZ
+BBox : + double obterMaiorX => maiorX
+BBox : + double obterMaiorY => maiorY
+BBox : + double obterMaiorZ => maiorZ
+BBox : + Ponto4D obterCentro => centro
 BBox o-- Ponto4D
 
 Camera : - double xMin
@@ -43,8 +43,8 @@ Camera : + void PanBaixo()
 Camera : + void ZoomIn()
 Camera : + void ZoomOut()
 
-Matematica : + Ponto4D PtoCirculo(double angulo, double raio)
-Matematica : + double PtoCirculoSimétrico(double raio)
+Matematica : + Ponto4D GerarPtosCirculo(double angulo, double raio)
+Matematica : + double GerarPtosCirculoloSimétrico(double raio)
 
 Ponto4D : - double x
 Ponto4D : - double y
@@ -68,12 +68,12 @@ Transformacao4D : +void AtribuirEscala(double sX, double sY, double sZ)
 Transformacao4D : +void AtribuirRotacaoX(double radians)
 Transformacao4D : +void AtribuirRotacaoY(double radians)
 Transformacao4D : +void AtribuirRotacaoZ(double radians)
-Transformacao4D : +Ponto4D TransformPoint(Ponto4D pto)
-Transformacao4D : +Transformacao4D TransformMatrix(Transformacao4D t)
-Transformacao4D : +double GetElement(int index)
-Transformacao4D : +void SetElement(int index, double value)
-Transformacao4D : +double[] GetDate()
-Transformacao4D : +void SetData(double[] data)
+Transformacao4D : +Ponto4D MultiplicarPonto(Ponto4D pto)
+Transformacao4D : +Transformacao4D MultiplicarMatriz(Transformacao4D t)
+Transformacao4D : +double ObterElemento(int index)
+Transformacao4D : +void AtribuirElemento(int index, double value)
+Transformacao4D : +double[] ObterDados()
+Transformacao4D : +void AtribuirDados(double[] data)
 Transformacao4D : +void ExibeMatriz()
 
 @enduml
