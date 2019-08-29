@@ -52,6 +52,7 @@ namespace gcgcg
 
       GL.Clear(ClearBufferMask.ColorBufferBit);
       GL.MatrixMode(MatrixMode.Modelview);
+      GL.LoadIdentity();
 
       Sru3D();
 
