@@ -1,4 +1,21 @@
-﻿using System;
+﻿/**
+@startuml
+  participant "OnLoad()" as A
+  participant "OnUpdateFrame()" as B
+  participant "OnRenderFrame()" as C
+activate A
+  A -> B:  __inicializa
+deactivate A
+activate B
+  B -> C: __desenhar
+  activate C
+    C --> B: __ajustes
+  deactivate B
+deactivate C
+@enduml
+*/
+
+using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
