@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <RootNamespace>CG_N2_1</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <DocumentationFile>bin\documentação.XML</DocumentationFile>dot
+    <DocumentationFile>bin\documentação.XML</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
