@@ -58,6 +58,12 @@ OBS: Caso apareça algum erro do tipo:
 	'System.IO.FileNotFoundException: Could not load file or assembly...' 
 simplesmente pesquise o nome do arquivo que está faltando no site https://www.nuget.org/ e execute a versão do comando .NET CLI no diretório do projeto pelo terminal.
 
+Para executar projetos OpenTK no Linux _________________
+Se estiver usando o Linux e não funcionou a execução do projeto usando os passos acima, mude no arquivo do projeto (extensão .csproj) da linha:
+	<PackageReference Include="OpenTK" Version="3.0.1" />
+Para:
+	<PackageReference Include="OpenTK.NETCore" Version="1.1.2749.6433" />
+
 Para criar Class library _________________
 
 Se caso for preciso criar uma biblioteca - Class library (não esqueça de criar uma nova pasta para este projeto):
