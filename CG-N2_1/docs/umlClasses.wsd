@@ -2,7 +2,7 @@
 @startuml CG-N2_1
 
 title Diagrama de Classes
-footer Computação Gráfica
+footer Grupo GCG - [[http://gcg.inf.furb.br]]
 
 Program : Mundo window
 Program : {static} void Main(string[] args)

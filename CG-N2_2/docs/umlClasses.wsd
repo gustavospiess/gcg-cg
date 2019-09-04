@@ -2,7 +2,7 @@
 @startuml CG-N2_2
 
 title Diagrama de Classes
-footer Computação Gráfica
+footer Grupo GCG - [[http://gcg.inf.furb.br]]
 
 !include ../../gcg-cg/CG_Biblioteca/docs/umlClasses.wsd
 
