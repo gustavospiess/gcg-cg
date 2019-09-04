@@ -1,4 +1,4 @@
-﻿/**
+﻿/*
 @startuml
   participant "OnLoad()" as A
   participant "OnUpdateFrame()" as B
