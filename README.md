@@ -64,7 +64,7 @@ Se estiver usando o Linux e não funcionou a execução do projeto usando os pas
 	
 	<PackageReference Include="OpenTK" Version="3.0.1" />
 
-Para:
+para:
 	
 	<PackageReference Include="OpenTK.NETCore" Version="*" />
 
