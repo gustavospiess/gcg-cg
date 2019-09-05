@@ -46,8 +46,8 @@ Camera : + void PanBaixo()
 Camera : + void ZoomIn()
 Camera : + void ZoomOut()
 
-Matematica : + Ponto4D GerarPtosCirculo(double angulo, double raio)
-Matematica : + double GerarPtosCirculoloSimétrico(double raio)
+Matematica : + {static} Ponto4D GerarPtosCirculo(double angulo, double raio)
+Matematica : + {static} double GerarPtosCirculoloSimétrico(double raio)
 
 Ponto4D : - double x
 Ponto4D : - double y
@@ -55,7 +55,7 @@ Ponto4D : - double z
 Ponto4D : - readonly double w
 Ponto4D : + Ponto4D(double x, double y, double z, double w)
 Ponto4D : + Ponto4D(Ponto4D pto)
-Ponto4D : + static Ponto4D operator +()
+Ponto4D : + {static} Ponto4D operator +()
 Ponto4D : + double X { get; set }
 Ponto4D : + double Y { get; set }
 Ponto4D : + double Z { get; set }

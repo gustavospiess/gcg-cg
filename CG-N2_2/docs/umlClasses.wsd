@@ -49,11 +49,17 @@ ObjetoAramado : # void PontosRemoverTodos()
 ObjetoAramado : # override void PontosExibir()
 ObjetoAramado o-down- Ponto4D
 ObjetoAramado <|-down- Retangulo
+ObjetoAramado <|-down- Circulo
+ObjetoAramado <|-down- SegReta
 
 Retangulo : - Ponto4D ptoInfEsq
 Retangulo : - Ponto4D ptoSupDir
 Retangulo : + Retangulo(string rotulo,Ponto4D ptoInfEsq, Ponto4D ptoSupDir)
 Retangulo : - void GerarPtosRetangulo()
 Retangulo : + void MoverPtoSupDir(Ponto4D ptoMover)
+
+Circulo : + Circulo(string rotulo,Ponto4D ptoDeslocamento, double raio)
+
+SegReta : + SegReta(string rotulo,Ponto4D ptoInicio, Ponto4D ptoFim)
 
 @enduml
