@@ -16,7 +16,7 @@ namespace CG_Biblioteca
     /// <param name="angulo"></param>
     /// <param name="raio"></param>
     /// <returns></returns>
-    public Ponto4D GerarPtosCirculo(double angulo, double raio) {
+    public static Ponto4D GerarPtosCirculo(double angulo, double raio) {
       Ponto4D pto = new Ponto4D();
       pto.X = (raio * Math.Cos(Math.PI * angulo / 180.0));
       pto.Y = (raio * Math.Sin(Math.PI * angulo / 180.0));
@@ -24,7 +24,7 @@ namespace CG_Biblioteca
       return(pto);
     }
 
-    public double GerarPtosCirculoloSimétrico(double raio) {
+    public static double GerarPtosCirculoloSimétrico(double raio) {
       return (raio * Math.Cos(Math.PI * 45 / 180.0));
     }
 
