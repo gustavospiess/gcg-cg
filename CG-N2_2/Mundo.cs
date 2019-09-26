@@ -10,14 +10,14 @@ namespace gcgcg
 {
   class Mundo : GameWindow
   {
-    public static Mundo instance = null;
+    private static Mundo instance = null;
 
-    public Mundo(int width, int height) : base(width, height) { }
+    private Mundo(int width, int height) : base(width, height) { }
 
-    public static Mundo getInstance()
+    public static Mundo getInstance(int width, int height)
     {
       if (instance == null)
-        instance = new Mundo(600,600);
+        instance = new Mundo(width,height);
       return instance;
     }
 
@@ -110,7 +110,7 @@ namespace gcgcg
   {
     static void Main(string[] args)
     {
-      Mundo window = new Mundo(600, 600);
+      Mundo window = Mundo.getInstance(600,600);
       window.Title = "CG-N2_2";
       window.Run(1.0 / 60.0);
     }
