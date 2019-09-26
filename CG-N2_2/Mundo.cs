@@ -17,7 +17,7 @@ namespace gcgcg
     public static Mundo getInstance(int width, int height)
     {
       if (instance == null)
-        instance = new Mundo(width,height);
+        instance = new Mundo(width, height);
       return instance;
     }
 
@@ -110,7 +110,7 @@ namespace gcgcg
   {
     static void Main(string[] args)
     {
-      Mundo window = Mundo.getInstance(600,600);
+      Mundo window = Mundo.getInstance(600, 600);
       window.Title = "CG-N2_2";
       window.Run(1.0 / 60.0);
     }
