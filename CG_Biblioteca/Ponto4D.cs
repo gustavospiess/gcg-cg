@@ -75,17 +75,5 @@ namespace CG_Biblioteca
     /// </summary>
     /// <value>coordeanda w</value>
     public double W { get => w; }
-/// <summary>
-/// Inverte todos os valores das coordenadas do ponto
-/// </summary>
-    public void InverterSinal()
-    {
-      x *= -1;
-      y *= -1;
-      z *= -1;
-    }
-    //TODO: poderia sobreescrever o sinal negativo no lugar do "inverterSinal()".
-    // public static Ponto4D operator -(Ponto4D pto) => new Ponto4D(-pto.X, -pto.Y, -pto.Z);
-
   }
 }
