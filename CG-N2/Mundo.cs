@@ -10,31 +10,31 @@ namespace gcgcg
 {
   class Mundo : GameWindow
   {
-    private static Mundo instance = null;
+    private static Mundo instanciaMundo = null;
 
     private Mundo(int width, int height) : base(width, height) { }
 
-    public static Mundo getInstance(int width, int height)
+    public static Mundo GetInstance(int width, int height)
     {
-      if (instance == null)
-        instance = new Mundo(width, height);
-      return instance;
+      if (instanciaMundo == null)
+        instanciaMundo = new Mundo(width, height);
+      return instanciaMundo;
     }
 
     private Camera camera = new Camera();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    private bool moverPto = false;
+    private bool mouseMoverPto = false;
     //FIXME: estes objetos não devem ser atributos do Mundo
-    private Retangulo retanguloA, retanguloB;
+    private Retangulo obj_RetanguloA, obj_RetanguloB;
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
 
-      retanguloA = new Retangulo("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
-      retanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
-      objetosLista.Add(retanguloA);
-      objetosLista.Add(retanguloB);
+      obj_RetanguloA = new Retangulo("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
+      objetosLista.Add(obj_RetanguloA);
+      objetosLista.Add(obj_RetanguloB);
 
       GL.ClearColor(Color.Gray);
     }
@@ -79,15 +79,15 @@ namespace gcgcg
       else
       if (e.Key == Key.M)
       {
-        moverPto = !moverPto;
+        mouseMoverPto = !mouseMoverPto;
       }
     }
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
-      if (moverPto)
+      if (mouseMoverPto)
       {
-        retanguloB.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y, 0));
+        obj_RetanguloB.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y, 0));
       }
     }
 
@@ -103,17 +103,15 @@ namespace gcgcg
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
-
   }
 
   class Program
   {
     static void Main(string[] args)
     {
-      Mundo window = Mundo.getInstance(600, 600);
-      window.Title = "CG-N2_2";
+      Mundo window = Mundo.GetInstance(600, 600);
+      window.Title = "CG-N2";
       window.Run(1.0 / 60.0);
     }
   }
-
 }
