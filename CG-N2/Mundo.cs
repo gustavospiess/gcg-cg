@@ -25,15 +25,16 @@ namespace gcgcg
     protected List<Objeto> objetosLista = new List<Objeto>();
     private bool mouseMoverPto = false;
     //FIXME: estes objetos não devem ser atributos do Mundo
-    private Retangulo obj_RetanguloA, obj_RetanguloB;
+    private Retangulo obj_RetanguloA;
+    private Retangulo obj_RetanguloB;
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
 
       obj_RetanguloA = new Retangulo("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
-      obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
       objetosLista.Add(obj_RetanguloA);
+      obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
       objetosLista.Add(obj_RetanguloB);
 
       GL.ClearColor(Color.Gray);
@@ -68,25 +69,25 @@ namespace gcgcg
     {
       if (e.Key == Key.Escape)
         Exit();
-      else
-      if (e.Key == Key.E)
+      else if (e.Key == Key.E)
       {
         for (var i = 0; i < objetosLista.Count; i++)
         {
           objetosLista[i].PontosExibirObjeto();
         }
       }
-      else
-      if (e.Key == Key.M)
+      else if (e.Key == Key.V)
       {
         mouseMoverPto = !mouseMoverPto;
       }
     }
 
+    //FIXME: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
       if (mouseMoverPto)
       {
+        //* Invertendo a coordenada y do espaço de tela para o espaço do mundo */
         obj_RetanguloB.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y, 0));
       }
     }

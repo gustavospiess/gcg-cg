@@ -8,18 +8,17 @@ namespace gcgcg
   {
     protected string rotulo;
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
+    protected PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
     private float primitivaTamanho = 2;
+    protected float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }
     private BBox bBox = new BBox();
+    public BBox BBox { get => bBox; set => bBox = value; }
     private List<Objeto> objetosLista = new List<Objeto>();
-
 
     public Objeto(string rotulo)
     {
       this.rotulo = rotulo;
     }
-
-    protected PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
-    protected float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }
 
     public void Desenhar()
     {
@@ -42,10 +41,6 @@ namespace gcgcg
     public void PontosExibirObjeto()
     {
       PontosExibir();
-      for (var i = 0; i < objetosLista.Count; i++)
-      {
-        objetosLista[i].PontosExibirObjeto();
-      }
     }
   }
 }
