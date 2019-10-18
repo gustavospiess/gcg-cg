@@ -37,7 +37,12 @@ namespace CG_Biblioteca
     /// </summary>
     /// <param name="pto1"></param>
     /// <param name="pto2"></param>
-    /// <returns></returns>
+    /// <returns> Retorna a soma dos dois pontos.</returns>
+    /// <example>
+      /// <code>
+      /// pto = pto1 + pto2;
+      /// </code>
+    /// </example>
     public static Ponto4D operator +(Ponto4D pto1, Ponto4D pto2) => new Ponto4D(pto1.X + pto2.X, pto1.Y + pto2.Y, pto1.Z + pto2.Z);
 
     //TODO: a sobreescreção do operador + funciona mais o - ou -- não
