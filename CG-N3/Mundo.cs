@@ -118,6 +118,7 @@ namespace gcgcg
         objetoSelecionado.RotacaoZBBox(10);
       else if (e.Key == Key.Number4)
         objetoSelecionado.RotacaoZBBox(-10);
+    //FIXME: não está atualizando a BBox com as transformações geométricas
     }
 
     //FIXME: não está considerando o NDC
