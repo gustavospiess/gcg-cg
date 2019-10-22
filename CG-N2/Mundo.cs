@@ -1,8 +1,8 @@
 ﻿using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
-using System.Collections.Generic;
 using System.Drawing;
+using System.Collections.Generic;
 using OpenTK.Input;
 using CG_Biblioteca;
 
@@ -42,7 +42,6 @@ namespace gcgcg
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
       base.OnUpdateFrame(e);
-
       GL.MatrixMode(MatrixMode.Projection);
       GL.LoadIdentity();
       GL.Ortho(camera.xmin, camera.xmax, camera.ymin, camera.ymax, camera.zmin, camera.zmax);
@@ -50,18 +49,14 @@ namespace gcgcg
     protected override void OnRenderFrame(FrameEventArgs e)
     {
       base.OnRenderFrame(e);
-
       GL.Clear(ClearBufferMask.ColorBufferBit);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadIdentity();
-
       Sru3D();
-
       for (var i = 0; i < objetosLista.Count; i++)
       {
         objetosLista[i].Desenhar();
       }
-
       this.SwapBuffers();
     }
 
@@ -105,7 +100,6 @@ namespace gcgcg
       GL.End();
     }
   }
-
   class Program
   {
     static void Main(string[] args)
