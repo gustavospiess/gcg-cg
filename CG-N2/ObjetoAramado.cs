@@ -31,6 +31,7 @@ namespace gcgcg
         base.BBox.Atribuir(pto);
       else
         base.BBox.Atualizar(pto);
+        base.BBox.ProcessarCentro();
     }
 
     protected void PontosRemoverTodos()

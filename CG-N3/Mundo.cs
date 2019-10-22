@@ -1,8 +1,8 @@
 ﻿using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
-using System.Collections.Generic;
 using System.Drawing;
+using System.Collections.Generic;
 using OpenTK.Input;
 using CG_Biblioteca;
 
@@ -32,20 +32,16 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-
       obj_SegRetaA = new SegReta("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_SegRetaA);
       obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
       objetosLista.Add(obj_RetanguloB);
-
       objetoSelecionado = obj_SegRetaA;
-
       GL.ClearColor(Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
       base.OnUpdateFrame(e);
-
       GL.MatrixMode(MatrixMode.Projection);
       GL.LoadIdentity();
       GL.Ortho(camera.xmin, camera.xmax, camera.ymin, camera.ymax, camera.zmin, camera.zmax);
@@ -53,19 +49,15 @@ namespace gcgcg
     protected override void OnRenderFrame(FrameEventArgs e)
     {
       base.OnRenderFrame(e);
-
       GL.Clear(ClearBufferMask.ColorBufferBit);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadIdentity();
-
       Sru3D();
-
       for (var i = 0; i < objetosLista.Count; i++)
       {
         objetosLista[i].Desenhar();
       }
       objetoSelecionado.BBox.Desenhar();
-
       this.SwapBuffers();
     }
 
@@ -144,7 +136,6 @@ namespace gcgcg
       GL.End();
     }
   }
-
   class Program
   {
     static void Main(string[] args)
