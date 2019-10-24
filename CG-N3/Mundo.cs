@@ -32,9 +32,9 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-      obj_SegRetaA = new SegReta("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      obj_SegRetaA = new SegReta("A", new Ponto4D(50, 50), new Ponto4D(150, 150));
       objetosLista.Add(obj_SegRetaA);
-      obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
+      obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_RetanguloB);
       objetoSelecionado = obj_SegRetaA;
       GL.ClearColor(Color.Gray);
@@ -119,7 +119,7 @@ namespace gcgcg
       if (mouseMoverPto)
       {
         //* Invertendo a coordenada y do espaço de tela para o espaço do mundo */
-        obj_SegRetaA.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y, 0));
+        obj_SegRetaA.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y));
       }
     }
 
