@@ -1,4 +1,6 @@
-﻿using System;
+﻿// #define CG_Privado
+
+using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
@@ -28,6 +30,9 @@ namespace gcgcg
     //FIXME: estes objetos não devem ser atributos do Mundo
     private SegReta obj_SegRetaA;
     private Retangulo obj_RetanguloB;
+#if CG_Privado
+    private Circulo obj_CirculoC;
+#endif
 
     protected override void OnLoad(EventArgs e)
     {
@@ -36,6 +41,10 @@ namespace gcgcg
       objetosLista.Add(obj_SegRetaA);
       obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_RetanguloB);
+#if CG_Privado
+      obj_CirculoC = new Circulo("C", new Ponto4D(100,300), 50);
+      objetosLista.Add(obj_CirculoC);
+#endif
       objetoSelecionado = obj_SegRetaA;
       GL.ClearColor(Color.Gray);
     }
