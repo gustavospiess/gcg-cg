@@ -30,14 +30,14 @@ namespace gcgcg
 
     public void Desenhar()
     {
-      GL.PushMatrix();
+      GL.PushMatrix();                                    // N3-Exe14: grafo de cena
       GL.MultMatrix(matriz.ObterDados());
       DesenharAramado();
       for (var i = 0; i < objetosLista.Count; i++)
       {
         objetosLista[i].Desenhar();
       }
-      GL.PopMatrix();
+      GL.PopMatrix();                                     // N3-Exe14: grafo de cena
     }
     protected abstract void DesenharAramado();
     public void FilhoAdicionar(Objeto filho)
