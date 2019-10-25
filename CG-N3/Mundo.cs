@@ -70,7 +70,7 @@ namespace gcgcg
           objetosLista[i].PontosExibirObjeto();
         }
       }
-      else if (e.Key == Key.B)
+      else if (e.Key == Key.O)
         bBoxDesenhar = !bBoxDesenhar;   // N3-Exe9: exibe a BBox
       else if (e.Key == Key.M)
         objetoSelecionado.ExibeMatriz();
