@@ -52,7 +52,7 @@ namespace gcgcg
       Sru3D();
       for (var i = 0; i < objetosLista.Count; i++)
         objetosLista[i].Desenhar();
-      if (bBoxDesenhar)
+      if (bBoxDesenhar && (objetoSelecionado != null))
         objetoSelecionado.BBox.Desenhar();
       this.SwapBuffers();
     }
