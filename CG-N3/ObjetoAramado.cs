@@ -24,7 +24,7 @@ namespace gcgcg
       GL.End();
     }
 
-    protected void PontosAdicionar(Ponto4D pto)
+    public void PontosAdicionar(Ponto4D pto)
     {
       pontosLista.Add(pto);
       if (pontosLista.Count.Equals(1))
@@ -34,9 +34,18 @@ namespace gcgcg
       base.BBox.ProcessarCentro();
     }
 
+    public void PontosRemoverUltimo()
+    {
+      pontosLista.RemoveAt(pontosLista.Count-1);
+    }
     protected void PontosRemoverTodos()
     {
       pontosLista.Clear();
+    }
+
+    public Ponto4D PontosUltimo()
+    {
+      return pontosLista[pontosLista.Count-1];
     }
 
     protected override void PontosExibir()

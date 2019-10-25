@@ -38,6 +38,11 @@ namespace gcgcg
     {
       pontosLista.Clear();
     }
+    
+    public Ponto4D PontosUltimo()
+    {
+      return pontosLista[pontosLista.Count-1];
+    }
 
     protected override void PontosExibir()
     {

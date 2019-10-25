@@ -1,4 +1,6 @@
-﻿using System;
+﻿// #define CG_Privado
+
+using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
@@ -23,18 +25,28 @@ namespace gcgcg
 
     private Camera camera = new Camera();
     protected List<Objeto> objetosLista = new List<Objeto>();
+    private ObjetoAramado objetoSelecionado = null;
+    private bool bBoxDesenhar = false;
     private bool mouseMoverPto = false;
-    //FIXME: estes objetos não devem ser atributos do Mundo
     private Retangulo obj_RetanguloA;
-    private Retangulo obj_RetanguloB;
+#if CG_Privado
+    private SegReta obj_SegRetaB;
+    private Circulo obj_CirculoC;
+#endif
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
       obj_RetanguloA = new Retangulo("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_RetanguloA);
-      obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150, 0), new Ponto4D(150, 250, 0));
-      objetosLista.Add(obj_RetanguloB);
+      objetoSelecionado = obj_RetanguloA;
+#if CG_Privado
+      obj_SegRetaB = new SegReta("B", new Ponto4D(50, 150), new Ponto4D(150, 250));
+      objetosLista.Add(obj_SegRetaB);
+      obj_CirculoC = new Circulo("C", new Ponto4D(100,300), 50);
+      objetosLista.Add(obj_CirculoC);
+      objetoSelecionado = obj_CirculoC;
+#endif
       GL.ClearColor(Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
@@ -52,9 +64,9 @@ namespace gcgcg
       GL.LoadIdentity();
       Sru3D();
       for (var i = 0; i < objetosLista.Count; i++)
-      {
         objetosLista[i].Desenhar();
-      }
+      if (bBoxDesenhar)
+        objetoSelecionado.BBox.Desenhar();
       this.SwapBuffers();
     }
 
@@ -69,19 +81,19 @@ namespace gcgcg
           objetosLista[i].PontosExibirObjeto();
         }
       }
+      else if (e.Key == Key.B)
+        bBoxDesenhar = !bBoxDesenhar;
       else if (e.Key == Key.V)
-      {
-        mouseMoverPto = !mouseMoverPto;
-      }
+        mouseMoverPto = !mouseMoverPto;   //FIXME: falta atualizar a BBox do objeto
     }
 
     //FIXME: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
-    {
+    {      
       if (mouseMoverPto)
       {
-        //* Invertendo a coordenada y do espaço de tela para o espaço do mundo */
-        obj_RetanguloB.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y, 0));
+        objetoSelecionado.PontosUltimo().X = e.Position.X;
+        objetoSelecionado.PontosUltimo().Y = 600 - e.Position.Y; // Invertendo a coordenada y do espaço de tela para o espaço do mundo
       }
     }
 

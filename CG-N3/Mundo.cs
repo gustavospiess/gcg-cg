@@ -25,27 +25,15 @@ namespace gcgcg
 
     private Camera camera = new Camera();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    private Objeto objetoSelecionado;
-    private bool mouseMoverPto = false;
-    //FIXME: estes objetos não devem ser atributos do Mundo
-    private SegReta obj_SegRetaA;
-    private Retangulo obj_RetanguloB;
-#if CG_Privado
-    private Circulo obj_CirculoC;
-#endif
+    private ObjetoAramado objetoSelecionado = null;
+    private bool bBoxDesenhar = false;
+    private ObjetoAramado objetoNovo = null;
+    private String objetoId = "A";
+    int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-      obj_SegRetaA = new SegReta("A", new Ponto4D(50, 50), new Ponto4D(150, 150));
-      objetosLista.Add(obj_SegRetaA);
-      obj_RetanguloB = new Retangulo("B", new Ponto4D(50, 150), new Ponto4D(150, 250));
-      objetosLista.Add(obj_RetanguloB);
-#if CG_Privado
-      obj_CirculoC = new Circulo("C", new Ponto4D(100,300), 50);
-      objetosLista.Add(obj_CirculoC);
-#endif
-      objetoSelecionado = obj_SegRetaA;
       GL.ClearColor(Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
@@ -63,10 +51,9 @@ namespace gcgcg
       GL.LoadIdentity();
       Sru3D();
       for (var i = 0; i < objetosLista.Count; i++)
-      {
         objetosLista[i].Desenhar();
-      }
-      objetoSelecionado.BBox.Desenhar();
+      if (bBoxDesenhar)
+        objetoSelecionado.BBox.Desenhar();
       this.SwapBuffers();
     }
 
@@ -81,20 +68,15 @@ namespace gcgcg
           objetosLista[i].PontosExibirObjeto();
         }
       }
-      else if (e.Key == Key.V)
-      {
-        mouseMoverPto = !mouseMoverPto;
-      }
-      else if (e.Key == Key.S)
-        objetoSelecionado = obj_SegRetaA;
-      else if (e.Key == Key.R)
-        objetoSelecionado = obj_RetanguloB;
+      else if (e.Key == Key.B)
+        bBoxDesenhar = !bBoxDesenhar;
       else if (e.Key == Key.M)
         objetoSelecionado.ExibeMatriz();
       else if (e.Key == Key.P)
         objetoSelecionado.PontosExibirObjeto();
       else if (e.Key == Key.I)
         objetoSelecionado.AtribuirIdentidade();
+//FIXME: não está atualizando a BBox com as transformações geométricas
       else if (e.Key == Key.Left)
         objetoSelecionado.TranslacaoXY(-10, 0);
       else if (e.Key == Key.Right)
@@ -119,16 +101,38 @@ namespace gcgcg
         objetoSelecionado.RotacaoZBBox(10);
       else if (e.Key == Key.Number4)
         objetoSelecionado.RotacaoZBBox(-10);
-    //FIXME: não está atualizando a BBox com as transformações geométricas
+      else if (e.Key == Key.Enter)
+      {
+        objetoSelecionado = objetoNovo;
+        objetoNovo.PontosRemoverUltimo();
+        objetoNovo = null;
+      }
+      else if (e.Key == Key.Space) {
+        if (objetoNovo == null)
+        {
+          objetoNovo = new ObjetoAramado(objetoId+1);
+          // if (objetoSelecionado == null) //TODO: remover está tecla e atribuir o null qdo não selecionar um poligono
+            objetosLista.Add(objetoNovo);
+          // else 
+          //   objetoSelecionado.FilhoAdicionar(tmpObjeto); //TODO: remover está tecla e atribuir o null qdo não selecionar um poligono
+          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, 600 - mouseY));
+          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, 600 - mouseY));
+        }
+        else
+          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, 600 - mouseY));
+      }
+      else if (e.Key == Key.Number9)      
+        objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não selecionar um poligono
     }
 
     //FIXME: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
-      if (mouseMoverPto)
+      mouseX = e.Position.X; mouseY = e.Position.Y;
+      if (objetoNovo != null)
       {
-        //* Invertendo a coordenada y do espaço de tela para o espaço do mundo */
-        obj_SegRetaA.MoverPtoSupDir(new Ponto4D(e.Position.X, 600 - e.Position.Y));
+        objetoNovo.PontosUltimo().X = e.Position.X;
+        objetoNovo.PontosUltimo().Y = 600 - e.Position.Y;
       }
     }
 
