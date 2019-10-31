@@ -1,4 +1,5 @@
-﻿// #define CG_Privado
+﻿#define CG_Gizmo
+#define CG_Privado
 
 using System;
 using OpenTK;
@@ -31,7 +32,7 @@ namespace gcgcg
     private Retangulo obj_RetanguloA;
 #if CG_Privado
     private SegReta obj_SegRetaB;
-    private Circulo obj_CirculoC;
+    private Privado_Circulo obj_CirculoC;
 #endif
 
     protected override void OnLoad(EventArgs e)
@@ -43,7 +44,7 @@ namespace gcgcg
 #if CG_Privado
       obj_SegRetaB = new SegReta("B", new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegRetaB);
-      obj_CirculoC = new Circulo("C", new Ponto4D(100,300), 50);
+      obj_CirculoC = new Privado_Circulo("C", new Ponto4D(100,300), 50);
       objetosLista.Add(obj_CirculoC);
       objetoSelecionado = obj_CirculoC;
 #endif
@@ -62,7 +63,9 @@ namespace gcgcg
       GL.Clear(ClearBufferMask.ColorBufferBit);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadIdentity();
+#if CG_Gizmo      
       Sru3D();
+#endif      
       for (var i = 0; i < objetosLista.Count; i++)
         objetosLista[i].Desenhar();
       if (bBoxDesenhar)
@@ -97,6 +100,7 @@ namespace gcgcg
       }
     }
 
+#if CG_Gizmo    
     private void Sru3D()
     {
       GL.LineWidth(1);
@@ -109,6 +113,7 @@ namespace gcgcg
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
+#endif    
   }
   class Program
   {
