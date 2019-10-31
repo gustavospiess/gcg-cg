@@ -58,7 +58,7 @@ namespace gcgcg
     }
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
-    {   
+    {
       // N3-Exe2: usar o arquivo docs/umlClasses.wsd
       // N3-Exe3: usar o arquivo bin/documentação.XML -> ver exemplo CG_Biblioteca/bin/documentação.XML
       if (e.Key == Key.Escape)
@@ -78,7 +78,7 @@ namespace gcgcg
         objetoSelecionado.PontosExibirObjeto();
       else if (e.Key == Key.I)
         objetoSelecionado.AtribuirIdentidade();
-//FIXME: não está atualizando a BBox com as transformações geométricas
+      //FIXME: não está atualizando a BBox com as transformações geométricas
       else if (e.Key == Key.Left)
         objetoSelecionado.TranslacaoXY(-10, 0);     // N3-Exe10: translação
       else if (e.Key == Key.Right)
@@ -109,32 +109,30 @@ namespace gcgcg
         objetoNovo.PontosRemoverUltimo();   // N3-Exe6: "troque" para deixar o rastro
         objetoNovo = null;
       }
-      else if (e.Key == Key.Space) {
+      else if (e.Key == Key.Space)
+      {
         if (objetoNovo == null)
         {
-          objetoNovo = new ObjetoAramado(objetoId+1);
-          // if (objetoSelecionado == null) //TODO: remover está tecla e atribuir o null qdo não selecionar um poligono
-            objetosLista.Add(objetoNovo);
-          // else 
-          //   objetoSelecionado.FilhoAdicionar(tmpObjeto); //TODO: remover está tecla e atribuir o null qdo não selecionar um poligono
-          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, 600 - mouseY));
-          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, 600 - mouseY));  // N3-Exe6: "troque" para deixar o rastro
+          objetoNovo = new ObjetoAramado(objetoId + 1);
+          objetosLista.Add(objetoNovo);
+          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
+          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));  // N3-Exe6: "troque" para deixar o rastro
         }
         else
-          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, 600 - mouseY));
+          objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
       }
-      else if (e.Key == Key.Number9)      
-        objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não selecionar um poligono
+      else if (e.Key == Key.Number9)
+        objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não tiver um poligono
     }
 
     //FIXME: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
-      mouseX = e.Position.X; mouseY = e.Position.Y;
+      mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y
       if (objetoNovo != null)
       {
-        objetoNovo.PontosUltimo().X = e.Position.X;             // N3-Exe5: movendo um vértice de um poligono específico
-        objetoNovo.PontosUltimo().Y = 600 - e.Position.Y;
+        objetoNovo.PontosUltimo().X = mouseX;             // N3-Exe5: movendo um vértice de um poligono específico
+        objetoNovo.PontosUltimo().Y = mouseY;
       }
     }
 
