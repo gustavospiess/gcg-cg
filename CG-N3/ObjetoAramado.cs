@@ -36,8 +36,9 @@ namespace gcgcg
 
     public void PontosRemoverUltimo()
     {
-      pontosLista.RemoveAt(pontosLista.Count-1);
+      pontosLista.RemoveAt(pontosLista.Count - 1);
     }
+    
     protected void PontosRemoverTodos()
     {
       pontosLista.Clear();

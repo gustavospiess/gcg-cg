@@ -1,5 +1,5 @@
 ﻿#define CG_Gizmo
-#define CG_Privado
+// #define CG_Privado
 
 using System;
 using OpenTK;
@@ -28,6 +28,7 @@ namespace gcgcg
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoAramado objetoSelecionado = null;
     private bool bBoxDesenhar = false;
+    int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
     private bool mouseMoverPto = false;
     private Retangulo obj_RetanguloA;
 #if CG_Privado
@@ -93,10 +94,11 @@ namespace gcgcg
     //FIXME: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {      
+      mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y
       if (mouseMoverPto)
       {
-        objetoSelecionado.PontosUltimo().X = e.Position.X;
-        objetoSelecionado.PontosUltimo().Y = 600 - e.Position.Y; // Invertendo a coordenada y do espaço de tela para o espaço do mundo
+        objetoSelecionado.PontosUltimo().X = mouseX;
+        objetoSelecionado.PontosUltimo().Y = mouseY; // Invertendo a coordenada y do espaço de tela para o espaço do mundo
       }
     }
 

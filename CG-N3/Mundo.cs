@@ -1,4 +1,5 @@
-﻿// #define CG_Privado
+﻿#define CG_Gizmo
+// #define CG_Privado
 
 using System;
 using OpenTK;
@@ -27,9 +28,9 @@ namespace gcgcg
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoAramado objetoSelecionado = null;
     private bool bBoxDesenhar = false;
+    int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
     private ObjetoAramado objetoNovo = null;
     private String objetoId = "A";
-    int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
 
     protected override void OnLoad(EventArgs e)
     {
@@ -49,7 +50,9 @@ namespace gcgcg
       GL.Clear(ClearBufferMask.ColorBufferBit);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadIdentity();
+#if CG_Gizmo      
       Sru3D();
+#endif
       for (var i = 0; i < objetosLista.Count; i++)
         objetosLista[i].Desenhar();
       if (bBoxDesenhar && (objetoSelecionado != null))
@@ -136,6 +139,7 @@ namespace gcgcg
       }
     }
 
+#if CG_Gizmo
     private void Sru3D()
     {
       GL.LineWidth(1);
@@ -148,6 +152,7 @@ namespace gcgcg
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }
+#endif    
   }
   class Program
   {
