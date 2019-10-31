@@ -93,7 +93,7 @@ namespace gcgcg
 
     //FIXME: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
-    {      
+    {
       mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y
       if (mouseMoverPto)
       {

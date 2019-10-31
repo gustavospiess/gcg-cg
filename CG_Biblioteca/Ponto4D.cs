@@ -26,7 +26,8 @@ namespace CG_Biblioteca
       this.z = z;
       this.w = w;
     }
-    public Ponto4D(Ponto4D pto) {
+    public Ponto4D(Ponto4D pto)
+    {
       this.x = pto.x;
       this.y = pto.y;
       this.z = pto.z;
@@ -39,9 +40,9 @@ namespace CG_Biblioteca
     /// <param name="pto2"></param>
     /// <returns> Retorna a soma dos dois pontos.</returns>
     /// <example>
-      /// <code>
-      /// pto = pto1 + pto2;
-      /// </code>
+    /// <code>
+    /// pto = pto1 + pto2;
+    /// </code>
     /// </example>
     public static Ponto4D operator +(Ponto4D pto1, Ponto4D pto2) => new Ponto4D(pto1.X + pto2.X, pto1.Y + pto2.Y, pto1.Z + pto2.Z);
 

@@ -31,22 +31,22 @@ namespace gcgcg
         base.BBox.Atribuir(pto);
       else
         base.BBox.Atualizar(pto);
-        base.BBox.ProcessarCentro();
+      base.BBox.ProcessarCentro();
     }
 
     public void PontosRemoverUltimo()
     {
       pontosLista.RemoveAt(pontosLista.Count - 1);
     }
-    
+
     protected void PontosRemoverTodos()
     {
       pontosLista.Clear();
     }
-    
+
     public Ponto4D PontosUltimo()
     {
-      return pontosLista[pontosLista.Count-1];
+      return pontosLista[pontosLista.Count - 1];
     }
 
     protected override void PontosExibir()

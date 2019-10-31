@@ -6,103 +6,114 @@ using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 
-namespace CG_Biblioteca {
-  public class BBox {
+namespace CG_Biblioteca
+{
+  public class BBox
+  {
     private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;
     private Ponto4D centro = new Ponto4D();
-    public BBox(double menorX=0, double menorY=0, double menorZ=0, double maiorX=0, double maiorY=0, double maiorZ=0) {
-      this.menorX = menorX; this.menorY = menorY; this.menorZ = menorZ; 
+    public BBox(double menorX = 0, double menorY = 0, double menorZ = 0, double maiorX = 0, double maiorY = 0, double maiorZ = 0)
+    {
+      this.menorX = menorX; this.menorY = menorY; this.menorZ = menorZ;
       this.maiorX = maiorX; this.maiorY = maiorY; this.maiorZ = maiorZ;
     }
 
-	public void Atribuir(Ponto4D pto) {
-		this.menorX = pto.X; this.menorY = pto.Y; this.menorZ = pto.Z;
-		this.maiorX = pto.X; this.maiorY = pto.Y; this.maiorZ = pto.Z;
-	}
-		
-	public void Atualizar(Ponto4D pto) {
-	    Atualizar(pto.X, pto.Y, pto.Z);
-	}
+    public void Atribuir(Ponto4D pto)
+    {
+      this.menorX = pto.X; this.menorY = pto.Y; this.menorZ = pto.Z;
+      this.maiorX = pto.X; this.maiorY = pto.Y; this.maiorZ = pto.Z;
+    }
 
-	public void Atualizar(double x, double y, double z) {
-	    if (x < menorX)
-	        menorX = x;
-	    else {
-	        if (x > maiorX) maiorX = x;
-	    }
-	    if (y < menorY)
-	        menorY = y;
-	    else {
-	        if (y > maiorY) maiorY = y;
-	    }
-	    if (z < menorZ)
-	        menorZ = z;
-	    else {
-	        if (z > maiorZ) maiorZ = z;
-	    }
-	}
-	
-	public void ProcessarCentro() {
-	    centro.X = (maiorX + menorX)/2;
-	    centro.Y = (maiorY + menorY)/2;
-	    centro.Z = (maiorZ + menorZ)/2;
-	}
+    public void Atualizar(Ponto4D pto)
+    {
+      Atualizar(pto.X, pto.Y, pto.Z);
+    }
 
-	public void Desenhar() {
-    GL.Color3(Color.Yellow);
+    public void Atualizar(double x, double y, double z)
+    {
+      if (x < menorX)
+        menorX = x;
+      else
+      {
+        if (x > maiorX) maiorX = x;
+      }
+      if (y < menorY)
+        menorY = y;
+      else
+      {
+        if (y > maiorY) maiorY = y;
+      }
+      if (z < menorZ)
+        menorZ = z;
+      else
+      {
+        if (z > maiorZ) maiorZ = z;
+      }
+    }
 
-    GL.PointSize(5);
-    GL.Begin(PrimitiveType.Points);
-      GL.Vertex2(centro.X,centro.Y);
-    GL.End();
+    public void ProcessarCentro()
+    {
+      centro.X = (maiorX + menorX) / 2;
+      centro.Y = (maiorY + menorY) / 2;
+      centro.Z = (maiorZ + menorZ) / 2;
+    }
 
-    GL.LineWidth(3);
-		GL.Begin(PrimitiveType.LineLoop);
-			GL.Vertex3(menorX, maiorY, menorZ);
-			GL.Vertex3(maiorX, maiorY, menorZ);
-			GL.Vertex3(maiorX, menorY, menorZ);
-			GL.Vertex3(menorX, menorY, menorZ);
-	  GL.End();
-	  GL.Begin(PrimitiveType.LineLoop);
-	    GL.Vertex3(menorX, menorY, menorZ);
-	    GL.Vertex3(menorX, menorY, maiorZ);
-	    GL.Vertex3(menorX, maiorY, maiorZ);
-	    GL.Vertex3(menorX, maiorY, menorZ);
-	  GL.End();
-	  GL.Begin(PrimitiveType.LineLoop);
-	    GL.Vertex3(maiorX, maiorY, maiorZ);
-	    GL.Vertex3(menorX, maiorY, maiorZ);
-	    GL.Vertex3(menorX, menorY, maiorZ);
-	    GL.Vertex3(maiorX, menorY, maiorZ);
-	  GL.End();
-	  GL.Begin(PrimitiveType.LineLoop);
-	    GL.Vertex3(maiorX, menorY, menorZ);
-	    GL.Vertex3(maiorX, maiorY, menorZ);
-	    GL.Vertex3(maiorX, maiorY, maiorZ);
-	    GL.Vertex3(maiorX, menorY, maiorZ);
-    GL.End();
-	}
+    public void Desenhar()
+    {
+      GL.Color3(Color.Yellow);
 
-  /// Obter menor valor X da BBox.
-  public double obterMenorX => menorX;
+      GL.PointSize(5);
+      GL.Begin(PrimitiveType.Points);
+      GL.Vertex2(centro.X, centro.Y);
+      GL.End();
 
-  /// Obter menor valor Y da BBox.
-  public double obterMenorY => menorY;
+      GL.LineWidth(3);
+      GL.Begin(PrimitiveType.LineLoop);
+      GL.Vertex3(menorX, maiorY, menorZ);
+      GL.Vertex3(maiorX, maiorY, menorZ);
+      GL.Vertex3(maiorX, menorY, menorZ);
+      GL.Vertex3(menorX, menorY, menorZ);
+      GL.End();
+      GL.Begin(PrimitiveType.LineLoop);
+      GL.Vertex3(menorX, menorY, menorZ);
+      GL.Vertex3(menorX, menorY, maiorZ);
+      GL.Vertex3(menorX, maiorY, maiorZ);
+      GL.Vertex3(menorX, maiorY, menorZ);
+      GL.End();
+      GL.Begin(PrimitiveType.LineLoop);
+      GL.Vertex3(maiorX, maiorY, maiorZ);
+      GL.Vertex3(menorX, maiorY, maiorZ);
+      GL.Vertex3(menorX, menorY, maiorZ);
+      GL.Vertex3(maiorX, menorY, maiorZ);
+      GL.End();
+      GL.Begin(PrimitiveType.LineLoop);
+      GL.Vertex3(maiorX, menorY, menorZ);
+      GL.Vertex3(maiorX, maiorY, menorZ);
+      GL.Vertex3(maiorX, maiorY, maiorZ);
+      GL.Vertex3(maiorX, menorY, maiorZ);
+      GL.End();
+    }
 
-  /// Obter menor valor Z da BBox.
-  public double obterMenorZ => menorZ;
+    /// Obter menor valor X da BBox.
+    public double obterMenorX => menorX;
 
-  /// Obter maior valor X da BBox.
-  public double obterMaiorX => maiorX;
+    /// Obter menor valor Y da BBox.
+    public double obterMenorY => menorY;
 
-  /// Obter maior valor Y da BBox.
-  public double obterMaiorY => maiorY;
+    /// Obter menor valor Z da BBox.
+    public double obterMenorZ => menorZ;
 
-  /// Obter maior valor Z da BBox.
-  public double obterMaiorZ => maiorZ;
+    /// Obter maior valor X da BBox.
+    public double obterMaiorX => maiorX;
 
-  /// Obter ponto do centro da BBox.
-  public Ponto4D obterCentro => centro;
+    /// Obter maior valor Y da BBox.
+    public double obterMaiorY => maiorY;
+
+    /// Obter maior valor Z da BBox.
+    public double obterMaiorZ => maiorZ;
+
+    /// Obter ponto do centro da BBox.
+    public Ponto4D obterCentro => centro;
 
   }
 }

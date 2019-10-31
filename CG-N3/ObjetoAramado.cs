@@ -38,7 +38,7 @@ namespace gcgcg
     {
       pontosLista.RemoveAt(pontosLista.Count - 1);
     }
-    
+
     protected void PontosRemoverTodos()
     {
       pontosLista.Clear();
@@ -46,7 +46,7 @@ namespace gcgcg
 
     public Ponto4D PontosUltimo()
     {
-      return pontosLista[pontosLista.Count-1];
+      return pontosLista[pontosLista.Count - 1];
     }
 
     protected override void PontosExibir()
