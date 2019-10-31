@@ -1,4 +1,6 @@
 /' http://plantuml.com/class-diagram '/ 
+/'FIXME: falta atualizar com as úlitmas alterações '/
+
 @startuml CG-N3
 
 title Diagrama de Classes

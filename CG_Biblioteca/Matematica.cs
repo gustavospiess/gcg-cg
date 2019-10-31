@@ -9,7 +9,7 @@ namespace CG_Biblioteca
   /// <summary>
   /// Classe com funções matemáticas.
   /// </summary>
-  public class Matematica {
+  public abstract class Matematica {
     /// <summary>
     /// Função para calcular um ponto sobre o perímetro de um círculo informando um ângulo e raio.
     /// </summary>
@@ -27,6 +27,5 @@ namespace CG_Biblioteca
     public static double GerarPtosCirculoloSimétrico(double raio) {
       return (raio * Math.Cos(Math.PI * 45 / 180.0));
     }
-
   }
 }

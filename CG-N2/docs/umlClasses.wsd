@@ -56,4 +56,12 @@ Retangulo : + Retangulo(string rotulo,Ponto4D ptoInfEsq, Ponto4D ptoSupDir)
 Retangulo : - void GerarPtosRetangulo()
 Retangulo : + void MoverPtoSupDir(Ponto4D ptoMover)
 
+/' Privado_Circulo '/
+Privado_Circulo : - double raio
+Privado_Circulo : + Privado_Circulo(string rotulo, Ponto4D ptoCentro, double raio)
+
+/' Privado_SegReta '/
+Privado_SegReta : - double raio
+Privado_SegReta : + Privado_SegReta(string rotulo, Ponto4D ptoIni, Ponto4D ptoFim)
+
 @enduml
