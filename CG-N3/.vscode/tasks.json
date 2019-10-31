@@ -9,6 +9,9 @@
                 "build",
                 "${workspaceFolder}/CG-N3.csproj"
             ],
+            "dependsOn": [
+                "CG_Biblioteca"
+            ],
             "problemMatcher": "$tsc"
         },
         {
