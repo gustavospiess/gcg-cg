@@ -1,5 +1,5 @@
 ﻿#define CG_Gizmo
-// #define CG_Privado
+#define CG_Privado
 
 using System;
 using OpenTK;
@@ -116,7 +116,7 @@ namespace gcgcg
       {
         if (objetoNovo == null)
         {
-          objetoNovo = new ObjetoAramado(objetoId + 1);
+          objetoNovo = new ObjetoAramado(objetoId + 1, null);
           objetosLista.Add(objetoNovo);
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));  // N3-Exe6: "troque" para deixar o rastro

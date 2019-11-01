@@ -23,7 +23,7 @@ namespace gcgcg
     private static Transformacao4D matrizTmpRotacao = new Transformacao4D();
     private static Transformacao4D matrizGlobal = new Transformacao4D();
 
-    public Objeto(string rotulo)
+    public Objeto(string rotulo, Objeto paiRef)
     {
       this.rotulo = rotulo;
     }

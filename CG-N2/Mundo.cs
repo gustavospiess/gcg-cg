@@ -39,13 +39,13 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-      obj_RetanguloA = new Retangulo("A", new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      obj_RetanguloA = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_RetanguloA);
       objetoSelecionado = obj_RetanguloA;
 #if CG_Privado
-      obj_SegRetaB = new Privado_SegReta("B", new Ponto4D(50, 150), new Ponto4D(150, 250));
+      obj_SegRetaB = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegRetaB);
-      obj_CirculoC = new Privado_Circulo("C", new Ponto4D(100,300), 50);
+      obj_CirculoC = new Privado_Circulo("C", null, new Ponto4D(100,300), 50);
       objetosLista.Add(obj_CirculoC);
       objetoSelecionado = obj_CirculoC;
 #endif

@@ -15,7 +15,7 @@ namespace gcgcg
     public BBox BBox { get => bBox; set => bBox = value; }
     private List<Objeto> objetosLista = new List<Objeto>();
 
-    public Objeto(string rotulo)
+    public Objeto(string rotulo, Objeto paiRef)
     {
       this.rotulo = rotulo;
     }

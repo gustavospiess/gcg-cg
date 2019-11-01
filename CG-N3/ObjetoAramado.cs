@@ -10,7 +10,7 @@ namespace gcgcg
   {
     protected List<Ponto4D> pontosLista = new List<Ponto4D>();
 
-    public ObjetoAramado(string rotulo) : base(rotulo) { }
+    public ObjetoAramado(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }
 
     protected override void DesenharAramado()
     {

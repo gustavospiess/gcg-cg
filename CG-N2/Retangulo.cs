@@ -4,7 +4,7 @@ namespace gcgcg
 {
   internal class Retangulo : ObjetoAramado
   {
-    public Retangulo(string rotulo, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo)
+    public Retangulo(string rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)
     {
       base.PontosAdicionar(ptoInfEsq);
       base.PontosAdicionar(new Ponto4D(ptoSupDir.X, ptoInfEsq.Y));
