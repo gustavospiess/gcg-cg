@@ -12,7 +12,7 @@
             "problemMatcher": "$tsc"
         },
         {
-            "label": "publish",
+            "label": "publishDebug",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -22,6 +22,48 @@
             "problemMatcher": "$tsc"
         },
         {
+            "label": "publishRelease_win10-x64",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "-c",
+                "release",
+                "-r",
+                "win10-x64",
+                "${workspaceFolder}/CG_Biblioteca.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "publishRelease_ubuntu.16.10-x64",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "-c",
+                "release",
+                "-r",
+                "ubuntu.16.10-x64",
+                "${workspaceFolder}/CG_Biblioteca.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "publishRelease_osx-x64",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "-c",
+                "release",
+                "-r",
+                "osx-x64",
+                "${workspaceFolder}/CG_Biblioteca.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        },
+{
             "label": "watch",
             "command": "dotnet",
             "type": "process",
