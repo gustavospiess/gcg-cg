@@ -26,15 +26,32 @@ namespace gcgcg
 
     private Camera camera = new Camera();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    private ObjetoAramado objetoSelecionado = null;
+    private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
-    private ObjetoAramado objetoNovo = null;
+    private ObjetoGeometria objetoNovo = null;
     private String objetoId = "A";
+    private Retangulo obj_Retangulo;
+    private Privado_SegReta obj_SegReta;
+    private Privado_Circulo obj_Circulo;
+    private Cubo obj_Cubo;
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
+      obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      objetosLista.Add(obj_Retangulo);
+      obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
+      objetosLista.Add(obj_SegReta);
+      obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100,300), 50);
+      objetosLista.Add(obj_Circulo);
+      obj_Cubo = new Cubo("D",null);
+      objetosLista.Add(obj_Cubo);
+      
+
+
+      objetoSelecionado = obj_Cubo;;
+      
       GL.ClearColor(Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
@@ -116,7 +133,8 @@ namespace gcgcg
       {
         if (objetoNovo == null)
         {
-          objetoNovo = new ObjetoAramado(objetoId + 1, null);
+          // objetoNovo = new ObjetoGeometria(objetoId + 1, null);
+          //FIXME: ter um Poligono para ser o novo objeto
           objetosLista.Add(objetoNovo);
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));  // N3-Exe6: "troque" para deixar o rastro

@@ -1,8 +1,10 @@
+using OpenTK.Graphics.OpenGL;
+using System.Drawing;
 using CG_Biblioteca;
 
 namespace gcgcg
 {
-  internal class Retangulo : ObjetoAramado
+  internal class Retangulo : ObjetoGeometria
   {
     public Retangulo(string rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)
     {
@@ -11,5 +13,18 @@ namespace gcgcg
       base.PontosAdicionar(ptoSupDir);
       base.PontosAdicionar(new Ponto4D(ptoInfEsq.X, ptoSupDir.Y));
     }
+
+    protected override void DesenharObjeto()
+    {
+      GL.LineWidth(base.PrimitivaTamanho);
+      GL.Color3(Color.White);
+      GL.Begin(base.PrimitivaTipo);
+      foreach (Ponto4D pto in pontosLista)
+      {
+        GL.Vertex2(pto.X, pto.Y);
+      }
+      GL.End();
+    }
+
   }
 }
