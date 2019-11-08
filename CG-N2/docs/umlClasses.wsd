@@ -33,7 +33,7 @@ Objeto : + Objeto(string rotulo)
 Objeto : # PrimitiveType PrimitivaTipo { get; set }
 Objeto : # float PrimitivaTamanho { get ; set }
 Objeto : + void Desenhar()
-Objeto : # abstract void DesenharAramado()
+Objeto : # abstract void DesenharGeometria()
 Objeto : + void FilhoAdicionar(Objeto filho)
 Objeto : + void FilhoRemover(Objeto filho)
 Objeto : # abstract void PontosExibir()
@@ -43,7 +43,7 @@ BBox <-left- Objeto
 
 ObjetoAramado : # List<Ponto4D> pontosLista
 ObjetoAramado : + ObjetoAramado(string rotulo)
-ObjetoAramado : # override void DesenharAramado()
+ObjetoAramado : # override void DesenharGeometria()
 ObjetoAramado : # void PontosAdicionar(Ponto4D pto)
 ObjetoAramado : # void PontosRemoverTodos()
 ObjetoAramado : # override void PontosExibir()

@@ -22,13 +22,13 @@ namespace gcgcg
 
     public void Desenhar()
     {
-      DesenharAramado();
+      DesenharGeometria();
       for (var i = 0; i < objetosLista.Count; i++)
       {
         objetosLista[i].Desenhar();
       }
     }
-    protected abstract void DesenharAramado();
+    protected abstract void DesenharGeometria();
     public void FilhoAdicionar(Objeto filho)
     {
       this.objetosLista.Add(filho);

@@ -26,7 +26,7 @@ namespace gcgcg
 
     private Camera camera = new Camera();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    private ObjetoAramado objetoSelecionado = null;
+    private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
     private bool mouseMoverPto = false;
@@ -69,14 +69,16 @@ namespace gcgcg
 #endif      
       for (var i = 0; i < objetosLista.Count; i++)
         objetosLista[i].Desenhar();
-      if (bBoxDesenhar)
+      if (bBoxDesenhar && (objetoSelecionado != null))
         objetoSelecionado.BBox.Desenhar();
       this.SwapBuffers();
     }
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
-      if (e.Key == Key.Escape)
+      if (e.Key == Key.H)
+        Utilitario.AjudaTeclado();
+      else if (e.Key == Key.Escape)
         Exit();
       else if (e.Key == Key.E)
       {
@@ -89,13 +91,15 @@ namespace gcgcg
         bBoxDesenhar = !bBoxDesenhar;
       else if (e.Key == Key.V)
         mouseMoverPto = !mouseMoverPto;   //FIXME: falta atualizar a BBox do objeto
+      else
+        Console.WriteLine(" __ Tecla não implementada.");
     }
 
     //FIXME: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
       mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y
-      if (mouseMoverPto)
+      if (mouseMoverPto && (objetoSelecionado != null))
       {
         objetoSelecionado.PontosUltimo().X = mouseX;
         objetoSelecionado.PontosUltimo().Y = mouseY; // Invertendo a coordenada y do espaço de tela para o espaço do mundo

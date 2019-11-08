@@ -6,24 +6,17 @@ using System.Drawing;
 
 namespace gcgcg
 {
-  internal class ObjetoAramado : Objeto
+  internal abstract class ObjetoGeometria : Objeto
   {
     protected List<Ponto4D> pontosLista = new List<Ponto4D>();
 
-    public ObjetoAramado(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }
+    public ObjetoGeometria(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }
 
-    protected override void DesenharAramado()
+    protected override void DesenharGeometria()
     {
-      GL.LineWidth(base.PrimitivaTamanho);
-      GL.Color3(Color.White);
-      GL.Begin(base.PrimitivaTipo);
-      foreach (Ponto4D pto in pontosLista)
-      {
-        GL.Vertex2(pto.X, pto.Y);
-      }
-      GL.End();
+      DesenharObjeto();
     }
-
+    protected abstract void DesenharObjeto();
     public void PontosAdicionar(Ponto4D pto)
     {
       pontosLista.Add(pto);
@@ -39,7 +32,7 @@ namespace gcgcg
       pontosLista.RemoveAt(pontosLista.Count - 1);
     }
 
-    protected void PontosRemoverTodos()
+    protected override void PontosRemoverTodos()
     {
       pontosLista.Clear();
     }

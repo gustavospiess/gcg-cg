@@ -26,15 +26,18 @@ namespace gcgcg
 
     private Camera camera = new Camera();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    private ObjetoAramado objetoSelecionado = null;
-    private bool bBoxDesenhar = false;
+    private ObjetoGeometria objetoSelecionado = null;
+    private bool bBoxDesenhar = true;
     int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
-    private ObjetoAramado objetoNovo = null;
+    private Poligono objetoNovo = null;
     private String objetoId = "A";
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
+      Console.WriteLine(" --- Ajuda / Teclas: ");
+      Console.WriteLine(" [  H     ] mostra teclas usadas. ");
+
       GL.ClearColor(Color.Gray);
     }
     protected override void OnUpdateFrame(FrameEventArgs e)
@@ -64,68 +67,79 @@ namespace gcgcg
     {
       // N3-Exe2: usar o arquivo docs/umlClasses.wsd
       // N3-Exe3: usar o arquivo bin/documentação.XML -> ver exemplo CG_Biblioteca/bin/documentação.XML
-      if (e.Key == Key.Escape)
+      if (e.Key == Key.H)
+        Utilitario.AjudaTeclado();
+      else if (e.Key == Key.Escape)
         Exit();
       else if (e.Key == Key.E)    // N3-Exe4: ajuda a conferir se os poligonos e vértices estão certos
       {
+        Console.WriteLine("--- Objetos / Pontos: ");
         for (var i = 0; i < objetosLista.Count; i++)
         {
           objetosLista[i].PontosExibirObjeto();
         }
       }
       else if (e.Key == Key.O)
-        bBoxDesenhar = !bBoxDesenhar;   // N3-Exe9: exibe a BBox
-      else if (e.Key == Key.M)
-        objetoSelecionado.ExibeMatriz();
-      else if (e.Key == Key.P)
-        objetoSelecionado.PontosExibirObjeto();
-      else if (e.Key == Key.I)
-        objetoSelecionado.AtribuirIdentidade();
-      //FIXME: não está atualizando a BBox com as transformações geométricas
-      else if (e.Key == Key.Left)
-        objetoSelecionado.TranslacaoXY(-10, 0);     // N3-Exe10: translação
-      else if (e.Key == Key.Right)
-        objetoSelecionado.TranslacaoXY(10, 0);      // N3-Exe10: translação
-      else if (e.Key == Key.Up)
-        objetoSelecionado.TranslacaoXY(0, 10);      // N3-Exe10: translação
-      else if (e.Key == Key.Down)
-        objetoSelecionado.TranslacaoXY(0, -10);     // N3-Exe10: translação
-      else if (e.Key == Key.PageUp)
-        objetoSelecionado.EscalaXY(2, 2);
-      else if (e.Key == Key.PageDown)
-        objetoSelecionado.EscalaXY(0.5, 0.5);
-      else if (e.Key == Key.Home)
-        objetoSelecionado.EscalaXYBBox(0.5);        // N3-Exe11: escala
-      else if (e.Key == Key.End)
-        objetoSelecionado.EscalaXYBBox(2);          // N3-Exe11: escala
-      else if (e.Key == Key.Number1)
-        objetoSelecionado.RotacaoZ(10);
-      else if (e.Key == Key.Number2)
-        objetoSelecionado.RotacaoZ(-10);
-      else if (e.Key == Key.Number3)
-        objetoSelecionado.RotacaoZBBox(10);         // N3-Exe12: rotação
-      else if (e.Key == Key.Number4)
-        objetoSelecionado.RotacaoZBBox(-10);        // N3-Exe12: rotação
+        bBoxDesenhar = !bBoxDesenhar;   // N3-Exe9: exibe a BBox ... sempre desenha bBox se tiver objetoSelecionado
       else if (e.Key == Key.Enter)
       {
-        objetoSelecionado = objetoNovo;
-        objetoNovo.PontosRemoverUltimo();   // N3-Exe6: "troque" para deixar o rastro
-        objetoNovo = null;
+        if (objetoNovo != null)
+        {
+          objetoNovo.PontosRemoverUltimo();   // N3-Exe6: "truque" para deixar o rastro
+          objetoSelecionado = objetoNovo;
+          objetoNovo = null;
+        }
       }
       else if (e.Key == Key.Space)
       {
         if (objetoNovo == null)
         {
-          objetoNovo = new ObjetoAramado(objetoId + 1, null);
+          objetoNovo = new Poligono(objetoId + 1, null);
           objetosLista.Add(objetoNovo);
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));  // N3-Exe6: "troque" para deixar o rastro
         }
         else
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
-      }
-      else if (e.Key == Key.Number9)
-        objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não tiver um poligono
+      } else if (objetoSelecionado != null)
+      {
+        if (e.Key == Key.M)
+          objetoSelecionado.ExibeMatriz();
+        else if (e.Key == Key.P)
+          objetoSelecionado.PontosExibirObjeto();
+        else if (e.Key == Key.I)
+          objetoSelecionado.AtribuirIdentidade();
+        //FIXME: não está atualizando a BBox com as transformações geométricas
+        else if (e.Key == Key.Left)
+          objetoSelecionado.TranslacaoXY(-10, 0);       // N3-Exe10: translação
+        else if (e.Key == Key.Right)
+          objetoSelecionado.TranslacaoXY(10, 0);        // N3-Exe10: translação
+        else if (e.Key == Key.Up)
+          objetoSelecionado.TranslacaoXY(0, 10);        // N3-Exe10: translação
+        else if (e.Key == Key.Down)
+          objetoSelecionado.TranslacaoXY(0, -10);       // N3-Exe10: translação
+        else if (e.Key == Key.PageUp)
+          objetoSelecionado.EscalaXY(2, 2);
+        else if (e.Key == Key.PageDown)
+          objetoSelecionado.EscalaXY(0.5, 0.5);
+        else if (e.Key == Key.Home)
+          objetoSelecionado.EscalaXYBBox(0.5);          // N3-Exe11: escala
+        else if (e.Key == Key.End)
+          objetoSelecionado.EscalaXYBBox(2);            // N3-Exe11: escala
+        else if (e.Key == Key.Number1)
+          objetoSelecionado.RotacaoZ(10);
+        else if (e.Key == Key.Number2)
+          objetoSelecionado.RotacaoZ(-10);
+        else if (e.Key == Key.Number3)
+          objetoSelecionado.RotacaoZBBox(10);           // N3-Exe12: rotação
+        else if (e.Key == Key.Number4)
+          objetoSelecionado.RotacaoZBBox(-10);          // N3-Exe12: rotação
+        else if (e.Key == Key.Number9)
+          objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não tiver um poligono
+        else
+          Console.WriteLine(" __ Tecla não implementada.");
+      } else
+        Console.WriteLine(" __ Tecla não implementada.");
     }
 
     //FIXME: não está considerando o NDC
