@@ -35,7 +35,7 @@ namespace gcgcg
     private Privado_SegReta obj_SegReta;
     private Privado_Circulo obj_Circulo;
     private Cubo obj_Cubo;
-        // Vector3 eye = Vector3.Zero, target = Vector3.Zero, up = Vector3.UnitY;
+    // Vector3 eye = Vector3.Zero, target = Vector3.Zero, up = Vector3.UnitY;
 
 
     protected override void OnLoad(EventArgs e)
@@ -55,11 +55,17 @@ namespace gcgcg
 
       obj_Cubo = new Cubo("D", null);
       objetosLista.Add(obj_Cubo);
-      obj_Cubo.EscalaXYZ(50, 50, 1);
-      obj_Cubo.TranslacaoXYZ(200, 200, 0);
+      obj_Cubo.EscalaXYZ(50, 50, 50);
       objetoSelecionado = obj_Cubo;
 
+      camera.At = new Vector3(0, 0, 0);
+      camera.Eye = new Vector3(1000, 1000, 1000);
+      camera.Near = 100.0f;
+      camera.Far = 2000.0f;
+
       GL.ClearColor(Color.Gray);
+      GL.Enable(EnableCap.DepthTest);
+      GL.Enable(EnableCap.CullFace);
     }
     protected override void OnResize(EventArgs e)
     {
@@ -154,9 +160,9 @@ namespace gcgcg
         else if (e.Key == Key.PageDown)
           objetoSelecionado.EscalaXYZ(0.5, 0.5, 0.5);
         else if (e.Key == Key.Home)
-          objetoSelecionado.EscalaXYZBBox(0.5, 0.5, 1.0);          // N3-Exe11: escala
+          objetoSelecionado.EscalaXYZBBox(0.5, 0.5, 0.5);          // N3-Exe11: escala
         else if (e.Key == Key.End)
-          objetoSelecionado.EscalaXYZBBox(2, 2, 1);            // N3-Exe11: escala
+          objetoSelecionado.EscalaXYZBBox(2, 2, 2);            // N3-Exe11: escala
         else if (e.Key == Key.Number1)
           objetoSelecionado.RotacaoZ(10);
         else if (e.Key == Key.Number2)
