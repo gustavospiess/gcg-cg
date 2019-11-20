@@ -32,7 +32,7 @@ namespace gcgcg
       pontosLista.RemoveAt(pontosLista.Count - 1);
     }
 
-    protected override void PontosRemoverTodos()
+    protected void PontosRemoverTodos()
     {
       pontosLista.Clear();
     }

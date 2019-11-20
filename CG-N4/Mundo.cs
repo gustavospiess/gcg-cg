@@ -24,7 +24,7 @@ namespace gcgcg
       return instanciaMundo;
     }
 
-    private Camera camera = new Camera();
+    private CameraPerspective camera = new CameraPerspective();
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;
@@ -35,37 +35,54 @@ namespace gcgcg
     private Privado_SegReta obj_SegReta;
     private Privado_Circulo obj_Circulo;
     private Cubo obj_Cubo;
+        // Vector3 eye = Vector3.Zero, target = Vector3.Zero, up = Vector3.UnitY;
+
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
+
       obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_Retangulo);
+
       obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegReta);
-      obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100,300), 50);
+
+      obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
-      obj_Cubo = new Cubo("D",null);
+
+      obj_Cubo = new Cubo("D", null);
       objetosLista.Add(obj_Cubo);
-      objetoSelecionado = obj_Cubo;;
-      
+      obj_Cubo.EscalaXYZ(50, 50, 1);
+      obj_Cubo.TranslacaoXYZ(200, 200, 0);
+      objetoSelecionado = obj_Cubo;
+
       GL.ClearColor(Color.Gray);
     }
+    protected override void OnResize(EventArgs e)
+    {
+      base.OnResize(e);
+
+      GL.Viewport(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, ClientRectangle.Height);
+
+      Matrix4 projection = Matrix4.CreatePerspectiveFieldOfView(camera.Fovy, Width / (float)Height, camera.Near, camera.Far);
+      GL.MatrixMode(MatrixMode.Projection);
+      GL.LoadMatrix(ref projection);
+    }
+
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
       base.OnUpdateFrame(e);
-      GL.MatrixMode(MatrixMode.Projection);
-      GL.LoadIdentity();
-      GL.Ortho(camera.xmin, camera.xmax, camera.ymin, camera.ymax, camera.zmin, camera.zmax);
     }
     protected override void OnRenderFrame(FrameEventArgs e)
     {
       base.OnRenderFrame(e);
-      GL.Clear(ClearBufferMask.ColorBufferBit);
+      GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+      Matrix4 modelview = Matrix4.LookAt(camera.Eye, camera.At, camera.Up);
       GL.MatrixMode(MatrixMode.Modelview);
-      GL.LoadIdentity();
+      GL.LoadMatrix(ref modelview);
 #if CG_Gizmo      
       Sru3D();
 #endif
@@ -114,7 +131,8 @@ namespace gcgcg
         }
         else
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
-      } else if (objetoSelecionado != null)
+      }
+      else if (objetoSelecionado != null)
       {
         if (e.Key == Key.M)
           objetoSelecionado.ExibeMatriz();
@@ -124,21 +142,21 @@ namespace gcgcg
           objetoSelecionado.AtribuirIdentidade();
         //FIXME: não está atualizando a BBox com as transformações geométricas
         else if (e.Key == Key.Left)
-          objetoSelecionado.TranslacaoXY(-10, 0);       // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(-10, 0, 0);       // N3-Exe10: translação
         else if (e.Key == Key.Right)
-          objetoSelecionado.TranslacaoXY(10, 0);        // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(10, 0, 0);        // N3-Exe10: translação
         else if (e.Key == Key.Up)
-          objetoSelecionado.TranslacaoXY(0, 10);        // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(0, 10, 0);        // N3-Exe10: translação
         else if (e.Key == Key.Down)
-          objetoSelecionado.TranslacaoXY(0, -10);       // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(0, -10, 0);       // N3-Exe10: translação
         else if (e.Key == Key.PageUp)
-          objetoSelecionado.EscalaXY(2, 2);
+          objetoSelecionado.EscalaXYZ(2, 2, 2);
         else if (e.Key == Key.PageDown)
-          objetoSelecionado.EscalaXY(0.5, 0.5);
+          objetoSelecionado.EscalaXYZ(0.5, 0.5, 0.5);
         else if (e.Key == Key.Home)
-          objetoSelecionado.EscalaXYBBox(0.5);          // N3-Exe11: escala
+          objetoSelecionado.EscalaXYZBBox(0.5, 0.5, 1.0);          // N3-Exe11: escala
         else if (e.Key == Key.End)
-          objetoSelecionado.EscalaXYBBox(2);            // N3-Exe11: escala
+          objetoSelecionado.EscalaXYZBBox(2, 2, 1);            // N3-Exe11: escala
         else if (e.Key == Key.Number1)
           objetoSelecionado.RotacaoZ(10);
         else if (e.Key == Key.Number2)
@@ -151,7 +169,8 @@ namespace gcgcg
           objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não tiver um poligono
         else
           Console.WriteLine(" __ Tecla não implementada.");
-      } else
+      }
+      else
         Console.WriteLine(" __ Tecla não implementada.");
     }
 

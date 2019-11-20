@@ -24,7 +24,7 @@ namespace gcgcg
       return instanciaMundo;
     }
 
-    private Camera camera = new Camera();
+    private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;

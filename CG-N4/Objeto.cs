@@ -61,20 +61,20 @@ namespace gcgcg
     {
       matriz.AtribuirIdentidade();
     }
-    public void TranslacaoXY(double tx, double ty)
+    public void TranslacaoXYZ(double tx, double ty, double tz)
     {
       Transformacao4D matrizTranslate = new Transformacao4D();
-      matrizTranslate.AtribuirTranslacao(tx, ty, 0);
+      matrizTranslate.AtribuirTranslacao(tx, ty, tz);
       matriz = matrizTranslate.MultiplicarMatriz(matriz);
     }
-    public void EscalaXY(double Sx, double Sy)
+    public void EscalaXYZ(double Sx, double Sy, double Sz)
     {
       Transformacao4D matrizScale = new Transformacao4D();
-      matrizScale.AtribuirEscala(Sx, Sy, 1.0);
+      matrizScale.AtribuirEscala(Sx, Sy, Sz);
       matriz = matrizScale.MultiplicarMatriz(matriz);
     }
 
-    public void EscalaXYBBox(double escala)
+    public void EscalaXYZBBox(double Sx, double Sy, double Sz)
     {
       matrizGlobal.AtribuirIdentidade();
       Ponto4D pontoPivo = bBox.obterCentro;
@@ -82,7 +82,7 @@ namespace gcgcg
       matrizTmpTranslacao.AtribuirTranslacao(-pontoPivo.X, -pontoPivo.Y, -pontoPivo.Z); // Inverter sinal
       matrizGlobal = matrizTmpTranslacao.MultiplicarMatriz(matrizGlobal);
 
-      matrizTmpEscala.AtribuirEscala(escala, escala, 1.0);
+      matrizTmpEscala.AtribuirEscala(Sx, Sy, Sz);
       matrizGlobal = matrizTmpEscala.MultiplicarMatriz(matrizGlobal);
 
       matrizTmpTranslacaoInversa.AtribuirTranslacao(pontoPivo.X, pontoPivo.Y, pontoPivo.Z);

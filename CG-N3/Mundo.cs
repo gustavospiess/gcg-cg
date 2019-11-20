@@ -24,7 +24,7 @@ namespace gcgcg
       return instanciaMundo;
     }
 
-    private Camera camera = new Camera();
+    private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = true;
@@ -135,7 +135,7 @@ namespace gcgcg
         else if (e.Key == Key.Number4)
           objetoSelecionado.RotacaoZBBox(-10);          // N3-Exe12: rotação
         else if (e.Key == Key.Number9)
-          objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não tiver um poligono
+          objetoSelecionado = null;                     // desmacar objeto selecionado
         else
           Console.WriteLine(" __ Tecla não implementada.");
       } else

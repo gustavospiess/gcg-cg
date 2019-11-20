@@ -7,7 +7,7 @@ namespace CG_Biblioteca
   /// <summary>
   /// Classe para controlar a câmera sintética.
   /// </summary>
-  public class Camera
+  public class CameraOrtho
   {
     private double xMin, xMax, yMin, yMax, zMin, zMax;
 
@@ -20,7 +20,7 @@ namespace CG_Biblioteca
     /// <param name="yMax"></param>
     /// <param name="zMin"></param>
     /// <param name="zMax"></param>
-    public Camera(double xMin = 0, double xMax = 600, double yMin = 0, double yMax = 600, double zMin = -1, double zMax = 1)
+    public CameraOrtho(double xMin = 0, double xMax = 600, double yMin = 0, double yMax = 600, double zMin = -1, double zMax = 1)
     {
       this.xMin = xMin; this.xMax = xMax;
       this.yMin = yMin; this.yMax = yMax;
