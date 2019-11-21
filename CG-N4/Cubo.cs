@@ -20,13 +20,6 @@ namespace gcgcg
     
     protected override void DesenharObjeto()
     {
-      // base.Desenha();
-
-      // if (base.pegaExibeObjeto)
-      // {
-        GL.PushMatrix();
-        // GL.MultMatrix(matriz.ObterDados());
-
         GL.Begin(PrimitiveType.Quads);
         // Face da frente
         GL.Color3(1.0, 0.0, 0.0);
@@ -71,16 +64,13 @@ namespace gcgcg
         GL.Vertex3(base.pontosLista[7].X, base.pontosLista[7].Y, base.pontosLista[7].Z);    // PtoH
         GL.Vertex3(base.pontosLista[4].X, base.pontosLista[4].Y, base.pontosLista[4].Z);    // PtoE
         GL.End();
-      // }
 
-      // if (exibeVetorNormal)
-      //   ajudaExibirVetorNormal();
-
-      GL.PopMatrix();
+      // if (exibeVetorNormal) //FIXME: acho que não precisa.
+      //   ajudaExibirVetorNormal(); //FIXME: acho que não precisa.
     }
 
     protected override void PontosExibir()
-    {
+    { //FIXME: acho que não precisa, deve estar na Classe ObjetoGeometrico.
       // Console.WriteLine("__ Objeto: " + base.rotulo);
       // for (var i = 0; i < pontosLista.Count; i++)
       // {
