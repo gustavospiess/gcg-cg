@@ -35,6 +35,8 @@ namespace gcgcg
     private Privado_SegReta obj_SegReta;
     private Privado_Circulo obj_Circulo;
     private Cubo obj_Cubo;
+    private Cilindro obj_Cilindro;
+    private Cone obj_Cone;
 
     protected override void OnLoad(EventArgs e)
     {
@@ -51,10 +53,21 @@ namespace gcgcg
       obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
 
-      obj_Cubo = new Cubo("D", null);
+      obj_Cilindro = new Cilindro("D", null);
+      objetosLista.Add(obj_Cilindro);
+      obj_Cilindro.EscalaXYZ(50, 50, 50);
+      obj_Cilindro.TranslacaoXYZ(150,0,0);
+
+      obj_Cone = new Cone("E", null);
+      objetosLista.Add(obj_Cone);
+      obj_Cone.EscalaXYZ(50, 50, 50);
+      obj_Cone.TranslacaoXYZ(200,0,0);
+
+      obj_Cubo = new Cubo("F", null);
       objetosLista.Add(obj_Cubo);
       obj_Cubo.EscalaXYZ(50, 50, 50);
-      objetoSelecionado = obj_Cubo;
+
+      objetoSelecionado = obj_Cilindro;
 
       camera.At = new Vector3(0, 0, 0);
       camera.Eye = new Vector3(1000, 1000, 1000);
