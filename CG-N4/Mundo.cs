@@ -35,8 +35,6 @@ namespace gcgcg
     private Privado_SegReta obj_SegReta;
     private Privado_Circulo obj_Circulo;
     private Cubo obj_Cubo;
-    // Vector3 eye = Vector3.Zero, target = Vector3.Zero, up = Vector3.UnitY;
-
 
     protected override void OnLoad(EventArgs e)
     {
@@ -101,13 +99,11 @@ namespace gcgcg
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
-      // N3-Exe2: usar o arquivo docs/umlClasses.wsd
-      // N3-Exe3: usar o arquivo bin/documentação.XML -> ver exemplo CG_Biblioteca/bin/documentação.XML
       if (e.Key == Key.H)
         Utilitario.AjudaTeclado();
       else if (e.Key == Key.Escape)
         Exit();
-      else if (e.Key == Key.E)    // N3-Exe4: ajuda a conferir se os poligonos e vértices estão certos
+      else if (e.Key == Key.E)
       {
         Console.WriteLine("--- Objetos / Pontos: ");
         for (var i = 0; i < objetosLista.Count; i++)
@@ -116,7 +112,7 @@ namespace gcgcg
         }
       }
       else if (e.Key == Key.O)
-        bBoxDesenhar = !bBoxDesenhar;   // N3-Exe9: exibe a BBox ... sempre desenha bBox se tiver objetoSelecionado
+        bBoxDesenhar = !bBoxDesenhar;
       else if (e.Key == Key.Enter)
       {
         if (objetoNovo != null)
@@ -148,33 +144,33 @@ namespace gcgcg
           objetoSelecionado.AtribuirIdentidade();
         //FIXME: não está atualizando a BBox com as transformações geométricas
         else if (e.Key == Key.Left)
-          objetoSelecionado.TranslacaoXYZ(-10, 0, 0);       // N3-Exe10: translação eixo X
+          objetoSelecionado.TranslacaoXYZ(-10, 0, 0);
         else if (e.Key == Key.Right)
-          objetoSelecionado.TranslacaoXYZ(10, 0, 0);        // N3-Exe10: translação eixo X
+          objetoSelecionado.TranslacaoXYZ(10, 0, 0);
         else if (e.Key == Key.Up)
-          objetoSelecionado.TranslacaoXYZ(0, 10, 0);        // N3-Exe10: translação eixo Y
+          objetoSelecionado.TranslacaoXYZ(0, 10, 0);
         else if (e.Key == Key.Down)
-          objetoSelecionado.TranslacaoXYZ(0, -10, 0);       // N3-Exe10: translação eixo Y
+          objetoSelecionado.TranslacaoXYZ(0, -10, 0);
         else if (e.Key == Key.Number8)
-          objetoSelecionado.TranslacaoXYZ(0, 0, 10);        //         : translação eixo Z
+          objetoSelecionado.TranslacaoXYZ(0, 0, 10);
         else if (e.Key == Key.Number9)
-          objetoSelecionado.TranslacaoXYZ(0, 0, -10);       //         : translação eixo Z
+          objetoSelecionado.TranslacaoXYZ(0, 0, -10);
         else if (e.Key == Key.PageUp)
           objetoSelecionado.EscalaXYZ(2, 2, 2);
         else if (e.Key == Key.PageDown)
           objetoSelecionado.EscalaXYZ(0.5, 0.5, 0.5);
         else if (e.Key == Key.Home)
-          objetoSelecionado.EscalaXYZBBox(0.5, 0.5, 0.5);          // N3-Exe11: escala
+          objetoSelecionado.EscalaXYZBBox(0.5, 0.5, 0.5);
         else if (e.Key == Key.End)
-          objetoSelecionado.EscalaXYZBBox(2, 2, 2);            // N3-Exe11: escala
+          objetoSelecionado.EscalaXYZBBox(2, 2, 2);
         else if (e.Key == Key.Number1)
           objetoSelecionado.Rotacao(10);
         else if (e.Key == Key.Number2)
           objetoSelecionado.Rotacao(-10);
         else if (e.Key == Key.Number3)
-          objetoSelecionado.RotacaoZBBox(10);           // N3-Exe12: rotação
+          objetoSelecionado.RotacaoZBBox(10);
         else if (e.Key == Key.Number4)
-          objetoSelecionado.RotacaoZBBox(-10);          // N3-Exe12: rotação
+          objetoSelecionado.RotacaoZBBox(-10);
         else if (e.Key == Key.Number0)
           objetoSelecionado = null;
         else if (e.Key == Key.X)
@@ -196,7 +192,7 @@ namespace gcgcg
       mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y
       if (objetoNovo != null)
       {
-        objetoNovo.PontosUltimo().X = mouseX;             // N3-Exe5: movendo um vértice de um poligono específico
+        objetoNovo.PontosUltimo().X = mouseX;
         objetoNovo.PontosUltimo().Y = mouseY;
       }
     }
