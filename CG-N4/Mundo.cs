@@ -164,15 +164,21 @@ namespace gcgcg
         else if (e.Key == Key.End)
           objetoSelecionado.EscalaXYZBBox(2, 2, 2);            // N3-Exe11: escala
         else if (e.Key == Key.Number1)
-          objetoSelecionado.RotacaoZ(10);
+          objetoSelecionado.Rotacao(10);
         else if (e.Key == Key.Number2)
-          objetoSelecionado.RotacaoZ(-10);
+          objetoSelecionado.Rotacao(-10);
         else if (e.Key == Key.Number3)
           objetoSelecionado.RotacaoZBBox(10);           // N3-Exe12: rotação
         else if (e.Key == Key.Number4)
           objetoSelecionado.RotacaoZBBox(-10);          // N3-Exe12: rotação
         else if (e.Key == Key.Number9)
-          objetoSelecionado = null;   //TODO: remover está tecla e atribuir o null qdo não tiver um poligono
+          objetoSelecionado = null;
+        else if (e.Key == Key.X)
+          objetoSelecionado.TrocaEixoRotacao('x');
+        else if (e.Key == Key.Y)
+          objetoSelecionado.TrocaEixoRotacao('y');
+        else if (e.Key == Key.Z)
+          objetoSelecionado.TrocaEixoRotacao('z');
         else
           Console.WriteLine(" __ Tecla não implementada.");
       }

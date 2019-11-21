@@ -36,6 +36,9 @@ namespace gcgcg
       Console.WriteLine(" [  D     ] N3-Exe05: remove o vértice do polígono selecionado que estiver mais perto do mouse. ");
       Console.WriteLine(" [  V     ] N3-Exe05: move o vértice do polígono selecionado que estiver mais perto do mouse. ");
       Console.WriteLine(" [  C     ] N3-Exe04: remove o polígono selecionado. ");
+      Console.WriteLine(" [  X     ]         : rotação entorno do eixo X. ");
+      Console.WriteLine(" [  Y     ]         : rotação entorno do eixo Y. ");
+      Console.WriteLine(" [  Z     ]         : rotação entorno do eixo Z. ");
       Console.WriteLine("  --- ");
       Console.WriteLine(" Se tiver objeto selecionado adiciona novo objeto como filho dele. ");
       Console.WriteLine(" Senão tiver objeto selecionado adiciona novo objeto no mundo. ");
