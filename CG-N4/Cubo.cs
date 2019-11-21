@@ -19,7 +19,7 @@ namespace gcgcg
     }
     
     protected override void DesenharObjeto()
-    {
+    {       // Sentido anti-horário
         GL.Begin(PrimitiveType.Quads);
         // Face da frente
         GL.Color3(1.0, 0.0, 0.0);
