@@ -148,13 +148,17 @@ namespace gcgcg
           objetoSelecionado.AtribuirIdentidade();
         //FIXME: não está atualizando a BBox com as transformações geométricas
         else if (e.Key == Key.Left)
-          objetoSelecionado.TranslacaoXYZ(-10, 0, 0);       // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(-10, 0, 0);       // N3-Exe10: translação eixo X
         else if (e.Key == Key.Right)
-          objetoSelecionado.TranslacaoXYZ(10, 0, 0);        // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(10, 0, 0);        // N3-Exe10: translação eixo X
         else if (e.Key == Key.Up)
-          objetoSelecionado.TranslacaoXYZ(0, 10, 0);        // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(0, 10, 0);        // N3-Exe10: translação eixo Y
         else if (e.Key == Key.Down)
-          objetoSelecionado.TranslacaoXYZ(0, -10, 0);       // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXYZ(0, -10, 0);       // N3-Exe10: translação eixo Y
+        else if (e.Key == Key.Number8)
+          objetoSelecionado.TranslacaoXYZ(0, 0, 10);        //         : translação eixo Z
+        else if (e.Key == Key.Number9)
+          objetoSelecionado.TranslacaoXYZ(0, 0, -10);       //         : translação eixo Z
         else if (e.Key == Key.PageUp)
           objetoSelecionado.EscalaXYZ(2, 2, 2);
         else if (e.Key == Key.PageDown)
@@ -171,7 +175,7 @@ namespace gcgcg
           objetoSelecionado.RotacaoZBBox(10);           // N3-Exe12: rotação
         else if (e.Key == Key.Number4)
           objetoSelecionado.RotacaoZBBox(-10);          // N3-Exe12: rotação
-        else if (e.Key == Key.Number9)
+        else if (e.Key == Key.Number0)
           objetoSelecionado = null;
         else if (e.Key == Key.X)
           objetoSelecionado.TrocaEixoRotacao('x');

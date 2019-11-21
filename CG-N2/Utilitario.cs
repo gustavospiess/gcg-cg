@@ -17,10 +17,12 @@ namespace gcgcg
       Console.WriteLine(" [  M     ]         : exibe matriz de transformação do polígono selecionado. ");
       Console.WriteLine(" [  P     ]         : exibe os vértices do polígono selecionado. ");
       Console.WriteLine(" [  I     ]         : aplica a matriz Identidade no polígono selecionado. ");
-      Console.WriteLine(" [Left    ] N3-Exe10: move o polígono selecionado para esquerda. ");
-      Console.WriteLine(" [Right   ] N3-Exe10: move o polígono selecionado para direita. ");
-      Console.WriteLine(" [Up      ] N3-Exe10: move o polígono selecionado para cima. ");
-      Console.WriteLine(" [Down    ] N3-Exe10: move o polígono selecionado para baixo. ");
+      Console.WriteLine(" [Left    ] N3-Exe10: move o polígono selecionado para eixo X positivo. ");
+      Console.WriteLine(" [Right   ] N3-Exe10: move o polígono selecionado para eixo X negativo. ");
+      Console.WriteLine(" [Up      ] N3-Exe10: move o polígono selecionado para eixo Y positivo. ");
+      Console.WriteLine(" [Down    ] N3-Exe10: move o polígono selecionado para eixo Y negativo. ");
+      Console.WriteLine(" [Up      ]         : move o polígono selecionado para eixo Z positivo. ");
+      Console.WriteLine(" [Down    ]         : move o polígono selecionado para eixo Z negativo. ");
       Console.WriteLine(" [PageUp  ]         : reduz o polígono selecionado em relação a origem. ");
       Console.WriteLine(" [PageDown]         : amplia o polígono selecionado em relação a origem. ");
       Console.WriteLine(" [Home    ] N3-Exe11: reduz o polígono selecionado em relação ao centro da bBox. ");
