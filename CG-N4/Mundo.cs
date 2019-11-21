@@ -58,10 +58,10 @@ namespace gcgcg
       obj_Cilindro.EscalaXYZ(50, 50, 50);
       obj_Cilindro.TranslacaoXYZ(150,0,0);
 
-      obj_Cone = new Cone("E", null);
-      objetosLista.Add(obj_Cone);
-      obj_Cone.EscalaXYZ(50, 50, 50);
-      obj_Cone.TranslacaoXYZ(200,0,0);
+      // obj_Cone = new Cone("E", null);
+      // objetosLista.Add(obj_Cone);
+      // obj_Cone.EscalaXYZ(50, 50, 50);
+      // obj_Cone.TranslacaoXYZ(200,0,0);
 
       obj_Cubo = new Cubo("F", null);
       objetosLista.Add(obj_Cubo);
