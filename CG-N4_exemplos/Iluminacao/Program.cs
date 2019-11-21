@@ -14,7 +14,6 @@ namespace Iluminacao
   {
     private bool ligaLuz = true;
     private Color cor = Color.White;
-    private float x_angle;
 
     public Render(int width, int height) : base(width, height) { }
 
@@ -41,7 +40,7 @@ namespace Iluminacao
       GL.Material(MaterialFace.Front, MaterialParameter.Specular, new float[] { 1.0f, 1.0f, 1.0f, 1.0f });
       GL.Material(MaterialFace.Front, MaterialParameter.Emission, new float[] { 0.0f, 0.0f, 0.0f, 1.0f });
 
-//FIXME: cor só aparece nas superfícies laterais. Ter mais tipos de luz.      
+      //FIXME: cor só aparece nas superfícies laterais. Ter mais tipos de luz.      
       GL.Material(MaterialFace.Front, MaterialParameter.ColorIndexes, cor);
     }
 
@@ -60,14 +59,6 @@ namespace Iluminacao
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
       base.OnUpdateFrame(e);
-      x_angle += 0.5f;
-
-
-      // Do not leave x_angle drift too far away, as this will cause inaccuracies.
-      if (x_angle > 360.0f)
-        x_angle -= 360.0f;
-      else if (x_angle < -360.0f)
-        x_angle += 360.0f;
     }
 
     protected override void OnRenderFrame(FrameEventArgs e)
@@ -79,20 +70,7 @@ namespace Iluminacao
 
       SRU3D();
 
-      if (ligaLuz)
-      {
-        GL.Enable(EnableCap.Lighting);
-        GL.Enable(EnableCap.Light0);
-
-        GL.Enable(EnableCap.ColorMaterial);
-      }
-      GL.Rotate(x_angle, 0.0f, 1.0f, 0.0f);
       DesenhaCubo();
-      if (ligaLuz)
-      {
-        GL.Disable(EnableCap.Lighting);
-        GL.Disable(EnableCap.Light0);
-      }
 
       SwapBuffers();
     }
@@ -116,11 +94,17 @@ namespace Iluminacao
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
-      x_angle = e.Mouse.X;
     }
 
     private void DesenhaCubo()
     {
+      if (ligaLuz)
+      {
+        GL.Enable(EnableCap.Lighting);
+        GL.Enable(EnableCap.Light0);
+        GL.Enable(EnableCap.ColorMaterial);
+      }
+
       GL.Color3(cor);
       GL.Begin(PrimitiveType.Quads);
 
@@ -162,6 +146,12 @@ namespace Iluminacao
       GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(-1.0f, -1.0f, -1.0f);
 
       GL.End();
+
+      if (ligaLuz)
+      {
+        GL.Disable(EnableCap.Lighting);
+        GL.Disable(EnableCap.Light0);
+      }
     }
 
     private void SRU3D()
