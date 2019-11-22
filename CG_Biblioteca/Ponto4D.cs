@@ -1,6 +1,7 @@
-/*
+/**
   Autor: Dalton Solano dos Reis
-*/
+**/
+
 namespace CG_Biblioteca
 {
   /// <summary>

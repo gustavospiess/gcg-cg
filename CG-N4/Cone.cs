@@ -1,3 +1,7 @@
+/**
+  Autor: Dalton Solano dos Reis
+**/
+
 /// <summary>
 /// fonte: https://stackoverflow.com/questions/4170603/how-do-i-draw-a-cylinder-in-opentk-glu-cylinder
 /// </summary>

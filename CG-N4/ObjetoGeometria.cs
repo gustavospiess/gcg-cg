@@ -1,8 +1,10 @@
+/**
+  Autor: Dalton Solano dos Reis
+**/
+
 using System;
 using System.Collections.Generic;
 using CG_Biblioteca;
-using OpenTK.Graphics.OpenGL;
-using System.Drawing;
 
 //FIXME: trazer a lista de Topologia da Classe Cilindro para esta classe. pontosLista deveria ser listaGeometria. Esta classe deveria mudar de nome para representar um objeto solido, quem sabe mudar a atual classe Objeto para ObjetoTransformacao (deixar só a parte das matrizes) e esta classe ser Objeto.
 namespace gcgcg

@@ -1,8 +1,10 @@
+/**
+  Autor: Dalton Solano dos Reis
+**/
+
 using System;
 using System.Collections.Generic;
 using CG_Biblioteca;
-using OpenTK.Graphics.OpenGL;
-using System.Drawing;
 
 namespace gcgcg
 {

@@ -1,6 +1,6 @@
-/*
+/**
   Autor: Dalton Solano dos Reis
-*/
+**/
 
 using System;
 
@@ -96,6 +96,10 @@ namespace CG_Biblioteca
       matriz[5] = Math.Cos(radians);
     }
 
+    //FIXME: tentar usar Const
+    // public Ponto4D MultiplicarPonto(in Ponto4D pto)
+    // {
+    //   pto.X = 3;
     public Ponto4D MultiplicarPonto(Ponto4D pto)
     {
       Ponto4D pointResult = new Ponto4D(

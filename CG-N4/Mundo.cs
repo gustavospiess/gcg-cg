@@ -1,5 +1,9 @@
-﻿#define CG_Gizmo
-#define CG_Privado
+﻿/**
+  Autor: Dalton Solano dos Reis
+**/
+
+#define CG_Gizmo
+// #define CG_Privado
 
 using System;
 using OpenTK;
@@ -48,19 +52,22 @@ namespace gcgcg
 
       obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_Retangulo);
+      objetoSelecionado = obj_Retangulo;
 
 #if CG_Privado
       obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegReta);
+      objetoSelecionado = obj_SegReta;
 
       obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
+      objetoSelecionado = obj_Circulo;
 #endif
 
       obj_Cilindro = new Cilindro("D", null);
       objetosLista.Add(obj_Cilindro);
       obj_Cilindro.EscalaXYZ(50, 50, 50);
-      obj_Cilindro.TranslacaoXYZ(150,0,0);
+      obj_Cilindro.TranslacaoXYZ(150, 0, 0);
 
       // obj_Cone = new Cone("E", null);
       // objetosLista.Add(obj_Cone);

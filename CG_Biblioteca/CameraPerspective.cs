@@ -1,6 +1,7 @@
-/*
+/**
   Autor: Dalton Solano dos Reis
-*/
+**/
+
 using System;
 using OpenTK;
 

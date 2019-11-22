@@ -1,4 +1,8 @@
-﻿#define CG_Gizmo
+﻿/**
+  Autor: Dalton Solano dos Reis
+**/
+
+#define CG_Gizmo
 
 using System;
 using OpenTK;
@@ -27,7 +31,7 @@ namespace gcgcg
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = true;
-    int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
+    int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private Poligono objetoNovo = null;
     private String objetoId = "A";
 
@@ -64,13 +68,11 @@ namespace gcgcg
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
-      // N3-Exe2: usar o arquivo docs/umlClasses.wsd
-      // N3-Exe3: usar o arquivo bin/documentação.XML -> ver exemplo CG_Biblioteca/bin/documentação.XML
       if (e.Key == Key.H)
         Utilitario.AjudaTeclado();
       else if (e.Key == Key.Escape)
         Exit();
-      else if (e.Key == Key.E)    // N3-Exe4: ajuda a conferir se os poligonos e vértices estão certos
+      else if (e.Key == Key.E)
       {
         Console.WriteLine("--- Objetos / Pontos: ");
         for (var i = 0; i < objetosLista.Count; i++)
@@ -79,7 +81,7 @@ namespace gcgcg
         }
       }
       else if (e.Key == Key.O)
-        bBoxDesenhar = !bBoxDesenhar;   // N3-Exe9: exibe a BBox ... sempre desenha bBox se tiver objetoSelecionado
+        bBoxDesenhar = !bBoxDesenhar;
       else if (e.Key == Key.Enter)
       {
         if (objetoNovo != null)
@@ -100,7 +102,8 @@ namespace gcgcg
         }
         else
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
-      } else if (objetoSelecionado != null)
+      } 
+      else if (objetoSelecionado != null)
       {
         if (e.Key == Key.M)
           objetoSelecionado.ExibeMatriz();
@@ -108,46 +111,47 @@ namespace gcgcg
           objetoSelecionado.PontosExibirObjeto();
         else if (e.Key == Key.I)
           objetoSelecionado.AtribuirIdentidade();
-        //FIXME: não está atualizando a BBox com as transformações geométricas
+        //TODO: não está atualizando a BBox com as transformações geométricas
         else if (e.Key == Key.Left)
-          objetoSelecionado.TranslacaoXY(-10, 0);       // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXY(-10, 0);
         else if (e.Key == Key.Right)
-          objetoSelecionado.TranslacaoXY(10, 0);        // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXY(10, 0);
         else if (e.Key == Key.Up)
-          objetoSelecionado.TranslacaoXY(0, 10);        // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXY(0, 10);
         else if (e.Key == Key.Down)
-          objetoSelecionado.TranslacaoXY(0, -10);       // N3-Exe10: translação
+          objetoSelecionado.TranslacaoXY(0, -10);
         else if (e.Key == Key.PageUp)
           objetoSelecionado.EscalaXY(2, 2);
         else if (e.Key == Key.PageDown)
           objetoSelecionado.EscalaXY(0.5, 0.5);
         else if (e.Key == Key.Home)
-          objetoSelecionado.EscalaXYBBox(0.5);          // N3-Exe11: escala
+          objetoSelecionado.EscalaXYBBox(0.5);
         else if (e.Key == Key.End)
-          objetoSelecionado.EscalaXYBBox(2);            // N3-Exe11: escala
+          objetoSelecionado.EscalaXYBBox(2);
         else if (e.Key == Key.Number1)
           objetoSelecionado.RotacaoZ(10);
         else if (e.Key == Key.Number2)
           objetoSelecionado.RotacaoZ(-10);
         else if (e.Key == Key.Number3)
-          objetoSelecionado.RotacaoZBBox(10);           // N3-Exe12: rotação
+          objetoSelecionado.RotacaoZBBox(10);
         else if (e.Key == Key.Number4)
-          objetoSelecionado.RotacaoZBBox(-10);          // N3-Exe12: rotação
+          objetoSelecionado.RotacaoZBBox(-10);
         else if (e.Key == Key.Number9)
           objetoSelecionado = null;                     // desmacar objeto selecionado
         else
           Console.WriteLine(" __ Tecla não implementada.");
-      } else
+      } 
+      else
         Console.WriteLine(" __ Tecla não implementada.");
     }
 
-    //FIXME: não está considerando o NDC
+    //TODO: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
       mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y
       if (objetoNovo != null)
       {
-        objetoNovo.PontosUltimo().X = mouseX;             // N3-Exe5: movendo um vértice de um poligono específico
+        objetoNovo.PontosUltimo().X = mouseX;
         objetoNovo.PontosUltimo().Y = mouseY;
       }
     }
