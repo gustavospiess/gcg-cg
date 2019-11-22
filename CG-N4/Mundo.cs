@@ -28,12 +28,14 @@ namespace gcgcg
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;
-    int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
+    int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private Poligono objetoNovo = null;
     private String objetoId = "A";
     private Retangulo obj_Retangulo;
+#if CG_Privado
     private Privado_SegReta obj_SegReta;
     private Privado_Circulo obj_Circulo;
+#endif
     private Cubo obj_Cubo;
     private Cilindro obj_Cilindro;
     private Cone obj_Cone;
@@ -47,11 +49,13 @@ namespace gcgcg
       obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
       objetosLista.Add(obj_Retangulo);
 
+#if CG_Privado
       obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
       objetosLista.Add(obj_SegReta);
 
       obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100, 300), 50);
       objetosLista.Add(obj_Circulo);
+#endif
 
       obj_Cilindro = new Cilindro("D", null);
       objetosLista.Add(obj_Cilindro);
@@ -155,7 +159,7 @@ namespace gcgcg
           objetoSelecionado.PontosExibirObjeto();
         else if (e.Key == Key.I)
           objetoSelecionado.AtribuirIdentidade();
-        //FIXME: não está atualizando a BBox com as transformações geométricas
+        //TODO: não está atualizando a BBox com as transformações geométricas
         else if (e.Key == Key.Left)
           objetoSelecionado.TranslacaoXYZ(-10, 0, 0);
         else if (e.Key == Key.Right)
@@ -199,7 +203,7 @@ namespace gcgcg
         Console.WriteLine(" __ Tecla não implementada.");
     }
 
-    //FIXME: não está considerando o NDC
+    //TODO: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
       mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y

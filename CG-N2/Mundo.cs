@@ -28,26 +28,29 @@ namespace gcgcg
     protected List<Objeto> objetosLista = new List<Objeto>();
     private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;
-    int mouseX, mouseY;   //FIXME: achar método MouseDown para não ter variável Global
+    int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
     private bool mouseMoverPto = false;
-    private Retangulo obj_RetanguloA;
+    private Retangulo obj_Retangulo;
 #if CG_Privado
-    private Privado_SegReta obj_SegRetaB;
-    private Privado_Circulo obj_CirculoC;
+    private Privado_SegReta obj_SegReta;
+    private Privado_Circulo obj_Circulo;
 #endif
 
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-      obj_RetanguloA = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
-      objetosLista.Add(obj_RetanguloA);
-      objetoSelecionado = obj_RetanguloA;
+      Console.WriteLine(" --- Ajuda / Teclas: ");
+      Console.WriteLine(" [  H     ] mostra teclas usadas. ");
+
+      obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
+      objetosLista.Add(obj_Retangulo);
+      objetoSelecionado = obj_Retangulo;
 #if CG_Privado
-      obj_SegRetaB = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
-      objetosLista.Add(obj_SegRetaB);
-      obj_CirculoC = new Privado_Circulo("C", null, new Ponto4D(100,300), 50);
-      objetosLista.Add(obj_CirculoC);
-      objetoSelecionado = obj_CirculoC;
+      obj_SegReta = new Privado_SegReta("B", null, new Ponto4D(50, 150), new Ponto4D(150, 250));
+      objetosLista.Add(obj_SegReta);
+      obj_Circulo = new Privado_Circulo("C", null, new Ponto4D(100,300), 50);
+      objetosLista.Add(obj_Circulo);
+      objetoSelecionado = obj_Circulo;
 #endif
       GL.ClearColor(Color.Gray);
     }
@@ -90,12 +93,12 @@ namespace gcgcg
       else if (e.Key == Key.B)
         bBoxDesenhar = !bBoxDesenhar;
       else if (e.Key == Key.V)
-        mouseMoverPto = !mouseMoverPto;   //FIXME: falta atualizar a BBox do objeto
+        mouseMoverPto = !mouseMoverPto;   //TODO: falta atualizar a BBox do objeto
       else
         Console.WriteLine(" __ Tecla não implementada.");
     }
 
-    //FIXME: não está considerando o NDC
+    //TODO: não está considerando o NDC
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
       mouseX = e.Position.X; mouseY = 600 - e.Position.Y; // Inverti eixo Y
