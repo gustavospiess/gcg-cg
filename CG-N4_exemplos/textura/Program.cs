@@ -70,10 +70,7 @@ namespace textura
 
       SRU3D();
 
-      GL.Enable(EnableCap.Texture2D);
-      GL.BindTexture(TextureTarget.Texture2D, texture);
       DesenhaCubo();
-      GL.Disable(EnableCap.Texture2D);
 
       SwapBuffers();
     }
@@ -88,7 +85,7 @@ namespace textura
       if (e.Key == Key.B)
         GL.CullFace(CullFaceMode.Back);
       if (e.Key == Key.A)
-      //FIXME: aqui deveria aplicar a textura no lado de fora e dentro, mas não aparece nada
+        //FIXME: aqui deveria aplicar a textura no lado de fora e dentro, mas não aparece nada
         GL.CullFace(CullFaceMode.FrontAndBack);
     }
 
@@ -98,6 +95,9 @@ namespace textura
 
     private void DesenhaCubo()
     {
+      GL.Enable(EnableCap.Texture2D);
+      GL.BindTexture(TextureTarget.Texture2D, texture);
+
       GL.Color3(Color.White);
       GL.Begin(PrimitiveType.Quads);
 
@@ -139,6 +139,8 @@ namespace textura
       GL.TexCoord2(0.0f, 0.0f); GL.Vertex3(-1.0f, -1.0f, -1.0f);
 
       GL.End();
+
+      GL.Disable(EnableCap.Texture2D);
     }
 
     private void SRU3D()
