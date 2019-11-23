@@ -7,6 +7,7 @@
 /// </summary>
 using OpenTK.Graphics.OpenGL;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using CG_Biblioteca;
 
@@ -14,9 +15,9 @@ namespace gcgcg
 {
   internal class Cilindro : ObjetoGeometria
   {
-    //FIXME: gerar os vetores normais, tem como fazer no link deste exemplo
+    //TODO: gerar os vetores normais, tem como fazer no link deste exemplo
     private bool exibeVetorNormal = false;
-    //FIXME: não precisava ter parte negativa, ter um tipo inteiro grande
+    //TODO: não precisava ter parte negativa, ter um tipo inteiro grande
     protected List<int> listaTopologia = new List<int>();
 
     public Cilindro(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
@@ -64,6 +65,7 @@ namespace gcgcg
 
     protected override void DesenharObjeto()
     {
+      GL.Color3(Color.White);
       GL.Begin(PrimitiveType.Triangles);
       foreach (int index in listaTopologia)
         GL.Vertex3(base.pontosLista[index].X, base.pontosLista[index].Y, base.pontosLista[index].Z);
