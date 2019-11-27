@@ -13,6 +13,19 @@ using System.Collections.Generic;
 using OpenTK.Input;
 using CG_Biblioteca;
 
+
+//TODO: arrumar o id dos objetos usando char letra = 'A'; letra++;
+//TODO: ter mais objetos geométricos: esfera
+//TODO: arrumar objeto cone
+//TODO: ter iluminação
+//TODO: ter textura
+//TODO: ter texto 2D
+//TODO: ter um mapa em 2D
+//TODO: ler arquivo OBJ/MTL
+//TODO: ter audio
+//TODO: usar DisplayList
+//TODO: Seleciona Alpha
+//TODO: Unproject
 namespace gcgcg
 {
   class Mundo : GameWindow
