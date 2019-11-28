@@ -10,12 +10,12 @@ using OpenTK.Input;
 
 namespace Iluminacao
 {
-  class Render : GameWindow
+  class Mundo : GameWindow
   {
     private bool ligaLuz = true;
     private Color cor = Color.White;
 
-    public Render(int width, int height) : base(width, height) { }
+    public Mundo(int width, int height) : base(width, height) { }
 
     protected override void OnLoad(EventArgs e)
     {
@@ -42,10 +42,6 @@ namespace Iluminacao
 
       //FIXME: cor só aparece nas superfícies laterais. Ter mais tipos de luz.      
       GL.Material(MaterialFace.Front, MaterialParameter.ColorIndexes, cor);
-    }
-
-    protected override void OnUnload(EventArgs e)
-    {
     }
 
     protected override void OnResize(EventArgs e)
@@ -173,7 +169,7 @@ namespace Iluminacao
   {
     static void Main(string[] args)
     {
-      Render window = new Render(600, 600);
+      Mundo window = new Mundo(600, 600);
       window.Run(1.0 / 60.0);
     }
   }
