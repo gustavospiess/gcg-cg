@@ -11,6 +11,7 @@ namespace Mundo
   {
     private float fovy, aspect, near, far;
     private Vector3 eye, at, up;
+    
     public Mundo(int width, int height) : base(width, height) { }
 
     protected override void OnLoad(EventArgs e)
