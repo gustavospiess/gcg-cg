@@ -11,14 +11,14 @@ using OpenTK.Input;
 
 namespace textura
 {
-  class Render : GameWindow
+  class Mundo : GameWindow
   {
     //FIXME: precisei instalar $ brew install mono-libgdiplus
     Bitmap bitmap = new Bitmap("logoGCG.png");
 
     int texture;
 
-    public Render(int width, int height) : base(width, height) { }
+    public Mundo(int width, int height) : base(width, height) { }
 
     protected override void OnLoad(EventArgs e)
     {
@@ -162,7 +162,7 @@ namespace textura
   {
     static void Main(string[] args)
     {
-      Render window = new Render(600, 600);
+      Mundo window = new Mundo(600, 600);
       window.Run(1.0 / 60.0);
     }
   }
