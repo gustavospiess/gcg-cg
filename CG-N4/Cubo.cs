@@ -69,19 +69,21 @@ namespace gcgcg
         GL.Vertex3(base.pontosLista[4].X, base.pontosLista[4].Y, base.pontosLista[4].Z);    // PtoE
         GL.End();
 
-      // if (exibeVetorNormal) //FIXME: acho que não precisa.
-      //   ajudaExibirVetorNormal(); //FIXME: acho que não precisa.
+      // if (exibeVetorNormal) //TODO: acho que não precisa.
+      //   ajudaExibirVetorNormal(); //TODO: acho que não precisa.
     }
 
-    protected override void PontosExibir()
-    { //FIXME: acho que não precisa, deve estar na Classe ObjetoGeometrico.
-      // Console.WriteLine("__ Objeto: " + base.rotulo);
-      // for (var i = 0; i < pontosLista.Count; i++)
-      // {
-      //   Console.WriteLine("P" + i + "[" + pontosLista[i].X + "," + pontosLista[i].Y + "," + pontosLista[i].Z + "," + pontosLista[i].W + "]");
-      // }
+    //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
+    public override string ToString()
+    {
+      string retorno;
+      retorno = "__ Objeto Cubo: " + base.rotulo + "\n";
+      for (var i = 0; i < pontosLista.Count; i++)
+      {
+        retorno += "P" + i + "[" + pontosLista[i].X + "," + pontosLista[i].Y + "," + pontosLista[i].Z + "," + pontosLista[i].W + "]" + "\n";
+      }
+      return (retorno);
     }
-
 
   }
 }

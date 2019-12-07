@@ -96,7 +96,7 @@ namespace CG_Biblioteca
       matriz[5] = Math.Cos(radians);
     }
 
-    //FIXME: tentar usar Const
+    //TODO: tentar usar Const
     // public Ponto4D MultiplicarPonto(in Ponto4D pto)
     // {
     //   pto.X = 3;
@@ -145,14 +145,17 @@ namespace CG_Biblioteca
       }
     }
 
-    public void ExibeMatriz()
+    public override string ToString()
     {
-      Console.WriteLine("______________________");
-      Console.WriteLine("|" + ObterElemento(0) + " | " + ObterElemento(4) + " | " + ObterElemento(8) + " | " + ObterElemento(12));
-      Console.WriteLine("|" + ObterElemento(1) + " | " + ObterElemento(5) + " | " + ObterElemento(9) + " | " + ObterElemento(13));
-      Console.WriteLine("|" + ObterElemento(2) + " | " + ObterElemento(6) + " | " + ObterElemento(10) + " | " + ObterElemento(14));
-      Console.WriteLine("|" + ObterElemento(3) + " | " + ObterElemento(7) + " | " + ObterElemento(11) + " | " + ObterElemento(15));
+      string retorno;
+      retorno = "__ Transformacao4D: " + "\n";
+      retorno += "|" + ObterElemento(0) + " | " + ObterElemento(4) + " | " + ObterElemento(8) + " | " + ObterElemento(12) + "\n";
+      retorno += "|" + ObterElemento(1) + " | " + ObterElemento(5) + " | " + ObterElemento(9) + " | " + ObterElemento(13) + "\n";
+      retorno += "|" + ObterElemento(2) + " | " + ObterElemento(6) + " | " + ObterElemento(10) + " | " + ObterElemento(14) + "\n";
+      retorno += "|" + ObterElemento(3) + " | " + ObterElemento(7) + " | " + ObterElemento(11) + " | " + ObterElemento(15) + "\n";
+      return (retorno);
     }
+
 
   }
 

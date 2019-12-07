@@ -37,5 +37,20 @@ namespace CG_Biblioteca
     public Vector3 At { get => at; set => at = value; }
     public Vector3 Up { get => up; }
 
+    //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
+    public override string ToString()
+    {
+      string retorno;
+      retorno = "__ CameraPerspective: " + "\n";
+      retorno += "fovy: " + fovy + "\n";
+      retorno += "aspect: " + aspect + "\n";
+      retorno += "near: " + near + "\n";
+      retorno += "far: " + far + "\n";
+      retorno += "eye [" + eye.X + "," + eye.Y + "," + eye.Z + "]" + "\n";
+      retorno += "at [" + at.X + "," + at.Y + "," + at.Z + "]" + "\n";
+      retorno += "up [" + up.X + "," + up.Y + "," + up.Z + "]" + "\n";
+      return (retorno);
+    }
+
   }
 }

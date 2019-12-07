@@ -77,5 +77,14 @@ namespace CG_Biblioteca
     /// </summary>
     /// <value>coordeanda w</value>
     public double W { get => w; }
+
+    public override string ToString()
+    {
+      string retorno;
+      retorno = "__ Ponto4D: " + "\n";
+      retorno += "P" + "[" + x + "," + y + "," + z + "," + w + "]" + "\n";
+      return (retorno);
+    }
+
   }
 }

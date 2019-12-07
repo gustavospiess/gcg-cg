@@ -55,6 +55,7 @@ namespace gcgcg
 #endif
     private Cubo obj_Cubo;
     private Cilindro obj_Cilindro;
+    private Esfera obj_Esfera;
     private Cone obj_Cone;
 
     protected override void OnLoad(EventArgs e)
@@ -82,16 +83,21 @@ namespace gcgcg
       obj_Cilindro.EscalaXYZ(50, 50, 50);
       obj_Cilindro.TranslacaoXYZ(150, 0, 0);
 
-      // obj_Cone = new Cone("E", null);
+      obj_Esfera = new Esfera("E", null);
+      objetosLista.Add(obj_Esfera);
+      obj_Esfera.EscalaXYZ(50, 50, 50);
+      obj_Esfera.TranslacaoXYZ(200, 0, 0);
+
+      // obj_Cone = new Cone("F", null);
       // objetosLista.Add(obj_Cone);
       // obj_Cone.EscalaXYZ(50, 50, 50);
-      // obj_Cone.TranslacaoXYZ(200,0,0);
+      // obj_Cone.TranslacaoXYZ(250,0,0);
 
-      obj_Cubo = new Cubo("F", null);
+      obj_Cubo = new Cubo("G", null);
       objetosLista.Add(obj_Cubo);
       obj_Cubo.EscalaXYZ(50, 50, 50);
 
-      objetoSelecionado = obj_Cilindro;
+      objetoSelecionado = obj_Cubo;
 
       camera.At = new Vector3(0, 0, 0);
       camera.Eye = new Vector3(1000, 1000, 1000);
@@ -100,7 +106,8 @@ namespace gcgcg
 
       GL.ClearColor(Color.Gray);
       GL.Enable(EnableCap.DepthTest);
-      GL.Enable(EnableCap.CullFace);
+      // GL.Enable(EnableCap.CullFace);
+      GL.Disable(EnableCap.CullFace);
     }
     protected override void OnResize(EventArgs e)
     {
@@ -145,7 +152,7 @@ namespace gcgcg
         Console.WriteLine("--- Objetos / Pontos: ");
         for (var i = 0; i < objetosLista.Count; i++)
         {
-          objetosLista[i].PontosExibirObjeto();
+          Console.WriteLine(objetosLista[i]);
         }
       }
       else if (e.Key == Key.O)
@@ -174,9 +181,9 @@ namespace gcgcg
       else if (objetoSelecionado != null)
       {
         if (e.Key == Key.M)
-          objetoSelecionado.ExibeMatriz();
+          Console.WriteLine(objetoSelecionado.Matriz);
         else if (e.Key == Key.P)
-          objetoSelecionado.PontosExibirObjeto();
+          Console.WriteLine(objetoSelecionado);
         else if (e.Key == Key.I)
           objetoSelecionado.AtribuirIdentidade();
         //TODO: não está atualizando a BBox com as transformações geométricas

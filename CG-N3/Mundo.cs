@@ -77,7 +77,7 @@ namespace gcgcg
         Console.WriteLine("--- Objetos / Pontos: ");
         for (var i = 0; i < objetosLista.Count; i++)
         {
-          objetosLista[i].PontosExibirObjeto();
+          Console.WriteLine(objetosLista[i]);
         }
       }
       else if (e.Key == Key.O)
@@ -102,13 +102,13 @@ namespace gcgcg
         }
         else
           objetoNovo.PontosAdicionar(new Ponto4D(mouseX, mouseY));
-      } 
+      }
       else if (objetoSelecionado != null)
       {
         if (e.Key == Key.M)
-          objetoSelecionado.ExibeMatriz();
+          Console.WriteLine(objetoSelecionado.Matriz);
         else if (e.Key == Key.P)
-          objetoSelecionado.PontosExibirObjeto();
+          Console.WriteLine(objetoSelecionado);
         else if (e.Key == Key.I)
           objetoSelecionado.AtribuirIdentidade();
         //TODO: não está atualizando a BBox com as transformações geométricas
@@ -140,7 +140,7 @@ namespace gcgcg
           objetoSelecionado = null;                     // desmacar objeto selecionado
         else
           Console.WriteLine(" __ Tecla não implementada.");
-      } 
+      }
       else
         Console.WriteLine(" __ Tecla não implementada.");
     }

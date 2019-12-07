@@ -41,10 +41,5 @@ namespace gcgcg
     {
       this.objetosLista.Remove(filho);
     }
-    protected abstract void PontosExibir();
-    public void PontosExibirObjeto()
-    {
-      PontosExibir();
-    }
   }
 }

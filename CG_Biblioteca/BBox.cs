@@ -115,5 +115,16 @@ namespace CG_Biblioteca
     /// Obter ponto do centro da BBox.
     public Ponto4D obterCentro => centro;
 
+    //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
+    public override string ToString()
+    {
+      string retorno;
+      retorno = "__ BBox: " + "\n";
+      retorno += "menorX: " + menorX + " - maiorX" + maiorX + "\n";
+      retorno += "menorY: " + menorY + " - maiorY" + maiorY + "\n";
+      retorno += "menorZ: " + menorZ + " - maiorZ" + maiorZ + "\n";
+      return (retorno);
+    }
+
   }
 }

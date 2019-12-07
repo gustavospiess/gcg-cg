@@ -48,5 +48,16 @@ namespace CG_Biblioteca
       xMin -= 2; xMax += 2; yMin -= 2; yMax += 2;
     }
 
+    //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
+    public override string ToString()
+    {
+      string retorno;
+      retorno = "__ CameraOrtho: " + "\n";
+      retorno += "xMin: " + xMin + " - xMax: " + xMax + "\n";
+      retorno += "yMin: " + yMin + " - yMax: " + yMax + "\n";
+      retorno += "zMin: " + zMin + " - zMax: " + zMax + "\n";
+      return (retorno);
+    }
+
   }
 }

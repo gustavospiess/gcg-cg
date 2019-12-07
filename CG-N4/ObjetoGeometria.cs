@@ -45,13 +45,15 @@ namespace gcgcg
       return pontosLista[pontosLista.Count - 1];
     }
 
-    protected override void PontosExibir()
+    public override string ToString()
     {
-      Console.WriteLine("__ Objeto: " + base.rotulo);
+      string retorno;
+      retorno = "__ Objeto: " + base.rotulo + "\n";
       for (var i = 0; i < pontosLista.Count; i++)
       {
-        Console.WriteLine("P" + i + "[" + pontosLista[i].X + "," + pontosLista[i].Y + "," + pontosLista[i].Z + "," + pontosLista[i].W + "]");
+        retorno += "P" + i + "[" + pontosLista[i].X + "," + pontosLista[i].Y + "," + pontosLista[i].Z + "," + pontosLista[i].W + "]" + "\n";
       }
+      return (retorno);
     }
   }
 }

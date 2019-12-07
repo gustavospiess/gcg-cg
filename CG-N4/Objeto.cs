@@ -20,6 +20,8 @@ namespace gcgcg
     private List<Objeto> objetosLista = new List<Objeto>();
 
     private Transformacao4D matriz = new Transformacao4D();
+    public Transformacao4D Matriz { get => matriz; }
+
     /// Matrizes temporarias que sempre sao inicializadas com matriz Identidade entao podem ser "static".
     private static Transformacao4D matrizTmpTranslacao = new Transformacao4D();
     private static Transformacao4D matrizTmpTranslacaoInversa = new Transformacao4D();
@@ -53,15 +55,6 @@ namespace gcgcg
     public void FilhoRemover(Objeto filho)
     {
       this.objetosLista.Remove(filho);
-    }
-    protected abstract void PontosExibir();
-    public void PontosExibirObjeto()
-    {
-      PontosExibir();
-    }
-    public void ExibeMatriz()
-    {
-      matriz.ExibeMatriz();
     }
     public void AtribuirIdentidade()
     {

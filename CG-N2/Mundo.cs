@@ -95,7 +95,7 @@ namespace gcgcg
         Console.WriteLine("--- Objetos / Pontos: ");
         for (var i = 0; i < objetosLista.Count; i++)
         {
-          objetosLista[i].PontosExibirObjeto();
+          Console.WriteLine(objetosLista[i]);
         }
       }
       else if (e.Key == Key.O)
