@@ -3,7 +3,6 @@
 **/
 
 using OpenTK.Graphics.OpenGL;
-using System.Drawing;
 using CG_Biblioteca;
 
 // ATENÇÃO: remover: "Privado_"
@@ -17,7 +16,7 @@ namespace gcgcg
 
     protected override void DesenharObjeto()
     {
-      GL.Color3(Color.White);
+      GL.Color3(255,255,255);
       GL.Begin(base.PrimitivaTipo);
       foreach (Ponto4D pto in pontosLista)
       {

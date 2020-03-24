@@ -7,7 +7,6 @@
 /// </summary>
 using OpenTK.Graphics.OpenGL;
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 using CG_Biblioteca;
 
@@ -60,7 +59,7 @@ namespace gcgcg
     protected override void DesenharObjeto()
     {
       GL.PushMatrix();
-      GL.Color3(Color.White);
+      GL.Color3(255,255,255);
       // GL.Begin(PrimitiveType.Triangles);
       // foreach (int index in listaTopologia)
       //   GL.Vertex3(base.pontosLista[index].X, base.pontosLista[index].Y, base.pontosLista[index].Z);

@@ -8,7 +8,6 @@
 using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
-using System.Drawing;
 using System.Collections.Generic;
 using OpenTK.Input;
 using CG_Biblioteca;
@@ -104,7 +103,7 @@ namespace gcgcg
       camera.Near = 100.0f;
       camera.Far = 2000.0f;
 
-      GL.ClearColor(Color.Gray);
+      GL.ClearColor(127,127,127,255);
       GL.Enable(EnableCap.DepthTest);
       // GL.Enable(EnableCap.CullFace);
       GL.Disable(EnableCap.CullFace);
@@ -246,11 +245,11 @@ namespace gcgcg
     {
       GL.LineWidth(1);
       GL.Begin(PrimitiveType.Lines);
-      GL.Color3(Color.Red);
+      GL.Color3(255,0,0);
       GL.Vertex3(0, 0, 0); GL.Vertex3(200, 0, 0);
-      GL.Color3(Color.Green);
+      GL.Color3(0,255,0);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 200, 0);
-      GL.Color3(Color.Blue);
+      GL.Color3(0,0,255);
       GL.Vertex3(0, 0, 0); GL.Vertex3(0, 0, 200);
       GL.End();
     }

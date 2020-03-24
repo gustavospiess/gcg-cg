@@ -7,7 +7,6 @@
 using System;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
-using System.Drawing;
 using System.Collections.Generic;
 using OpenTK.Input;
 using CG_Biblioteca;

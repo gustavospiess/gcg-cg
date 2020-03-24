@@ -4,7 +4,6 @@
 
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
-using System.Drawing;
 
 namespace CG_Biblioteca
 {
