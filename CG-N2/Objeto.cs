@@ -11,8 +11,8 @@ namespace gcgcg
   internal abstract class Objeto
   {
     protected string rotulo;
-    private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
-    protected PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
+    public PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
+    public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
     private float primitivaTamanho = 2;
     protected float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }
     private BBox bBox = new BBox();
