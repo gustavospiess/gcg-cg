@@ -11,6 +11,7 @@ namespace gcgcg
 {
   internal abstract class ObjetoGeometria : Objeto
   {
+
     protected List<Ponto4D> pontosLista = new List<Ponto4D>();
 
     public ObjetoGeometria(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }
@@ -19,7 +20,9 @@ namespace gcgcg
     {
       DesenharObjeto();
     }
+
     protected abstract void DesenharObjeto();
+
     public void PontosAdicionar(Ponto4D pto)
     {
       pontosLista.Add(pto);

@@ -15,10 +15,14 @@ namespace gcgcg
       Mundo window = Mundo.GetInstance(600, 600);
       window.Title = "CG-N2";
 
-      window.addObjeto(new Eixos("Eixos", null));
+      Objeto eixo = new Eixos("Eixos", null);
+      eixo.PrimitivaTamanho = 4;
+      window.addObjeto(eixo);
 
-      Objeto circulo = new Circulo("C", null, new Ponto4D(0, 0), 100);
-      circulo.primitivaTipo = PrimitiveType.Lines;
+      Objeto circulo = new Circulo("A", null, new Ponto4D(0, 0), 100);
+      circulo.PrimitivaTipo = PrimitiveType.Points;
+      circulo.Cor = Color.Yellow;
+      circulo.PrimitivaTamanho = 4;
       window.addObjeto(circulo);
 
       // window.addObjeto(new SegReta("B", null, new Ponto4D(0, 0), new Ponto4D(0, 250)))

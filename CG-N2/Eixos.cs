@@ -2,38 +2,29 @@
   Autor: Gustavo Spiess
 **/
 
+using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using CG_Biblioteca;
 
 namespace gcgcg
 {
-  internal class Eixos : ObjetoGeometria
+  internal class Eixos : Objeto
   {
     public Eixos(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
     {
+      Ponto4D origin = new Ponto4D(0, 0);
+
+      Objeto eixoX = new SegReta(rotulo + "(X)", this, origin, new Ponto4D(0, 200));
+      eixoX.Cor = Color.Green;
+      this.FilhoAdicionar(eixoX);
+      Objeto eixoY = new SegReta(rotulo + "(X)", this, origin, new Ponto4D(200, 0));
+      eixoY.Cor = Color.Red;
+      this.FilhoAdicionar(eixoY);
     }
-    protected override void DesenharObjeto()
+
+    protected override void DesenharGeometria()
     {
-
-      GL.Begin(PrimitiveType.Lines);
-        GL.Color3(255,0,0);
-        GL.Vertex2(0, 0);
-        GL.Vertex2(0, 250);
-      GL.End();
-
-      GL.Begin(PrimitiveType.Lines);
-        GL.Color3(0,255,0);
-        GL.Vertex2(0, 0);
-        GL.Vertex2(250, 0);
-      GL.End();
-
-    }
-    //TODO: melhorar para exibir não só a lsita de pontos (geometria), mas também a topologia ... poderia ser listado estilo OBJ da Wavefrom
-    public override string ToString()
-    {
-      string retorno;
-      retorno = "__ Objeto Eixos: " + base.rotulo + "\n";
-      return (retorno);
+      //TODO remover a necessidade desse método vazio
     }
 
   }
