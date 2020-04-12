@@ -5,6 +5,7 @@
 using OpenTK.Graphics.OpenGL;
 using CG_Biblioteca;
 using System.Collections.Generic;
+using System;
 
 namespace gcgcg
 {
@@ -19,12 +20,19 @@ namespace gcgcg
     protected override void DesenharObjeto()
     {
       GL.Color3(this.Cor);
-      GL.LineWidth(this.PrimitivaTamanho);
-      GL.PointSize(this.PrimitivaTamanho);
+      GL.LineWidth(this.PrimitivaLargura);
+      GL.PointSize(this.PrimitivaLargura);
       GL.Begin(this.PrimitivaTipo);
       foreach (Ponto4D pto in pontosLista)
       {
-        GL.Vertex2(pto.X, pto.Y);
+        double cos = Math.Cos(Math.PI * Angulo / -180.0);
+        double sin = Math.Sin(Math.PI * Angulo / -180.0);
+        
+        Ponto4D ptoTam = new Ponto4D(pto.X*this.PrimitivaTamanho, pto.Y*this.PrimitivaTamanho);
+        Ponto4D ptoRot = new Ponto4D(ptoTam.X*cos + ptoTam.Y*sin, -1 * sin * ptoTam.X + ptoTam.Y * cos);
+        Ponto4D ptoMov = ptoRot + this.Posicao;
+
+        GL.Vertex2(ptoMov.X, ptoMov.Y);
       }
       GL.End();
     }

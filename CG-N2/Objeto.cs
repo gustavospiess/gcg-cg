@@ -13,17 +13,40 @@ namespace gcgcg
   {
     protected string rotulo;
 
+    protected double angulo = 0;
+    public double Angulo { get => angulo; set => angulo = value; }
+
+    protected Ponto4D posicao = new Ponto4D(0, 0);
+    public Ponto4D Posicao { get => posicao; set => posicao = value; }
+
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
 
-    private float primitivaTamanho = 2;
-    public float PrimitivaTamanho { get => primitivaTamanho; set => this.setTamanho(value); }
+    private float primitivaTamanho = 1;
+    public float PrimitivaTamanho { get => primitivaTamanho; set => setTamanho(value); }
     private void setTamanho(float tamanho)
     {
-      primitivaTamanho = tamanho;
-      for (var i = 0; i < objetosLista.Count; i++)
+      if ( tamanho > 0 )
       {
-        objetosLista[i].PrimitivaTamanho = tamanho;
+        primitivaTamanho = tamanho;
+        for (var i = 0; i < objetosLista.Count; i++)
+        {
+          objetosLista[i].PrimitivaLargura = tamanho;
+        }
+      }
+    }
+
+    private float primitivaLargura = 4;
+    public float PrimitivaLargura { get => primitivaLargura; set => this.setLargura(value); }
+    private void setLargura(float largura)
+    {
+      if ( largura > 0 )
+      {
+        primitivaLargura = largura;
+        for (var i = 0; i < objetosLista.Count; i++)
+        {
+          objetosLista[i].PrimitivaLargura = largura;
+        }
       }
     }
 

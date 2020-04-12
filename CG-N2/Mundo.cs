@@ -135,6 +135,26 @@ namespace gcgcg
         int atual = lista_primitivas.IndexOf(ultimo.PrimitivaTipo);
         ultimo.PrimitivaTipo = lista_primitivas[(atual + 1) % lista_primitivas.Count];
       }
+      else if (e.Key == Key.Z)
+      {
+        Objeto ultimo = objetosLista[objetosLista.Count-1];
+        ultimo.Angulo = (ultimo.Angulo + 9) % 360;
+      }
+      else if (e.Key == Key.X)
+      {
+        Objeto ultimo = objetosLista[objetosLista.Count-1];
+        ultimo.Angulo = (ultimo.Angulo - 9) % 360;
+      }
+      else if (e.Key == Key.A)
+      {
+        Objeto ultimo = objetosLista[objetosLista.Count-1];
+        ultimo.PrimitivaTamanho += 0.1f;
+      }
+      else if (e.Key == Key.S)
+      {
+        Objeto ultimo = objetosLista[objetosLista.Count-1];
+        ultimo.PrimitivaTamanho -= 0.1f;
+      }
       else if (e.Key == Key.V)
       {
         mouseMoverPto = !mouseMoverPto;
