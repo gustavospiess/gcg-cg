@@ -29,6 +29,20 @@ namespace gcgcg
     int mouseX, mouseY;
     private bool mouseMoverPto = false;
 
+    private List<PrimitiveType> lista_primitivas = new List<PrimitiveType>()
+    {
+      PrimitiveType.Points,
+      PrimitiveType.Lines,
+      PrimitiveType.LineLoop,
+      PrimitiveType.LineStrip,
+      PrimitiveType.Triangles,
+      PrimitiveType.TriangleStrip,
+      PrimitiveType.TriangleFan,
+      PrimitiveType.Quads,
+      PrimitiveType.QuadStrip,
+      PrimitiveType.Polygon
+    };
+
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
@@ -115,9 +129,11 @@ namespace gcgcg
         camera.xmin -= 10;
         camera.xmax += 10;
       }
-      else if (e.Key == Key.O)
+      else if (e.Key == Key.Space)
       {
-        bBoxDesenhar = !bBoxDesenhar;
+        Objeto ultimo = objetosLista[objetosLista.Count-1];
+        int atual = lista_primitivas.IndexOf(ultimo.PrimitivaTipo);
+        ultimo.PrimitivaTipo = lista_primitivas[(atual + 1) % lista_primitivas.Count];
       }
       else if (e.Key == Key.V)
       {

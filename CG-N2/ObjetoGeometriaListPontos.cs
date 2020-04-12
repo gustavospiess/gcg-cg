@@ -4,11 +4,14 @@
 
 using OpenTK.Graphics.OpenGL;
 using CG_Biblioteca;
+using System.Collections.Generic;
 
 namespace gcgcg
 {
   internal class ObjetoGeometriaListPontos: ObjetoGeometria
   {
+
+    protected List<Ponto4D> pontosLista = new List<Ponto4D>();
 
     public ObjetoGeometriaListPontos(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
     {}
@@ -37,5 +40,19 @@ namespace gcgcg
       return (retorno);
     }
 
+    public void PontosAdicionar(Ponto4D pto)
+    {
+      pontosLista.Add(pto);
+      if (pontosLista.Count.Equals(1))
+        base.BBox.Atribuir(pto);
+      else
+        base.BBox.Atualizar(pto);
+      base.BBox.ProcessarCentro();
+    }
+
+    public override Ponto4D PontosUltimo()
+    {
+      return pontosLista[pontosLista.Count - 1];
+    }
   }
 }
