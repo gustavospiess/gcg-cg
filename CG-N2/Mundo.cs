@@ -36,6 +36,11 @@ namespace gcgcg
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
 
       GL.ClearColor(Color.Gray);
+      
+      camera.xmin = -300;
+      camera.xmax = 300;
+      camera.ymin = -300;
+      camera.ymax = 300;
     }
 
     public void addObjeto(Objeto o)
@@ -48,8 +53,7 @@ namespace gcgcg
       base.OnUpdateFrame(e);
       GL.MatrixMode(MatrixMode.Projection);
       GL.LoadIdentity();
-      // GL.Ortho(camera.xmin, camera.xmax, camera.ymin, camera.ymax, camera.zmin, camera.zmax);
-      GL.Ortho(-300, 300, -300, 300, camera.zmin, camera.zmax);
+      GL.Ortho(camera.xmin, camera.xmax, camera.ymin, camera.ymax, camera.zmin, camera.zmax);
     }
     protected override void OnRenderFrame(FrameEventArgs e)
     {
@@ -67,23 +71,62 @@ namespace gcgcg
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
       if (e.Key == Key.H)
+      {
         Utilitario.AjudaTeclado();
+      }
       else if (e.Key == Key.Escape)
+      {
         Exit();
+      }
       else if (e.Key == Key.E)
       {
-        Console.WriteLine("--- Objetos / Pontos: ");
-        for (var i = 0; i < objetosLista.Count; i++)
+        camera.xmin -= 10;
+        camera.xmax -= 10;
+      }
+      else if (e.Key == Key.D)
+      {
+        camera.xmin += 10;
+        camera.xmax += 10;
+      }
+      else if (e.Key == Key.B)
+      {
+        camera.ymin -= 10;
+        camera.ymax -= 10;
+      }
+      else if (e.Key == Key.C)
+      {
+        camera.ymin += 10;
+        camera.ymax += 10;
+      }
+      else if (e.Key == Key.I)
+      {
+        if (camera.ymax - camera.ymin > 175)
         {
-          Console.WriteLine(objetosLista[i]);
+          camera.ymin += 10;
+          camera.ymax -= 10;
+          camera.xmin += 10;
+          camera.xmax -= 10;
         }
       }
       else if (e.Key == Key.O)
+      {
+        camera.ymin -= 10;
+        camera.ymax += 10;
+        camera.xmin -= 10;
+        camera.xmax += 10;
+      }
+      else if (e.Key == Key.O)
+      {
         bBoxDesenhar = !bBoxDesenhar;
+      }
       else if (e.Key == Key.V)
+      {
         mouseMoverPto = !mouseMoverPto;
+      }
       else
+      {
         Console.WriteLine(" __ Tecla não implementada.");
+      }
     }
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
