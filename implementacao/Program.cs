@@ -18,59 +18,12 @@ namespace gcgcg
       Objeto eixo = new Eixos("Eixos", null);
       mundo.addObjeto(eixo);
 
-      Enunciado5(mundo);
-
-      mundo.Run(1.0 / 60.0);
-    }
-
-    static void Enunciado1(Mundo mundo) {
       Objeto circulo = new Circulo("A", null, new Ponto4D(0, 0), 100);
       circulo.PrimitivaTipo = PrimitiveType.Points;
       circulo.Cor = Color.Yellow;
       mundo.addObjeto(circulo);
+
+      mundo.Run(1.0 / 60.0);
     }
-
-    static void Enunciado3(Mundo mundo) {
-      Objeto circulo_superior = new Circulo("A", null, new Ponto4D(0, 100), 100);
-      circulo_superior.PrimitivaTipo = PrimitiveType.Points;
-      mundo.addObjeto(circulo_superior);
-
-      Objeto circulo_direita = new Circulo("B", null, new Ponto4D(100, -100), 100);
-      circulo_direita.PrimitivaTipo = PrimitiveType.Points;
-      mundo.addObjeto(circulo_direita);
-
-      Objeto circulo_esquerda = new Circulo("C", null, new Ponto4D(-100, -100), 100);
-      circulo_esquerda.PrimitivaTipo = PrimitiveType.Points;
-      mundo.addObjeto(circulo_esquerda);
-
-      Objeto reta_direita = new SegReta("D", null, new Ponto4D(100, -100), new Ponto4D(0, 100));
-      reta_direita.Cor = Color.LightBlue;
-      mundo.addObjeto(reta_direita);
-
-      Objeto reta_esquerda = new SegReta("D", null, new Ponto4D(-100, -100), new Ponto4D(0, 100));
-      reta_esquerda.Cor = Color.LightBlue;
-      mundo.addObjeto(reta_esquerda);
-
-      Objeto reta_inferior = new SegReta("D", null, new Ponto4D(-100, -100), new Ponto4D(100, -100));
-      reta_inferior.Cor = Color.LightBlue;
-      mundo.addObjeto(reta_inferior);
-    }
-
-    static void Enunciado4(Mundo mundo) {
-      ObjetoGeometriaListPontos objeto_geometria = new ObjetoGeometriaListPontos("A", null);
-      objeto_geometria.PontosAdicionar(new Ponto4D(200, 200));
-      objeto_geometria.PontosAdicionar(new Ponto4D(-200, 200));
-      objeto_geometria.PontosAdicionar(new Ponto4D(-200, -200));
-      objeto_geometria.PontosAdicionar(new Ponto4D(200, -200));
-      objeto_geometria.PrimitivaTipo = PrimitiveType.Points;
-      mundo.addObjeto(objeto_geometria);
-    }
-
-    static void Enunciado5(Mundo mundo) {
-      ObjetoGeometria palito = new SegReta("D", null, new Ponto4D(0, 0), new Ponto4D(100, 0));
-      palito.Angulo = 45;
-      mundo.addObjeto(palito);
-    }
-
   }
 }
