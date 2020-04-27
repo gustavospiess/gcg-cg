@@ -17,6 +17,17 @@ namespace gcgcg
 
       Objeto eixo = new Eixos("Eixos", null);
       mundo.addObjeto(eixo);
+
+      ObjetoSpline sp = new ObjetoSpline("Spline", null);
+      sp.PontosAdicionar(new Ponto4D(-100, -100));
+      sp.PontosAdicionar(new Ponto4D(-100, 100));
+      sp.PontosAdicionar(new Ponto4D(100, 100));
+      sp.PontosAdicionar(new Ponto4D(100, -100));
+
+      mundo.addObjeto(sp);
+      mundo.objetoSelecionado = sp;
+
+      mundo.Run(1.0 / 60.0);
     }
   }
 }

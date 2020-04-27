@@ -24,7 +24,7 @@ namespace gcgcg
 
     private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    public ObjetoGeometria objetoSelecionado = null;
+    public ObjetoSpline objetoSelecionado = null;
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;
     private bool mouseMoverPto = false;
@@ -100,95 +100,86 @@ namespace gcgcg
       {
         Exit();
       }
-      else if (e.Key == Key.E)
-      {
-        camera.xmin -= 10;
-        camera.xmax -= 10;
-      }
-      else if (e.Key == Key.D)
-      {
-        camera.xmin += 10;
-        camera.xmax += 10;
-      }
       else if (e.Key == Key.B)
       {
-        camera.ymin -= 10;
-        camera.ymax -= 10;
+        if (objetoSelecionado != null)
+        {
+          objetoSelecionado.move(new Ponto4D(0, -10));
+        }
       }
       else if (e.Key == Key.C)
       {
-        camera.ymin += 10;
-        camera.ymax += 10;
-      }
-      else if (e.Key == Key.I)
-      {
-        if (camera.ymax - camera.ymin > 175)
+        if (objetoSelecionado != null)
         {
-          camera.ymin += 10;
-          camera.ymax -= 10;
-          camera.xmin += 10;
-          camera.xmax -= 10;
+          objetoSelecionado.move(new Ponto4D(0, 10));
         }
       }
-      else if (e.Key == Key.O)
-      {
-        camera.ymin -= 10;
-        camera.ymax += 10;
-        camera.xmin -= 10;
-        camera.xmax += 10;
-      }
-      else if (e.Key == Key.Space)
+      else if (e.Key == Key.E)
       {
         if (objetoSelecionado != null)
         {
-          int atual = lista_primitivas.IndexOf(objetoSelecionado.PrimitivaTipo);
-          objetoSelecionado.PrimitivaTipo = lista_primitivas[(atual + 1) % lista_primitivas.Count];
+          objetoSelecionado.move(new Ponto4D(-10, 0));
         }
       }
-      else if (e.Key == Key.Z)
+      else if (e.Key == Key.D)
       {
         if (objetoSelecionado != null)
         {
-          objetoSelecionado.Angulo = (objetoSelecionado.Angulo + 9) % 360;
+          objetoSelecionado.move(new Ponto4D(10, 0));
         }
       }
-      else if (e.Key == Key.X)
+      else if (e.Key == Key.Number0)
       {
         if (objetoSelecionado != null)
         {
-          objetoSelecionado.Angulo = (objetoSelecionado.Angulo - 9) % 360;
+          objetoSelecionado.pontoSel = -1;
         }
       }
-      else if (e.Key == Key.A)
+      else if (e.Key == Key.Number1)
       {
         if (objetoSelecionado != null)
         {
-          objetoSelecionado.PrimitivaTamanho += 0.1f;
+          objetoSelecionado.pontoSel = 0;
         }
       }
-      else if (e.Key == Key.S)
+      else if (e.Key == Key.Number2)
       {
         if (objetoSelecionado != null)
         {
-          objetoSelecionado.PrimitivaTamanho -= 0.1f;
+          objetoSelecionado.pontoSel = 1;
         }
       }
-      else if (e.Key == Key.V)
-      {
-        mouseMoverPto = !mouseMoverPto;
-      }
-      else if (e.Key == Key.Q)
+      else if (e.Key == Key.Number3)
       {
         if (objetoSelecionado != null)
         {
-          objetoSelecionado.Posicao += new Ponto4D(-10, 0);
+          objetoSelecionado.pontoSel = 2;
         }
       }
-      else if (e.Key == Key.W)
+      else if (e.Key == Key.Number4)
       {
         if (objetoSelecionado != null)
-          objetoSelecionado.Posicao += new Ponto4D(10, 0);
         {
+          objetoSelecionado.pontoSel = 3;
+        }
+      }
+      else if (e.Key == Key.Minus || e.Key == Key.KeypadMinus)
+      {
+        if (objetoSelecionado != null)
+        {
+          if (objetoSelecionado.qtLinhas > 0)
+          {
+            objetoSelecionado.qtLinhas -= 1;
+            Console.WriteLine(objetoSelecionado.qtLinhas);
+          }
+        }
+      }
+      else if (e.Key == Key.Plus)
+      {
+        if (objetoSelecionado != null)
+        {
+          objetoSelecionado.qtLinhas += 1;
+          Console.WriteLine(objetoSelecionado.qtLinhas);
         }
       }
       else
