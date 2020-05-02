@@ -24,7 +24,7 @@ namespace gcgcg
 
     private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    private ObjetoGeometria objetoSelecionado = null;
+    public ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;
     private bool mouseMoverPto = false;
@@ -69,16 +69,24 @@ namespace gcgcg
       GL.LoadIdentity();
       GL.Ortho(camera.xmin, camera.xmax, camera.ymin, camera.ymax, camera.zmin, camera.zmax);
     }
+
     protected override void OnRenderFrame(FrameEventArgs e)
     {
       base.OnRenderFrame(e);
       GL.Clear(ClearBufferMask.ColorBufferBit);
       GL.MatrixMode(MatrixMode.Modelview);
       GL.LoadIdentity();
+
       for (var i = 0; i < objetosLista.Count; i++)
+      {
         objetosLista[i].Desenhar();
+      }
+
       if (bBoxDesenhar && (objetoSelecionado != null))
+      {
         objetoSelecionado.BBox.Desenhar();
+      }
+
       this.SwapBuffers();
     }
 
@@ -131,33 +139,57 @@ namespace gcgcg
       }
       else if (e.Key == Key.Space)
       {
-        Objeto ultimo = objetosLista[objetosLista.Count-1];
-        int atual = lista_primitivas.IndexOf(ultimo.PrimitivaTipo);
-        ultimo.PrimitivaTipo = lista_primitivas[(atual + 1) % lista_primitivas.Count];
+        if (objetoSelecionado != null)
+        {
+          int atual = lista_primitivas.IndexOf(objetoSelecionado.PrimitivaTipo);
+          objetoSelecionado.PrimitivaTipo = lista_primitivas[(atual + 1) % lista_primitivas.Count];
+        }
       }
       else if (e.Key == Key.Z)
       {
-        Objeto ultimo = objetosLista[objetosLista.Count-1];
-        ultimo.Angulo = (ultimo.Angulo + 9) % 360;
+        if (objetoSelecionado != null)
+        {
+          objetoSelecionado.Angulo = (objetoSelecionado.Angulo + 9) % 360;
+        }
       }
       else if (e.Key == Key.X)
       {
-        Objeto ultimo = objetosLista[objetosLista.Count-1];
-        ultimo.Angulo = (ultimo.Angulo - 9) % 360;
+        if (objetoSelecionado != null)
+        {
+          objetoSelecionado.Angulo = (objetoSelecionado.Angulo - 9) % 360;
+        }
       }
       else if (e.Key == Key.A)
       {
-        Objeto ultimo = objetosLista[objetosLista.Count-1];
-        ultimo.PrimitivaTamanho += 0.1f;
+        if (objetoSelecionado != null)
+        {
+          objetoSelecionado.PrimitivaTamanho += 0.1f;
+        }
       }
       else if (e.Key == Key.S)
       {
-        Objeto ultimo = objetosLista[objetosLista.Count-1];
-        ultimo.PrimitivaTamanho -= 0.1f;
+        if (objetoSelecionado != null)
+        {
+          objetoSelecionado.PrimitivaTamanho -= 0.1f;
+        }
       }
       else if (e.Key == Key.V)
       {
         mouseMoverPto = !mouseMoverPto;
+      }
+      else if (e.Key == Key.Q)
+      {
+        if (objetoSelecionado != null)
+        {
+          objetoSelecionado.Posicao += new Ponto4D(-10, 0);
+        }
+      }
+      else if (e.Key == Key.W)
+      {
+        if (objetoSelecionado != null)
+          objetoSelecionado.Posicao += new Ponto4D(10, 0);
+        {
+        }
       }
       else
       {
@@ -167,7 +199,8 @@ namespace gcgcg
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
-      mouseX = e.Position.X; mouseY = 600 - e.Position.Y;
+      mouseX = e.Position.X;
+      mouseY = 600 - e.Position.Y;
       if (mouseMoverPto && (objetoSelecionado != null))
       {
         objetoSelecionado.PontosUltimo().X = mouseX;
