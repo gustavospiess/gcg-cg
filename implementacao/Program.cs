@@ -18,14 +18,17 @@ namespace gcgcg
       Objeto eixo = new Eixos("Eixos", null);
       mundo.addObjeto(eixo);
 
-      ObjetoSpline sp = new ObjetoSpline("Spline", null);
-      sp.PontosAdicionar(new Ponto4D(-100, -100));
-      sp.PontosAdicionar(new Ponto4D(-100, 100));
-      sp.PontosAdicionar(new Ponto4D(100, 100));
-      sp.PontosAdicionar(new Ponto4D(100, -100));
+      double bb_len = 141.421356;
+      Ponto4D origin = new Ponto4D(250, 250);
 
-      mundo.addObjeto(sp);
-      mundo.objetoSelecionado = sp;
+      Circulo area = new Circulo("area", null, origin, 200);
+      area.BBox = new BBox(origin.X - bb_len, origin.Y - bb_len, 0, origin.X + bb_len, origin.Y + bb_len);
+      area.BBox.ProcessarCentro();
+      mundo.addObjeto(area);
+      mundo.objetoSelecionado = area;
+      Circulo botao = new Circulo("botao", null, new Ponto4D(0, 0), 50);
+      botao.Posicao = origin;
+      mundo.addObjeto(botao);
 
       mundo.Run(1.0 / 60.0);
     }

@@ -24,24 +24,7 @@ namespace gcgcg
 
     private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    public ObjetoSpline objetoSelecionado = null;
-    private bool bBoxDesenhar = false;
-    int mouseX, mouseY;
-    private bool mouseMoverPto = false;
-
-    private List<PrimitiveType> lista_primitivas = new List<PrimitiveType>()
-    {
-      PrimitiveType.Points,
-      PrimitiveType.Lines,
-      PrimitiveType.LineLoop,
-      PrimitiveType.LineStrip,
-      PrimitiveType.Triangles,
-      PrimitiveType.TriangleStrip,
-      PrimitiveType.TriangleFan,
-      PrimitiveType.Quads,
-      PrimitiveType.QuadStrip,
-      PrimitiveType.Polygon
-    };
+    public Objeto objetoSelecionado = null;
 
     protected override void OnLoad(EventArgs e)
     {
@@ -51,10 +34,10 @@ namespace gcgcg
 
       GL.ClearColor(Color.Gray);
       
-      camera.xmin = -300;
-      camera.xmax = 300;
-      camera.ymin = -300;
-      camera.ymax = 300;
+      camera.xmin = -100;
+      camera.xmax = 500;
+      camera.ymin = -100;
+      camera.ymax = 500;
     }
 
     public void addObjeto(Objeto o)
@@ -82,9 +65,15 @@ namespace gcgcg
         objetosLista[i].Desenhar();
       }
 
-      if (bBoxDesenhar && (objetoSelecionado != null))
+      if (objetoSelecionado != null)
       {
         objetoSelecionado.BBox.Desenhar();
+      }
+
+      if (Mouse.GetState().RightButton == Mouse.GetState().LeftButton)
+      {
+          this.objetosLista[this.objetosLista.Count-1].Posicao = new Ponto4D(250, 250);
+          this.objetosLista[this.objetosLista.Count-1].Cor = Color.Black;
       }
 
       this.SwapBuffers();
@@ -100,88 +89,6 @@ namespace gcgcg
       {
         Exit();
       }
-      else if (e.Key == Key.B)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.move(new Ponto4D(0, -10));
-        }
-      }
-      else if (e.Key == Key.C)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.move(new Ponto4D(0, 10));
-        }
-      }
-      else if (e.Key == Key.E)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.move(new Ponto4D(-10, 0));
-        }
-      }
-      else if (e.Key == Key.D)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.move(new Ponto4D(10, 0));
-        }
-      }
-      else if (e.Key == Key.Number0)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.pontoSel = -1;
-        }
-      }
-      else if (e.Key == Key.Number1)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.pontoSel = 0;
-        }
-      }
-      else if (e.Key == Key.Number2)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.pontoSel = 1;
-        }
-      }
-      else if (e.Key == Key.Number3)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.pontoSel = 2;
-        }
-      }
-      else if (e.Key == Key.Number4)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.pontoSel = 3;
-        }
-      }
-      else if (e.Key == Key.Minus || e.Key == Key.KeypadMinus)
-      {
-        if (objetoSelecionado != null)
-        {
-          if (objetoSelecionado.qtLinhas > 0)
-          {
-            objetoSelecionado.qtLinhas -= 1;
-            Console.WriteLine(objetoSelecionado.qtLinhas);
-          }
-        }
-      }
-      else if (e.Key == Key.Plus)
-      {
-        if (objetoSelecionado != null)
-        {
-          objetoSelecionado.qtLinhas += 1;
-          Console.WriteLine(objetoSelecionado.qtLinhas);
-        }
-      }
       else
       {
         Console.WriteLine(" __ Tecla não implementada.");
@@ -190,13 +97,76 @@ namespace gcgcg
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
-      mouseX = e.Position.X;
-      mouseY = 600 - e.Position.Y;
-      if (mouseMoverPto && (objetoSelecionado != null))
+      Objeto ultimo = this.objetosLista[this.objetosLista.Count-1];
+      bool inBB = true;
+      if (ultimo.Posicao.X > this.objetoSelecionado.BBox.obterMaiorX)
       {
-        objetoSelecionado.PontosUltimo().X = mouseX;
-        objetoSelecionado.PontosUltimo().Y = mouseY;
+        inBB = false;
       }
+      else if (ultimo.Posicao.Y > this.objetoSelecionado.BBox.obterMaiorY)
+      {
+        inBB = false;
+      }
+      else if (ultimo.Posicao.X < this.objetoSelecionado.BBox.obterMenorX)
+      {
+        inBB = false;
+      }
+      else if (ultimo.Posicao.Y < this.objetoSelecionado.BBox.obterMenorY)
+      {
+        inBB = false;
+      }
+      
+      if (inBB)
+      {
+        ultimo.Cor = Color.Black;
+      }
+      else
+      {
+        ultimo.Cor = Color.Red;
+      }
+
+
+      if (e.Mouse.LeftButton == e.Mouse.RightButton)
+      {
+        return;
+      }
+
+      if (inBB)
+      {
+        ultimo.Posicao += new Ponto4D(e.XDelta, -1 * e.YDelta);
+        return;
+      }
+
+      Ponto4D c = this.objetoSelecionado.BBox.obterCentro;
+      Ponto4D p = ultimo.Posicao + new Ponto4D(e.XDelta, -1 * e.YDelta);
+      double x = p.X-c.X;
+      double y = p.Y-c.Y;
+      if (x*x+y*y < 40000)
+      {
+        ultimo.Posicao = p;
+        return;
+      }
+
+      c = this.objetoSelecionado.BBox.obterCentro;
+      p = ultimo.Posicao + new Ponto4D(e.XDelta, 0);
+      x = p.X-c.X;
+      y = p.Y-c.Y;
+      if (x*x+y*y < 40000)
+      {
+        ultimo.Posicao = p;
+        return;
+      }
+
+      c = this.objetoSelecionado.BBox.obterCentro;
+      p = ultimo.Posicao + new Ponto4D(0, -1 * e.YDelta);
+      x = p.X-c.X;
+      y = p.Y-c.Y;
+      if (x*x+y*y < 40000)
+      {
+        ultimo.Posicao = p;
+        return;
+      }
+
     }
   }
 
