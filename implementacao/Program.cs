@@ -21,6 +21,7 @@ namespace gcgcg
       ObjetoGeometria palito = new SegReta("D", null, new Ponto4D(0, 0), new Ponto4D(100, 0));
       palito.Angulo = 45;
       mundo.addObjeto(palito);
+      mundo.objetoSelecionado = palito;
 
       mundo.Run(1.0 / 60.0);
     }
