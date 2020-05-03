@@ -18,13 +18,14 @@ namespace gcgcg
       Objeto eixo = new Eixos("Eixos", null);
       mundo.addObjeto(eixo);
 
-      ObjetoGeometriaListPontos objeto_geometria = new ObjetoGeometriaListPontos("A", null);
-      objeto_geometria.PontosAdicionar(new Ponto4D(200, 200));
-      objeto_geometria.PontosAdicionar(new Ponto4D(-200, 200));
-      objeto_geometria.PontosAdicionar(new Ponto4D(-200, -200));
-      objeto_geometria.PontosAdicionar(new Ponto4D(200, -200));
+      ObjetoCor objeto_geometria = new ObjetoCor("A", null);
+      objeto_geometria.PontosAdicionar(new Ponto4D(200, 200), Color.Purple);
+      objeto_geometria.PontosAdicionar(new Ponto4D(-200, 200), Color.Aqua);
+      objeto_geometria.PontosAdicionar(new Ponto4D(-200, -200), Color.Yellow);
+      objeto_geometria.PontosAdicionar(new Ponto4D(200, -200), Color.Black);
       objeto_geometria.PrimitivaTipo = PrimitiveType.Points;
       mundo.addObjeto(objeto_geometria);
+      mundo.objetoSelecionado = objeto_geometria;
 
       mundo.Run(1.0 / 60.0);
     }
