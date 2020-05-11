@@ -9,12 +9,12 @@ using System;
 
 namespace gcgcg
 {
-  internal class ObjetoGeometriaListPontos: ObjetoGeometria
+  internal class Poligono: ObjetoGeometria
   {
 
     protected List<Ponto4D> pontosLista = new List<Ponto4D>();
 
-    public ObjetoGeometriaListPontos(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
+    public Poligono(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
     {}
 
     protected override void DesenharObjeto()

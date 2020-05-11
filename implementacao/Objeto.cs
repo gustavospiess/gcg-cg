@@ -22,16 +22,16 @@ namespace gcgcg
     private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;
     public PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }
 
-    private float primitivaTamanho = 1;
-    public float PrimitivaTamanho { get => primitivaTamanho; set => setTamanho(value); }
-    private void setTamanho(float tamanho)
+    private double primitivaTamanho = 1;
+    public double PrimitivaTamanho { get => primitivaTamanho; set => setTamanho(value); }
+    private void setTamanho(double tamanho)
     {
       if ( tamanho > 0 )
       {
         primitivaTamanho = tamanho;
         for (var i = 0; i < objetosLista.Count; i++)
         {
-          objetosLista[i].PrimitivaLargura = tamanho;
+          objetosLista[i].primitivaTamanho = tamanho;
         }
       }
     }

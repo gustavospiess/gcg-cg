@@ -11,7 +11,7 @@ using CG_Biblioteca;
 
 namespace gcgcg
 {
-  internal class ObjetoSpline: ObjetoGeometriaListPontos
+  internal class ObjetoSpline: Poligono
   {
 
     public ObjetoSpline(string rotulo, Objeto paiRef) : base(rotulo, paiRef)

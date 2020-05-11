@@ -7,7 +7,7 @@ using CG_Biblioteca;
 
 namespace gcgcg
 {
-  internal class Retangulo : ObjetoGeometriaListPontos
+  internal class Retangulo : Poligono
   {
     public Retangulo(string rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)
     {
