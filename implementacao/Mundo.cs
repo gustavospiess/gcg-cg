@@ -24,7 +24,7 @@ namespace gcgcg
 
     private CameraOrtho camera = new CameraOrtho();
     protected List<Objeto> objetosLista = new List<Objeto>();
-    public Objeto objetoSelecionado = null;
+    public Poligono objetoSelecionado = null;
 
     protected override void OnLoad(EventArgs e)
     {
@@ -34,10 +34,10 @@ namespace gcgcg
 
       GL.ClearColor(Color.Gray);
       
-      camera.xmin = -100;
-      camera.xmax = 500;
-      camera.ymin = -100;
-      camera.ymax = 500;
+      camera.xmin = 0;
+      camera.xmax = 600;
+      camera.ymin = 0;
+      camera.ymax = 600;
     }
 
     public void addObjeto(Objeto o)
@@ -70,12 +70,6 @@ namespace gcgcg
         objetoSelecionado.BBox.Desenhar();
       }
 
-      if (Mouse.GetState().RightButton == Mouse.GetState().LeftButton)
-      {
-          this.objetosLista[this.objetosLista.Count-1].Posicao = new Ponto4D(250, 250);
-          this.objetosLista[this.objetosLista.Count-1].Cor = Color.Black;
-      }
-
       this.SwapBuffers();
     }
 
@@ -97,77 +91,30 @@ namespace gcgcg
 
     protected override void OnMouseMove(MouseMoveEventArgs e)
     {
-      Objeto ultimo = this.objetosLista[this.objetosLista.Count-1];
-      bool inBB = true;
-      if (ultimo.Posicao.X > this.objetoSelecionado.BBox.obterMaiorX)
-      {
-        inBB = false;
-      }
-      else if (ultimo.Posicao.Y > this.objetoSelecionado.BBox.obterMaiorY)
-      {
-        inBB = false;
-      }
-      else if (ultimo.Posicao.X < this.objetoSelecionado.BBox.obterMenorX)
-      {
-        inBB = false;
-      }
-      else if (ultimo.Posicao.Y < this.objetoSelecionado.BBox.obterMenorY)
-      {
-        inBB = false;
-      }
-      
-      if (inBB)
-      {
-        ultimo.Cor = Color.Black;
-      }
-      else
-      {
-        ultimo.Cor = Color.Red;
-      }
-
-
-      if (e.Mouse.LeftButton == e.Mouse.RightButton)
-      {
-        return;
-      }
-
-      if (inBB)
-      {
-        ultimo.Posicao += new Ponto4D(e.XDelta, -1 * e.YDelta);
-        return;
-      }
-
-      Ponto4D c = this.objetoSelecionado.BBox.obterCentro;
-      Ponto4D p = ultimo.Posicao + new Ponto4D(e.XDelta, -1 * e.YDelta);
-      double x = p.X-c.X;
-      double y = p.Y-c.Y;
-      if (x*x+y*y < 40000)
-      {
-        ultimo.Posicao = p;
-        return;
-      }
-
-      c = this.objetoSelecionado.BBox.obterCentro;
-      p = ultimo.Posicao + new Ponto4D(e.XDelta, 0);
-      x = p.X-c.X;
-      y = p.Y-c.Y;
-      if (x*x+y*y < 40000)
-      {
-        ultimo.Posicao = p;
-        return;
-      }
-
-      c = this.objetoSelecionado.BBox.obterCentro;
-      p = ultimo.Posicao + new Ponto4D(0, -1 * e.YDelta);
-      x = p.X-c.X;
-      y = p.Y-c.Y;
-      if (x*x+y*y < 40000)
-      {
-        ultimo.Posicao = p;
-        return;
-      }
-
+        base.OnMouseMove(e);
     }
+
+    protected override void OnMouseDown(MouseButtonEventArgs e)
+      {
+          base.OnMouseDown(e);
+
+          if (e.Button == MouseButton.Left)
+          {
+            if (this.objetoSelecionado == null)
+            {
+              this.objetoSelecionado = new Poligono("Poligono " + this.objetosLista.Count, null);
+              this.objetosLista.Add(this.objetoSelecionado);
+            }
+            this.objetoSelecionado.PontosAdicionar(new Ponto4D(e.Mouse.X, 600-e.Mouse.Y));
+            Console.WriteLine(e.Mouse.X);
+            Console.WriteLine(e.Mouse.Y);
+          }
+          else
+          {
+            Console.WriteLine("r");
+          }
+      }
+
   }
 
 }
