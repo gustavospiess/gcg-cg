@@ -120,11 +120,18 @@ namespace gcgcg
             if (Utilitario.insidePol(pto, objeto.PontosLista))
             {
               this.objetoSelecionado = objeto;
-              return;
+              break;
             }
           }
         } 
       }
+
+      if (e.Button == MouseButton.Middle && this.objetoSelecionado != null)
+      {
+        this.objetosLista.Remove(this.objetoSelecionado);
+        this.objetoSelecionado = null;
+      }
+
     }
 
   }

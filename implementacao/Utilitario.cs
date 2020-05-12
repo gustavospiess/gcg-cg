@@ -5,7 +5,6 @@
 using System;
 using CG_Biblioteca;
 using System.Collections.Generic;
-using System.Collections.Generic;
 
 namespace gcgcg
 {
