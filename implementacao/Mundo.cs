@@ -95,25 +95,37 @@ namespace gcgcg
     }
 
     protected override void OnMouseDown(MouseButtonEventArgs e)
-      {
-          base.OnMouseDown(e);
+    {
+      base.OnMouseDown(e);
+      Ponto4D pto = new Ponto4D(e.Mouse.X, 600-e.Mouse.Y);
 
-          if (e.Button == MouseButton.Left)
-          {
-            if (this.objetoSelecionado == null)
-            {
-              this.objetoSelecionado = new Poligono("Poligono " + this.objetosLista.Count, null);
-              this.objetosLista.Add(this.objetoSelecionado);
-            }
-            this.objetoSelecionado.PontosAdicionar(new Ponto4D(e.Mouse.X, 600-e.Mouse.Y));
-            Console.WriteLine(e.Mouse.X);
-            Console.WriteLine(e.Mouse.Y);
-          }
-          else
-          {
-            Console.WriteLine("r");
-          }
+      if (e.Button == MouseButton.Left)
+      {
+        if (this.objetoSelecionado == null)
+        {
+          this.objetoSelecionado = new Poligono("Poligono " + this.objetosLista.Count, null);
+          this.objetosLista.Add(this.objetoSelecionado);
+        }
+        this.objetoSelecionado.PontosAdicionar(pto);
       }
+      else
+      {
+        this.objetoSelecionado = null;
+
+        foreach (Poligono objeto in this.objetosLista) {
+          bool inBB = Utilitario.insideBBox(pto, objeto.BBox);
+
+          if (inBB)
+          {
+            if (Utilitario.insidePol(pto, objeto.PontosLista))
+            {
+              this.objetoSelecionado = objeto;
+              return;
+            }
+          }
+        } 
+      }
+    }
 
   }
 

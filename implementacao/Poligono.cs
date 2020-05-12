@@ -13,6 +13,7 @@ namespace gcgcg
   {
 
     protected List<Ponto4D> pontosLista = new List<Ponto4D>();
+    public List<Ponto4D> PontosLista { get => pontosLista; }
 
     public Poligono(string rotulo, Objeto paiRef) : base(rotulo, paiRef)
     {}
