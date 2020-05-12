@@ -84,13 +84,9 @@ namespace gcgcg
 
     public static bool insidePol(Ponto4D pto, List<Ponto4D> polig, bool def)
     {
-      Console.WriteLine("--------------------------------------------------------------------------------");
-      Console.WriteLine(pto);
       int parity = 0;
       for (int i = 0; i < polig.Count; i++)
       {
-      Console.WriteLine("----------------------------------------");
-        Console.WriteLine("1");
         Ponto4D pto1 = polig[i];
         Ponto4D pto2 = polig[(i+1)%polig.Count];
 
@@ -117,15 +113,9 @@ namespace gcgcg
         //Se porcentagem maior que um, passa por cima
         //Se porcentagem igual a um, passa por pto2
         bool isIntersec = t >= 0 && t <= 1;
-        Console.WriteLine(pto1);
-        Console.WriteLine(pto2);
-        Console.WriteLine(i);
-        Console.WriteLine(t);
         if (isIntersec)
         {
-          Console.WriteLine("2");
           Ponto4D interPto = new Ponto4D(pto1.X+t*(pto2.X-pto1.X), pto.Y);
-          Console.WriteLine(interPto);
           if (interPto.X == pto.X)
           {
             //Ponto sobre a linha entre pto 1 e pto 2
@@ -134,12 +124,9 @@ namespace gcgcg
           if (interPto.X > pto.X && interPto.Y > Math.Min(pto1.Y, pto2.Y) && interPto.Y < Math.Max(pto1.Y, pto2.Y))
           {
             parity++;
-            Console.WriteLine("3");
           }
         }
       }
-      Console.WriteLine("4");
-      Console.WriteLine(parity);
       return parity%2==1;
     }
 
