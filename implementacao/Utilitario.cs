@@ -17,14 +17,15 @@ namespace gcgcg
 
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra está ajuda. ");
-      Console.WriteLine(" [Escape  ] sair. ");
-      Console.WriteLine(" [  E     ] N3-Exe04: listas polígonos e vértices. ");
+      Console.WriteLine(" [ Escape ] sair. ");
+      Console.WriteLine(" [  Q     ] sair. ");
+      // Console.WriteLine(" [  E     ] N3-Exe04: listas polígonos e vértices. ");
       Console.WriteLine(" [  O     ] N3-Exe09: exibe bBox do polígono selecionado. ");
       Console.WriteLine(" [Enter   ] N3-Exe09: termina adição e mover de pontos, desseleciona polígono. ");
       Console.WriteLine(" [Espaço  ] N3-Exe06: adiciona vértice ao polígono. ");
       Console.WriteLine(" [  A     ] N3-Exe09: seleção do Polígono. ");
       Console.WriteLine(" [  M     ]         : exibe matriz de transformação do polígono selecionado. ");
-      Console.WriteLine(" [  P     ]         : exibe os vértices do polígono selecionado. ");
+      // Console.WriteLine(" [  P     ]         : exibe os vértices do polígono selecionado. ");
       Console.WriteLine(" [  I     ]         : aplica a matriz Identidade no polígono selecionado. ");
       Console.WriteLine(" [Left    ] N3-Exe10: move o polígono selecionado para eixo X positivo. ");
       Console.WriteLine(" [Right   ] N3-Exe10: move o polígono selecionado para eixo X negativo. ");
@@ -127,6 +128,15 @@ namespace gcgcg
         }
       }
       return parity%2==1;
+    }
+
+    public static double distancia(Ponto4D pto, Ponto4D other)
+    {
+      double deltaX = pto.X - other.X;
+      double deltaY = pto.Y - other.Y;
+      double deltaZ = pto.Z - other.Z;
+
+      return Math.Sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
     }
 
   }

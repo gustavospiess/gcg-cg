@@ -1,0 +1,114 @@
+
+                                          ,---------------------------------------------------------.
+                                          |ListaPontos                                              |
+                                          |---------------------------------------------------------|
+                                          |..                                                       |
+                                          |..                                                       |
+                                          |---------------------------------------------------------|
+                                          |+List<Ponto4D> pontos(Transformacao4D trs);              |
+                                          |+Double maxX(Transformacao4D trs);                       |
+                                          |+Double minX(Transformacao4D trs);                       |
+                                          |+Double maxY(Transformacao4D trs);                       |
+                                          |+Double minY(Transformacao4D trs);                       |
+                                          |+Ponto4D pontoSel(Transformacao4D trs);                  |
+                                          |+void SelecionaProximo(Ponto4D pto, Transformacao4D trs);|
+                                          |+void movePontoSel(Ponto4D pto);                         |
+                                          |+void removePontoSel();                                  |
+                                          |+void limpaPontoSel();                                   |
+                                          |+void addPonto(Ponto4D pto);                             |
+                                          `---------------------------------------------------------'
+
+
+,---------------------------------.
+|Objeto                           |
+|---------------------------------|  ,--------------------.   ,----------------------.
+|+Transformacao4D transformacao;  |  |ObjetoGeometria     |   |Mundo                 |   ,-------.
+|+Color cor;                      |  |--------------------|   |----------------------|   |Ponto4D|
+|+Boolean selecionado;            |--|+ListaPontos pontos;|---|+List<Objeto> objetos;|   |-------|
+|---------------------------------|  |--------------------|   |----------------------|   |-------|
+|+BBox bbox();                    |  `--------------------'   `----------------------'   `-------'
+|+Desenha();                      |
+|+Boolean EstaDentro(Ponto4D pto);|
+`---------------------------------'
+
+ ,---------------.   ,----.
+ |Transformacao4D|   |BBox|
+ |---------------|   |----|
+ |---------------|   |----|
+ `---------------'   `----'
+
+@startuml
+
+skinparam groupInheritance 3
+skinparam linetype ortho
+
+package "biblioteca" {
+    class Transformacao4D {
+    }
+    class Ponto4D {
+    }
+    class BBox {
+    }
+}
+
+package "implementacao" {
+    class Mundo {
+        +List<Objeto> objetos;
+    }
+
+    abstract class Objeto {
+        +Transformacao4D transformacao;
+        +Color cor;
+        +Boolean selecionado;
+        +BBox bbox();
+        +Desenha();
+        +Boolean EstaDentro(Ponto4D pto);
+    }
+
+    /' class ObjetoAgregador { '/
+    /'     +List<Objeto> objetos; '/
+    /' } '/
+
+    class ObjetoGeometria {
+        +ListaPontos pontos;
+    }
+
+    class ListaPontos {
+        +List<Ponto4D> pontos(Transformacao4D trs);
+        +Double maxX(Transformacao4D trs);
+        +Double minX(Transformacao4D trs);
+        +Double maxY(Transformacao4D trs);
+        +Double minY(Transformacao4D trs);
+        ..
+        +Ponto4D pontoSel(Transformacao4D trs);
+        +void SelecionaProximo(Ponto4D pto, Transformacao4D trs);
+        +void movePontoSel(Ponto4D pto);
+        +void removePontoSel();
+        +void limpaPontoSel();
+        ..
+        +void addPonto(Ponto4D pto);
+    }
+
+    /' class ListaPontosAgregador { '/
+    /'     +List<ListaPontos> listas; '/
+    /' } '/
+
+    /' class Spline { '/
+    /'     +ListaPontos pontosBase; '/
+    /' } '/
+}
+
+ObjetoGeometria -o Mundo 
+Objeto -- Transformacao4D
+Objeto -- BBox
+Objeto <|- ObjetoGeometria
+/' Objeto <|-- ObjetoAgregador '/
+/' ObjetoAgregador o-- Objeto '/
+ListaPontos -- ObjetoGeometria
+ListaPontos -- Ponto4D
+/' ListaPontos -- Spline '/
+/' ListaPontos <|- Spline '/
+/' ListaPontosAgregador o- ListaPontos '/
+/' ListaPontos <|- ListaPontosAgregador '/
+
+@enduml

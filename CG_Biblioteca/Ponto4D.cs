@@ -85,6 +85,5 @@ namespace CG_Biblioteca
       retorno += "P" + "[" + x + "," + y + "," + z + "," + w + "]" + "\n";
       return (retorno);
     }
-
   }
 }
