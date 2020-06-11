@@ -11,24 +11,14 @@ namespace gcgcg
     private List<Ponto4D> pontosInterno;
     private Ponto4D ptoSel;
 
-    private List<Ponto4D> cachePontos;
-    private Transformacao4D cacheTransformacao;
-
     public ListaPontos(): base()
     {
       this.pontosInterno = new List<Ponto4D>();
       this.ptoSel = null;
-      this.cachePontos = null;
-      this.cacheTransformacao = null;
     }
 
     public List<Ponto4D> pontos(Transformacao4D trs)
     {
-
-      if (this.cachePontos != null && this.cacheTransformacao == trs)
-      {
-        return this.cachePontos;
-      }
 
       List<Ponto4D> ptos = new List<Ponto4D>();
       
@@ -37,8 +27,6 @@ namespace gcgcg
         ptos.Add(trs.MultiplicarPonto(pt));
       }
 
-      this.cachePontos = ptos;
-      this.cacheTransformacao = trs;
 
       return ptos;
     }
@@ -136,7 +124,6 @@ namespace gcgcg
         {
           this.pontosInterno[idx] = pto;
           this.ptoSel = pto;
-          this.cachePontos = null;
           return;
         }
       }
@@ -145,7 +132,6 @@ namespace gcgcg
     public void removePontoSel()
     {
       this.pontosInterno.Remove(this.ptoSel);
-      this.cachePontos = null;
     }
 
     public void limpaPontoSel()
@@ -156,7 +142,6 @@ namespace gcgcg
     public void addPonto(Ponto4D pto)
     {
       this.pontosInterno.Add(pto);
-      this.cachePontos = null;
     }
 
   }

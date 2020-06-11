@@ -25,7 +25,7 @@ namespace gcgcg
     CameraOrtho camera = new CameraOrtho();
     List<ObjetoGeometria> objetosLista = new List<ObjetoGeometria>();
     ObjetoGeometria objetoSelecionado = null;
-    String estado = "add-pto";
+    Transformacao4D ultima = new Transformacao4D();
     bool shwBB = true;
 
     protected override void OnLoad(EventArgs e)
@@ -36,10 +36,10 @@ namespace gcgcg
 
       GL.ClearColor(Color.Gray);
       
-      camera.xmin = 0;
-      camera.xmax = 600;
-      camera.ymin = 0;
-      camera.ymax = 600;
+      camera.xmin = -300;
+      camera.xmax = 300;
+      camera.ymin = -300;
+      camera.ymax = 300;
     }
 
     protected override void OnUpdateFrame(FrameEventArgs e)
@@ -64,7 +64,9 @@ namespace gcgcg
 
       if (this.objetoSelecionado != null && this.shwBB)
       {
-        this.objetoSelecionado.bbox().Desenhar();
+        BBox bb = objetoSelecionado.bbox();
+        bb.ProcessarCentro();
+        bb.Desenhar();
       }
 
       this.SwapBuffers();
@@ -81,9 +83,16 @@ namespace gcgcg
         if (this.objetoSelecionado != null)
         {
           Transformacao4D tr = new Transformacao4D();
-          tr.AtribuirTranslacao(-5, 0, 0);
+          if (e.Control)
+          {
+            tr.AtribuirRotacaoZ(0.05);
+          }
+          else
+          {
+            tr.AtribuirTranslacao(-5, 0, 0);
+          }
           Transformacao4D trOriginal = this.objetoSelecionado.Transformacao;
-          this.objetoSelecionado.Transformacao = trOriginal.MultiplicarMatriz(tr);
+          this.objetoSelecionado.Transformacao = tr.MultiplicarMatriz(trOriginal);
         }
       }
       else if (e.Key == Key.Right)
@@ -91,9 +100,16 @@ namespace gcgcg
         if (this.objetoSelecionado != null)
         {
           Transformacao4D tr = new Transformacao4D();
-          tr.AtribuirTranslacao(5, 0, 0);
+          if (e.Control)
+          {
+            tr.AtribuirRotacaoZ(-0.05);
+          }
+          else
+          {
+            tr.AtribuirTranslacao(5, 0, 0);
+          }
           Transformacao4D trOriginal = this.objetoSelecionado.Transformacao;
-          this.objetoSelecionado.Transformacao = trOriginal.MultiplicarMatriz(tr);
+          this.objetoSelecionado.Transformacao = tr.MultiplicarMatriz(trOriginal);
         }
       }
       else if (e.Key == Key.Up)
@@ -101,9 +117,28 @@ namespace gcgcg
         if (this.objetoSelecionado != null)
         {
           Transformacao4D tr = new Transformacao4D();
-          tr.AtribuirTranslacao(0, 5, 0);
+          if (e.Control)
+          {
+            BBox bb = objetoSelecionado.bbox();
+            bb.ProcessarCentro();
+            Transformacao4D tr2 = new Transformacao4D();
+            tr2.AtribuirTranslacao(-1 * bb.obterCentro.X, -1 * bb.obterCentro.Y, -1 * bb.obterCentro.Z);
+            tr.AtribuirRotacaoZ(-0.05);
+            tr = tr2.MultiplicarMatriz(tr);
+            tr2.AtribuirTranslacao(bb.obterCentro.X, bb.obterCentro.Y, bb.obterCentro.Z);
+            tr2 = tr.MultiplicarMatriz(tr2);
+            tr = tr2;
+          }
+          else if (e.Shift)
+          {
+            tr.AtribuirEscala(1.01, 1.01, 1.01);
+          }
+          else
+          {
+            tr.AtribuirTranslacao(0, 5, 0);
+          }
           Transformacao4D trOriginal = this.objetoSelecionado.Transformacao;
-          this.objetoSelecionado.Transformacao = trOriginal.MultiplicarMatriz(tr);
+          this.objetoSelecionado.Transformacao = tr.MultiplicarMatriz(trOriginal);
         }
       }
       else if (e.Key == Key.Down)
@@ -111,42 +146,48 @@ namespace gcgcg
         if (this.objetoSelecionado != null)
         {
           Transformacao4D tr = new Transformacao4D();
-          tr.AtribuirTranslacao(0, -5, 0);
+          if (e.Control)
+          {
+            BBox bb = objetoSelecionado.bbox();
+            bb.ProcessarCentro();
+            Transformacao4D tr2 = new Transformacao4D();
+            tr2.AtribuirTranslacao(-1 * bb.obterCentro.X, -1 * bb.obterCentro.Y, -1 * bb.obterCentro.Z);
+            tr.AtribuirRotacaoZ(0.05);
+            tr = tr2.MultiplicarMatriz(tr);
+            tr2.AtribuirTranslacao(bb.obterCentro.X, bb.obterCentro.Y, bb.obterCentro.Z);
+            tr2 = tr.MultiplicarMatriz(tr2);
+            tr = tr2;
+          }
+          else if (e.Shift)
+          {
+            tr.AtribuirEscala(0.99, 0.99, 0.99);
+          }
+          else
+          {
+            tr.AtribuirTranslacao(0, -5, 0);
+          }
           Transformacao4D trOriginal = this.objetoSelecionado.Transformacao;
-          this.objetoSelecionado.Transformacao = trOriginal.MultiplicarMatriz(tr);
+          this.objetoSelecionado.Transformacao = tr.MultiplicarMatriz(trOriginal);
+        }
+      }
+      else if (e.Key == Key.U)
+      {
+        if (this.objetoSelecionado != null)
+        {
+          this.objetoSelecionado.Transformacao = this.ultima;
         }
       }
       else if (e.Key == Key.I)
       {
         if (this.objetoSelecionado != null)
         {
+          this.ultima = this.objetoSelecionado.Transformacao;
           this.objetoSelecionado.Transformacao = new Transformacao4D();
         }
       }
       else if (e.Key == Key.O)
       {
         this.shwBB = !this.shwBB;
-      }
-      else if (e.Key == Key.A)
-      {
-        this.estado = "sel-pol";
-      }
-      else if (e.Key == Key.Enter)
-      {
-        if (this.objetoSelecionado != null)
-        {
-          this.objetoSelecionado.pontos.limpaPontoSel();
-          this.objetoSelecionado = null;
-          this.estado = "sel-pol";
-        }
-      }
-      else if (e.Key == Key.Space)
-      {
-        if (this.objetoSelecionado != null)
-        {
-          this.objetoSelecionado = null;
-          this.estado = "add-pto";
-        }
       }
       else if (e.Key == Key.R)
       {
@@ -171,35 +212,23 @@ namespace gcgcg
       }
     }
 
-    // protected override void OnMouseMove(MouseMoveEventArgs e)
-    // {
-    //     base.OnMouseMove(e);
-    // }
-
     protected override void OnMouseDown(MouseButtonEventArgs e)
     {
       base.OnMouseDown(e);
-      Ponto4D pto = new Ponto4D(e.Mouse.X, 600-e.Mouse.Y);
-      
-      if (this.estado == "add-pto")
+      Ponto4D pto = new Ponto4D(e.Mouse.X-300, 300-e.Mouse.Y);
+      Ponto4D ptoTr;
+      if (this.objetoSelecionado != null)
       {
-        if (this.objetoSelecionado == null)
-        {
-          this.objetoSelecionado = new ObjetoGeometria("Poligono " + this.objetosLista.Count);
-          this.objetoSelecionado.Selecionado = true;
-          this.objetosLista.Add(this.objetoSelecionado);
-        }
-        this.objetoSelecionado.pontos.addPonto(pto);
+        ptoTr = this.objetoSelecionado.Transformacao.MultiplicarPonto(pto);
       }
-      else if (this.estado == "mov-pto")
+      else
       {
-        if (this.objetoSelecionado == null)
-        {
-          return;
-        }
-        this.objetoSelecionado.pontos.movePontoSel(pto);
+        ptoTr = pto;
       }
-      else if (this.estado == "sel-pol")
+
+      KeyboardState st = Keyboard.GetState();
+
+      if (st[Key.ShiftLeft])
       {
         this.objetoSelecionado = null;
         foreach (ObjetoGeometria objeto in this.objetosLista)
@@ -213,28 +242,67 @@ namespace gcgcg
           {
             this.objetoSelecionado = objeto;
             this.objetoSelecionado.Selecionado = true;
-            this.estado = "add-pto";
             break;
           }
         } 
       }
-      else if (this.estado == "sel-pto")
-      {
 
+      if (st[Key.ControlLeft] && st[Key.ShiftLeft])
+      {
         if (this.objetoSelecionado == null)
         {
           return;
         }
-        this.objetoSelecionado.pontos.SelecionaProximo(pto, this.objetoSelecionado.Transformacao);
-        this.estado = "mov-pto";
+        if (ptoTr.X != pto.X || ptoTr.Y != pto.Y)
+        {
+          this.ultima = this.objetoSelecionado.Transformacao;
+          this.objetoSelecionado.Transformacao = new Transformacao4D();
+        }
+        else
+        {
+            this.objetoSelecionado.pontos.SelecionaProximo(pto, this.objetoSelecionado.Transformacao);
+        }
+        return;
       }
-
-      if (e.Button == MouseButton.Middle && this.objetoSelecionado != null)
+      
+      if (st[Key.ControlLeft])
       {
-        this.objetosLista.Remove(this.objetoSelecionado);
-        this.objetoSelecionado = null;
+        if (this.objetoSelecionado == null)
+        {
+          this.objetoSelecionado = new ObjetoGeometria("Poligono " + this.objetosLista.Count);
+          this.objetoSelecionado.Selecionado = true;
+          this.objetosLista.Add(this.objetoSelecionado);
+        }
+        else
+        {
+          if (ptoTr.X != pto.X || ptoTr.Y != pto.Y)
+          {
+            this.ultima = this.objetoSelecionado.Transformacao;
+            this.objetoSelecionado.Transformacao = new Transformacao4D();
+          }
+          else
+          {
+            this.objetoSelecionado.pontos.addPonto(pto);
+          }
+        }
+        return;
       }
 
+      if (this.objetoSelecionado == null || this.objetoSelecionado.pontos.pontoSel(new Transformacao4D()) == null)
+      {
+        return;
+      }
+
+      if (ptoTr.X != pto.X || ptoTr.Y != pto.Y)
+      {
+        this.ultima = this.objetoSelecionado.Transformacao;
+        this.objetoSelecionado.Transformacao = new Transformacao4D();
+      }
+      else
+      {
+        this.objetoSelecionado.pontos.movePontoSel(pto);
+        this.objetoSelecionado.pontos.limpaPontoSel();
+      }
     }
 
   }
