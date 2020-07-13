@@ -48,9 +48,7 @@ namespace gcgcg
     private ObjetoGeometria objetoSelecionado = null;
     private bool bBoxDesenhar = false;
     int mouseX, mouseY;   //TODO: achar método MouseDown para não ter variável Global
-    private Poligono objetoNovo = null;
     private String objetoId = "A";
-    private Retangulo obj_Retangulo;
     private Cubo obj_Cubo;
     private Cilindro obj_Cilindro;
     private Esfera obj_Esfera;
@@ -59,69 +57,34 @@ namespace gcgcg
     protected override void OnLoad(EventArgs e)
     {
 
-      this.pushMove(1, 0, 0, 3);
+      curva(0.1, 'V');
+      reta(5);
+      curva(-0.1, 'V');
+      curva(0.5, 'H');
+      curva(-0.1, 'V');
+      reta(1);
+      curva(0.25, 'H');
+      curva(-0.25, 'T');
+      curva(0.25, 'H');
+      curva(0.25, 'H');
+      curva(-0.25, 'T');
+      curva(0.25, 'H');
+      curva(0.1, 'V');
+      reta(1);
+      curva(1/3.0, 'V');
+      curva(1/3.0, 'V');
+      curva(1/3.0, 'V');
+      reta(1);
+      for (var i = 0; i < 5; i++)
+        curva(0.2, 'V');
+      reta(1);
+      curva(-0.05, 'T');
+      curva(0.5, 'H');
+      curva(-0.05, 'T');
 
-      Transformacao4D tr = new Transformacao4D();
-      Transformacao4D trAux = new Transformacao4D();
-      trAux.AtribuirTranslacao(0, 0.3, 0);
-      tr.AtribuirRotacaoX(Math.PI/33);
-      this.movimentos.Add(trAux.MultiplicarMatriz(tr));
-      this.qtMovimentos.Add(33);
-      this.pushMove(1, 0, 0, 4);
-      this.movimentos.Add(trAux.MultiplicarMatriz(tr));
-      this.qtMovimentos.Add(33);
-      this.pushMove(1, 0, 0, 3);
-      
-
-      this.pushMove(0, 0, 1, 10);
-      this.pushMove(0, 1, 0, 10);
-      this.pushMove(0, 0, -1, 10);
-      this.pushMove(-1, 0, 0, 10);
-      this.pushMove(0, -1, 0, 5);
-
-      tr = new Transformacao4D();
-      trAux = new Transformacao4D();
-      trAux.AtribuirTranslacao(0.3, 0, 0);
-      tr.AtribuirRotacaoY(Math.PI/33);
-      this.movimentos.Add(trAux.MultiplicarMatriz(tr));
-      this.qtMovimentos.Add(33);
-
-      this.pushMove(0, 0, 1, 10);
-      this.pushMove(0, -1, 0, 5);
-      this.pushMove(1, 0, 0, 10);
-      this.pushMove(0, 0, -1, 10);
-      this.movimentos.Add(trAux.MultiplicarMatriz(tr));
-      this.qtMovimentos.Add(33);
-      this.pushMove(1, 0, 0, 10);
-
-      
       base.OnLoad(e);
       Console.WriteLine(" --- Ajuda / Teclas: ");
       Console.WriteLine(" [  H     ] mostra teclas usadas. ");
-
-      // obj_Retangulo = new Retangulo("A", null, new Ponto4D(50, 50, 0), new Ponto4D(150, 150, 0));
-      // objetosLista.Add(obj_Retangulo);
-      // objetoSelecionado = obj_Retangulo;
-
-
-      // obj_Cilindro = new Cilindro("D", null);
-      // objetosLista.Add(obj_Cilindro);
-      // obj_Cilindro.EscalaXYZ(50, 50, 50);
-      // obj_Cilindro.TranslacaoXYZ(150, 0, 0);
-
-      // obj_Esfera = new Esfera("E", null);
-      // objetosLista.Add(obj_Esfera);
-      // obj_Esfera.EscalaXYZ(50, 50, 50);
-      // obj_Esfera.TranslacaoXYZ(200, 0, 0);
-
-      // obj_Cone = new Cone("F", null);
-      // objetosLista.Add(obj_Cone);
-      // obj_Cone.EscalaXYZ(50, 50, 50);
-      // obj_Cone.TranslacaoXYZ(250,0,0);
-
-      // obj_Cubo = new Cubo("G", null);
-      // objetosLista.Add(obj_Cubo);
-      // obj_Cubo.EscalaXYZ(50, 50, 50);
 
       obj_Cubo = new Cubo("G", null);
       objetosLista.Add(obj_Cubo);
@@ -130,10 +93,10 @@ namespace gcgcg
       objetoSelecionado = obj_Cubo;
 
       camera.At = new Vector3(0, 0, 0);
-      camera.Eye = new Vector3(1000, 1000, 1000);
+      camera.Eye = new Vector3(2000, 2000, 2000);
       // camera.Eye = new Vector3(0, 0, 1000);
       camera.Near = 100.0f;
-      camera.Far = 4000.0f;
+      camera.Far = 8000.0f;
 
       GL.ClearColor(127,127,127,255);
       GL.Enable(EnableCap.DepthTest);
@@ -196,7 +159,11 @@ namespace gcgcg
         i++;
         j = 0;
         if (i >= this.movimentos.Count)
+        {
           i = 0;
+          objetoSelecionado.Matriz.AtribuirIdentidade();
+          objetoSelecionado.Matriz.AtribuirEscala(50, 50, 50);
+        }
       }
 
       this.SwapBuffers();
@@ -204,9 +171,7 @@ namespace gcgcg
 
     protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)
     {
-      if (e.Key == Key.H)
-        Utilitario.AjudaTeclado();
-      else if (e.Key == Key.Escape)
+      if (e.Key == Key.Escape)
         Exit();
       else if (e.Key == Key.E)
       {
@@ -218,15 +183,6 @@ namespace gcgcg
       }
       else if (e.Key == Key.O)
         bBoxDesenhar = !bBoxDesenhar;
-      else if (e.Key == Key.Enter)
-      {
-        if (objetoNovo != null)
-        {
-          objetoNovo.PontosRemoverUltimo();   // N3-Exe6: "truque" para deixar o rastro
-          objetoSelecionado = objetoNovo;
-          objetoNovo = null;
-        }
-      }
       else if (e.Key == Key.Left)
       {
         this.AtRotateX(-1/2);
@@ -243,19 +199,7 @@ namespace gcgcg
         this.EyeRotate(-1);
       else if (objetoSelecionado != null)
       {
-        if (e.Key == Key.Space)
-        {
-          objetoSelecionado.Matriz = objetoSelecionado.Matriz.MultiplicarMatriz(this.movimentos[i]);
-          j++;
-          if (j >= this.qtMovimentos[i])
-          {
-            i++;
-            j = 0;
-            if (i >= this.movimentos.Count)
-              i = 0;
-          }
-        }
-        else if (e.Key == Key.M)
+        if (e.Key == Key.M)
           Console.WriteLine(objetoSelecionado.Matriz);
         else if (e.Key == Key.P)
           Console.WriteLine(objetoSelecionado);
@@ -352,12 +296,35 @@ namespace gcgcg
       this.camera.Eye = PontoToVector(matA.MultiplicarPonto(VectorToPonto(this.camera.Eye)));
     }
 
-    private void pushMove(float x, float y, float z, int qt)
+    private void reta(int qt)
     {
       Transformacao4D tr = new Transformacao4D();
-      tr.AtribuirTranslacao(x/3, y/3, z/3);
+      tr.AtribuirTranslacao(1, 0, 0);
       this.movimentos.Add(tr);
-      this.qtMovimentos.Add(qt*3);
+      this.qtMovimentos.Add(qt*5);
+    }
+
+    private void curva(double i, char d)
+    {
+      Transformacao4D tr = new Transformacao4D();
+      Transformacao4D trAux = new Transformacao4D();
+      if (d == 'H')
+      {
+        trAux.AtribuirTranslacao(0.3, 0, 0);
+        tr.AtribuirRotacaoY(Math.PI*i/(10));
+      }
+      else if (d == 'V')
+      {
+        trAux.AtribuirTranslacao(0.3, 0, 0);
+        tr.AtribuirRotacaoZ(Math.PI*i/(10));
+      }
+      else
+      {
+        trAux.AtribuirTranslacao(0.3, 0, 0);
+        tr.AtribuirRotacaoX(Math.PI*i/(10));
+      }
+      this.movimentos.Add(trAux.MultiplicarMatriz(tr));
+      this.qtMovimentos.Add(20);
     }
 
 #if CG_Gizmo
