@@ -20,7 +20,7 @@ namespace gcgcg
     private List<Objeto> objetosLista = new List<Objeto>();
 
     private Transformacao4D matriz = new Transformacao4D();
-    public Transformacao4D Matriz { get => matriz; }
+    public Transformacao4D Matriz { get => matriz; set => matriz = value;}
 
     /// Matrizes temporarias que sempre sao inicializadas com matriz Identidade entao podem ser "static".
     private static Transformacao4D matrizTmpTranslacao = new Transformacao4D();

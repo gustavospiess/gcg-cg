@@ -1,0 +1,446 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AjudaTeclado	CG-N2/Utilitario.cs	/^    public static void AjudaTeclado()$/;"	m	class:gcgcg.Utilitario
+AjudaTeclado	CG-N3/Utilitario.cs	/^    public static void AjudaTeclado()$/;"	m	class:gcgcg.Utilitario
+AjudaTeclado	CG-N4/Utilitario.cs	/^    public static void AjudaTeclado()$/;"	m	class:gcgcg.Utilitario
+Aspect	CG_Biblioteca/CameraPerspective.cs	/^    public float Aspect { get => aspect; set => aspect = value; }$/;"	p	class:CG_Biblioteca.CameraPerspective
+At	CG_Biblioteca/CameraPerspective.cs	/^    public Vector3 At { get => at; set => at = value; }$/;"	p	class:CG_Biblioteca.CameraPerspective
+AtRotateX	CG-N4/Mundo.cs	/^    private void AtRotateX(float n)$/;"	m	class:gcgcg.Mundo	file:
+AtRotateY	CG-N4/Mundo.cs	/^    private void AtRotateY(float n)$/;"	m	class:gcgcg.Mundo	file:
+Atribuir	CG_Biblioteca/BBox.cs	/^    public void Atribuir(Ponto4D pto)$/;"	m	class:CG_Biblioteca.BBox
+AtribuirDados	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirDados(double[] data)$/;"	m	class:CG_Biblioteca.Transformacao4D
+AtribuirElemento	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirElemento(int index, double value)$/;"	m	class:CG_Biblioteca.Transformacao4D
+AtribuirEscala	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirEscala(double sX, double sY, double sZ)$/;"	m	class:CG_Biblioteca.Transformacao4D
+AtribuirIdentidade	CG-N3/Objeto.cs	/^    public void AtribuirIdentidade()$/;"	m	class:gcgcg.Objeto
+AtribuirIdentidade	CG-N4/Objeto.cs	/^    public void AtribuirIdentidade()$/;"	m	class:gcgcg.Objeto
+AtribuirIdentidade	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirIdentidade()$/;"	m	class:CG_Biblioteca.Transformacao4D
+AtribuirRotacaoX	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirRotacaoX(double radians)$/;"	m	class:CG_Biblioteca.Transformacao4D
+AtribuirRotacaoY	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirRotacaoY(double radians)$/;"	m	class:CG_Biblioteca.Transformacao4D
+AtribuirRotacaoZ	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirRotacaoZ(double radians)$/;"	m	class:CG_Biblioteca.Transformacao4D
+AtribuirTranslacao	CG_Biblioteca/Transformacao4D.cs	/^    public void AtribuirTranslacao(double tx, double ty, double tz)$/;"	m	class:CG_Biblioteca.Transformacao4D
+Atualizar	CG_Biblioteca/BBox.cs	/^    public void Atualizar(Ponto4D pto)$/;"	m	class:CG_Biblioteca.BBox
+Atualizar	CG_Biblioteca/BBox.cs	/^    public void Atualizar(double x, double y, double z)$/;"	m	class:CG_Biblioteca.BBox
+BBox	CG-N2/Objeto.cs	/^    public BBox BBox { get => bBox; set => bBox = value; }$/;"	p	class:gcgcg.Objeto
+BBox	CG-N3/Objeto.cs	/^    public BBox BBox { get => bBox; set => bBox = value; }$/;"	p	class:gcgcg.Objeto
+BBox	CG-N4/Objeto.cs	/^    public BBox BBox { get => bBox; set => bBox = value; }$/;"	p	class:gcgcg.Objeto
+BBox	CG_Biblioteca/BBox.cs	/^    public BBox(double menorX = 0, double menorY = 0, double menorZ = 0, double maiorX = 0, double maiorY = 0, double maiorZ = 0)$/;"	m	class:CG_Biblioteca.BBox
+BBox	CG_Biblioteca/BBox.cs	/^  public class BBox$/;"	c	namespace:CG_Biblioteca
+CG_Biblioteca	CG_Biblioteca/BBox.cs	/^namespace CG_Biblioteca$/;"	n
+CG_Biblioteca	CG_Biblioteca/CameraOrtho.cs	/^namespace CG_Biblioteca$/;"	n
+CG_Biblioteca	CG_Biblioteca/CameraPerspective.cs	/^namespace CG_Biblioteca$/;"	n
+CG_Biblioteca	CG_Biblioteca/Matematica.cs	/^namespace CG_Biblioteca$/;"	n
+CG_Biblioteca	CG_Biblioteca/Ponto4D.cs	/^namespace CG_Biblioteca$/;"	n
+CG_Biblioteca	CG_Biblioteca/Transformacao4D.cs	/^namespace CG_Biblioteca$/;"	n
+CG_Gizmo	CG-N2/Mundo.cs	5;"	d	file:
+CG_Gizmo	CG-N3/Mundo.cs	5;"	d	file:
+CG_Gizmo	CG-N4/Mundo.cs	5;"	d	file:
+CG_Gizmo	CG-N4_exemplos/DisplayList/Program.cs	11;"	d	file:
+CameraOrtho	CG_Biblioteca/CameraOrtho.cs	/^    public CameraOrtho(double xMin = 0, double xMax = 600, double yMin = 0, double yMax = 600, double zMin = -1, double zMax = 1)$/;"	m	class:CG_Biblioteca.CameraOrtho
+CameraOrtho	CG_Biblioteca/CameraOrtho.cs	/^  public class CameraOrtho$/;"	c	namespace:CG_Biblioteca
+CameraPerspective	CG_Biblioteca/CameraPerspective.cs	/^    public CameraPerspective(float fovy = (float)Math.PI \/ 4, float aspect = 1.0f, float near = 1.0f, float far = 50.0f)$/;"	m	class:CG_Biblioteca.CameraPerspective
+CameraPerspective	CG_Biblioteca/CameraPerspective.cs	/^  public class CameraPerspective$/;"	c	namespace:CG_Biblioteca
+Cilindro	CG-N4/Cilindro.cs	/^    public Cilindro(string rotulo, Objeto paiRef) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Cilindro
+Cilindro	CG-N4/Cilindro.cs	/^  internal class Cilindro : ObjetoGeometria$/;"	c	namespace:gcgcg
+Cone	CG-N4/Cone.cs	/^    public Cone(string rotulo, Objeto paiRef) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Cone
+Cone	CG-N4/Cone.cs	/^  internal class Cone : ObjetoGeometria$/;"	c	namespace:gcgcg
+Cubo	CG-N4/Cubo.cs	/^    public Cubo(string rotulo, Objeto paiRef) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Cubo
+Cubo	CG-N4/Cubo.cs	/^  internal class Cubo : ObjetoGeometria$/;"	c	namespace:gcgcg
+DEG_TO_RAD	CG_Biblioteca/Transformacao4D.cs	/^    static public readonly double DEG_TO_RAD = 0.017453292519943295769236907684886;$/;"	f	class:CG_Biblioteca.Transformacao4D
+DesenhaCubo	CG-N4_exemplos/DisplayList/Program.cs	/^    private void DesenhaCubo()$/;"	m	class:Mundo.Mundo	file:
+DesenhaCubo	CG-N4_exemplos/Iluminacao/Program.cs	/^    private void DesenhaCubo()$/;"	m	class:Iluminacao.Mundo	file:
+DesenhaCubo	CG-N4_exemplos/camera/Program.cs	/^  private void DesenhaCubo()$/;"	m	class:Mundo.Mundo	file:
+DesenhaCubo	CG-N4_exemplos/textura/Program.cs	/^    private void DesenhaCubo()$/;"	m	class:textura.Mundo	file:
+DesenhaMundoCubo	CG-N4_exemplos/DisplayList/Program.cs	/^    private void DesenhaMundoCubo()$/;"	m	class:Mundo.Mundo	file:
+Desenhar	CG-N2/Objeto.cs	/^    public void Desenhar()$/;"	m	class:gcgcg.Objeto
+Desenhar	CG-N3/Objeto.cs	/^    public void Desenhar()$/;"	m	class:gcgcg.Objeto
+Desenhar	CG-N4/Objeto.cs	/^    public void Desenhar()$/;"	m	class:gcgcg.Objeto
+Desenhar	CG_Biblioteca/BBox.cs	/^    public void Desenhar()$/;"	m	class:CG_Biblioteca.BBox
+DesenharGeometria	CG-N2/Objeto.cs	/^    protected abstract void DesenharGeometria();$/;"	m	class:gcgcg.Objeto
+DesenharGeometria	CG-N2/ObjetoGeometria.cs	/^    protected override void DesenharGeometria()$/;"	m	class:gcgcg.ObjetoGeometria
+DesenharGeometria	CG-N3/Objeto.cs	/^    protected abstract void DesenharGeometria();$/;"	m	class:gcgcg.Objeto
+DesenharGeometria	CG-N3/ObjetoGeometria.cs	/^    protected override void DesenharGeometria()$/;"	m	class:gcgcg.ObjetoGeometria
+DesenharGeometria	CG-N4/Objeto.cs	/^    protected abstract void DesenharGeometria();$/;"	m	class:gcgcg.Objeto
+DesenharGeometria	CG-N4/ObjetoGeometria.cs	/^    protected override void DesenharGeometria()$/;"	m	class:gcgcg.ObjetoGeometria
+DesenharObjeto	CG-N2/ObjetoGeometria.cs	/^    protected abstract void DesenharObjeto();$/;"	m	class:gcgcg.ObjetoGeometria
+DesenharObjeto	CG-N2/Retangulo.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Retangulo
+DesenharObjeto	CG-N3/ObjetoGeometria.cs	/^    protected abstract void DesenharObjeto();$/;"	m	class:gcgcg.ObjetoGeometria
+DesenharObjeto	CG-N3/Poligono.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Poligono
+DesenharObjeto	CG-N3/Retangulo.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Retangulo
+DesenharObjeto	CG-N4/Cilindro.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Cilindro
+DesenharObjeto	CG-N4/Cone.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Cone
+DesenharObjeto	CG-N4/Cubo.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Cubo
+DesenharObjeto	CG-N4/Esfera.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Esfera
+DesenharObjeto	CG-N4/ObjetoGeometria.cs	/^    protected abstract void DesenharObjeto();$/;"	m	class:gcgcg.ObjetoGeometria
+DesenharObjeto	CG-N4/Poligono.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Poligono
+DesenharObjeto	CG-N4/Retangulo.cs	/^    protected override void DesenharObjeto()$/;"	m	class:gcgcg.Retangulo
+EscalaXY	CG-N3/Objeto.cs	/^    public void EscalaXY(double Sx, double Sy)$/;"	m	class:gcgcg.Objeto
+EscalaXYBBox	CG-N3/Objeto.cs	/^    public void EscalaXYBBox(double escala)$/;"	m	class:gcgcg.Objeto
+EscalaXYZ	CG-N4/Objeto.cs	/^    public void EscalaXYZ(double Sx, double Sy, double Sz)$/;"	m	class:gcgcg.Objeto
+EscalaXYZBBox	CG-N4/Objeto.cs	/^    public void EscalaXYZBBox(double Sx, double Sy, double Sz)$/;"	m	class:gcgcg.Objeto
+Esfera	CG-N4/Esfera.cs	/^    public Esfera(string rotulo, Objeto paiRef) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Esfera
+Esfera	CG-N4/Esfera.cs	/^  internal class Esfera : ObjetoGeometria$/;"	c	namespace:gcgcg
+Eye	CG_Biblioteca/CameraPerspective.cs	/^    public Vector3 Eye { get => eye; set => eye = value; }$/;"	p	class:CG_Biblioteca.CameraPerspective
+EyeRotate	CG-N4/Mundo.cs	/^    private void EyeRotate(float n)$/;"	m	class:gcgcg.Mundo	file:
+Far	CG_Biblioteca/CameraPerspective.cs	/^    public float Far { get => far; set => far = value; }$/;"	p	class:CG_Biblioteca.CameraPerspective
+FilhoAdicionar	CG-N2/Objeto.cs	/^    public void FilhoAdicionar(Objeto filho)$/;"	m	class:gcgcg.Objeto
+FilhoAdicionar	CG-N3/Objeto.cs	/^    public void FilhoAdicionar(Objeto filho)$/;"	m	class:gcgcg.Objeto
+FilhoAdicionar	CG-N4/Objeto.cs	/^    public void FilhoAdicionar(Objeto filho)$/;"	m	class:gcgcg.Objeto
+FilhoRemover	CG-N2/Objeto.cs	/^    public void FilhoRemover(Objeto filho)$/;"	m	class:gcgcg.Objeto
+FilhoRemover	CG-N3/Objeto.cs	/^    public void FilhoRemover(Objeto filho)$/;"	m	class:gcgcg.Objeto
+FilhoRemover	CG-N4/Objeto.cs	/^    public void FilhoRemover(Objeto filho)$/;"	m	class:gcgcg.Objeto
+Fovy	CG_Biblioteca/CameraPerspective.cs	/^    public float Fovy { get => fovy; set => fovy = value; }$/;"	p	class:CG_Biblioteca.CameraPerspective
+Geometria	CG-N4/ModeloCubo.cs	/^    public void Geometria()$/;"	m	class:gcgcg.ModeloCubo
+GerarPtosCirculo	CG_Biblioteca/Matematica.cs	/^    public static Ponto4D GerarPtosCirculo(double angulo, double raio)$/;"	m	class:CG_Biblioteca.Matematica
+GetInstance	CG-N2/Mundo.cs	/^    public static Mundo GetInstance(int width, int height)$/;"	m	class:gcgcg.Mundo
+GetInstance	CG-N3/Mundo.cs	/^    public static Mundo GetInstance(int width, int height)$/;"	m	class:gcgcg.Mundo
+GetInstance	CG-N4/Mundo.cs	/^    public static Mundo GetInstance(int width, int height)$/;"	m	class:gcgcg.Mundo
+Iluminacao	CG-N4_exemplos/Iluminacao/Program.cs	/^namespace Iluminacao$/;"	n
+Main	CG-N2/Mundo.cs	/^    static void Main(string[] args)$/;"	m	class:gcgcg.Program	file:
+Main	CG-N3/Mundo.cs	/^    static void Main(string[] args)$/;"	m	class:gcgcg.Program	file:
+Main	CG-N4/Mundo.cs	/^    static void Main(string[] args)$/;"	m	class:gcgcg.Program	file:
+Main	CG-N4_exemplos/DisplayList/Program.cs	/^    static void Main(string[] args)$/;"	m	class:Mundo.Program	file:
+Main	CG-N4_exemplos/Iluminacao/Program.cs	/^    static void Main(string[] args)$/;"	m	class:Iluminacao.Program	file:
+Main	CG-N4_exemplos/OpenTKminimo/Program.cs	/^    static void Main(string[] args)$/;"	m	class:Mundo.Program	file:
+Main	CG-N4_exemplos/camera/Program.cs	/^  static void Main(string[] args)$/;"	m	class:Mundo.Program	file:
+Main	CG-N4_exemplos/textura/Program.cs	/^    static void Main(string[] args)$/;"	m	class:textura.Program	file:
+Matematica	CG_Biblioteca/Matematica.cs	/^  public abstract class Matematica$/;"	c	namespace:CG_Biblioteca
+Matriz	CG-N3/Objeto.cs	/^    public Transformacao4D Matriz { get => matriz; set => matriz = value; }$/;"	p	class:gcgcg.Objeto
+Matriz	CG-N4/Objeto.cs	/^    public Transformacao4D Matriz { get => matriz; set => matriz = value;}$/;"	p	class:gcgcg.Objeto
+ModeloCubo	CG-N4/ModeloCubo.cs	/^  internal class ModeloCubo$/;"	c	namespace:gcgcg
+MultiplicarMatriz	CG_Biblioteca/Transformacao4D.cs	/^    public Transformacao4D MultiplicarMatriz(Transformacao4D t)$/;"	m	class:CG_Biblioteca.Transformacao4D
+MultiplicarPonto	CG_Biblioteca/Transformacao4D.cs	/^    public Ponto4D MultiplicarPonto(Ponto4D pto)$/;"	m	class:CG_Biblioteca.Transformacao4D
+Mundo	CG-N2/Mundo.cs	/^    private Mundo(int width, int height) : base(width, height) { }$/;"	m	class:gcgcg.Mundo	file:
+Mundo	CG-N2/Mundo.cs	/^  class Mundo : GameWindow$/;"	c	namespace:gcgcg
+Mundo	CG-N3/Mundo.cs	/^    private Mundo(int width, int height) : base(width, height) { }$/;"	m	class:gcgcg.Mundo	file:
+Mundo	CG-N3/Mundo.cs	/^  class Mundo : GameWindow$/;"	c	namespace:gcgcg
+Mundo	CG-N4/Mundo.cs	/^    private Mundo(int width, int height) : base(width, height) { }$/;"	m	class:gcgcg.Mundo	file:
+Mundo	CG-N4/Mundo.cs	/^  class Mundo : GameWindow$/;"	c	namespace:gcgcg
+Mundo	CG-N4_exemplos/DisplayList/Program.cs	/^    public Mundo(int width, int height) : base(width, height) { }$/;"	m	class:Mundo.Mundo
+Mundo	CG-N4_exemplos/DisplayList/Program.cs	/^  class Mundo : GameWindow$/;"	c	namespace:Mundo
+Mundo	CG-N4_exemplos/DisplayList/Program.cs	/^namespace Mundo$/;"	n
+Mundo	CG-N4_exemplos/Iluminacao/Program.cs	/^    public Mundo(int width, int height) : base(width, height) { }$/;"	m	class:Iluminacao.Mundo
+Mundo	CG-N4_exemplos/Iluminacao/Program.cs	/^  class Mundo : GameWindow$/;"	c	namespace:Iluminacao
+Mundo	CG-N4_exemplos/OpenTKminimo/Program.cs	/^    public Mundo(int width, int height) : base(width, height) { }$/;"	m	class:Mundo.Mundo
+Mundo	CG-N4_exemplos/OpenTKminimo/Program.cs	/^  class Mundo : GameWindow$/;"	c	namespace:Mundo
+Mundo	CG-N4_exemplos/OpenTKminimo/Program.cs	/^namespace Mundo$/;"	n
+Mundo	CG-N4_exemplos/camera/Program.cs	/^    public Mundo(int width, int height) : base(width, height) { }$/;"	m	class:Mundo.Mundo
+Mundo	CG-N4_exemplos/camera/Program.cs	/^  class Mundo : GameWindow$/;"	c	namespace:Mundo
+Mundo	CG-N4_exemplos/camera/Program.cs	/^namespace Mundo$/;"	n
+Mundo	CG-N4_exemplos/textura/Program.cs	/^    public Mundo(int width, int height) : base(width, height) { }$/;"	m	class:textura.Mundo
+Mundo	CG-N4_exemplos/textura/Program.cs	/^  class Mundo : GameWindow$/;"	c	namespace:textura
+Near	CG_Biblioteca/CameraPerspective.cs	/^    public float Near { get => near; set => near = value; }$/;"	p	class:CG_Biblioteca.CameraPerspective
+Objeto	CG-N2/Objeto.cs	/^    public Objeto(string rotulo, Objeto paiRef)$/;"	m	class:gcgcg.Objeto
+Objeto	CG-N2/Objeto.cs	/^  internal abstract class Objeto$/;"	c	namespace:gcgcg
+Objeto	CG-N3/Objeto.cs	/^    public Objeto(string rotulo, Objeto paiRef)$/;"	m	class:gcgcg.Objeto
+Objeto	CG-N3/Objeto.cs	/^  public abstract class Objeto$/;"	c	namespace:gcgcg
+Objeto	CG-N4/Objeto.cs	/^    public Objeto(string rotulo, Objeto paiRef)$/;"	m	class:gcgcg.Objeto
+Objeto	CG-N4/Objeto.cs	/^  internal abstract class Objeto$/;"	c	namespace:gcgcg
+ObjetoGeometria	CG-N2/ObjetoGeometria.cs	/^    public ObjetoGeometria(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }$/;"	m	class:gcgcg.ObjetoGeometria
+ObjetoGeometria	CG-N2/ObjetoGeometria.cs	/^  internal abstract class ObjetoGeometria : Objeto$/;"	c	namespace:gcgcg
+ObjetoGeometria	CG-N3/ObjetoGeometria.cs	/^    public ObjetoGeometria(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }$/;"	m	class:gcgcg.ObjetoGeometria
+ObjetoGeometria	CG-N3/ObjetoGeometria.cs	/^  internal abstract class ObjetoGeometria : Objeto$/;"	c	namespace:gcgcg
+ObjetoGeometria	CG-N4/ObjetoGeometria.cs	/^    public ObjetoGeometria(string rotulo, Objeto paiRef) : base(rotulo, paiRef) { }$/;"	m	class:gcgcg.ObjetoGeometria
+ObjetoGeometria	CG-N4/ObjetoGeometria.cs	/^  internal abstract class ObjetoGeometria : Objeto$/;"	c	namespace:gcgcg
+ObterDados	CG_Biblioteca/Transformacao4D.cs	/^    public double[] ObterDados()$/;"	m	class:CG_Biblioteca.Transformacao4D
+ObterElemento	CG_Biblioteca/Transformacao4D.cs	/^    public double ObterElemento(int index)$/;"	m	class:CG_Biblioteca.Transformacao4D
+OnKeyDown	CG-N2/Mundo.cs	/^    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnKeyDown	CG-N3/Mundo.cs	/^    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnKeyDown	CG-N4/Mundo.cs	/^    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnKeyDown	CG-N4_exemplos/DisplayList/Program.cs	/^    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)$/;"	m	class:Mundo.Mundo
+OnKeyDown	CG-N4_exemplos/Iluminacao/Program.cs	/^    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)$/;"	m	class:Iluminacao.Mundo
+OnKeyDown	CG-N4_exemplos/textura/Program.cs	/^    protected override void OnKeyDown(OpenTK.Input.KeyboardKeyEventArgs e)$/;"	m	class:textura.Mundo
+OnLoad	CG-N2/Mundo.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:gcgcg.Mundo
+OnLoad	CG-N3/Mundo.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:gcgcg.Mundo
+OnLoad	CG-N4/Mundo.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:gcgcg.Mundo
+OnLoad	CG-N4_exemplos/DisplayList/Program.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:Mundo.Mundo
+OnLoad	CG-N4_exemplos/Iluminacao/Program.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:Iluminacao.Mundo
+OnLoad	CG-N4_exemplos/OpenTKminimo/Program.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:Mundo.Mundo
+OnLoad	CG-N4_exemplos/camera/Program.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:Mundo.Mundo
+OnLoad	CG-N4_exemplos/textura/Program.cs	/^    protected override void OnLoad(EventArgs e)$/;"	m	class:textura.Mundo
+OnMouseMove	CG-N2/Mundo.cs	/^    protected override void OnMouseMove(MouseMoveEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnMouseMove	CG-N3/Mundo.cs	/^    protected override void OnMouseMove(MouseMoveEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnMouseMove	CG-N4/Mundo.cs	/^    protected override void OnMouseMove(MouseMoveEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnMouseMove	CG-N4_exemplos/Iluminacao/Program.cs	/^    protected override void OnMouseMove(MouseMoveEventArgs e)$/;"	m	class:Iluminacao.Mundo
+OnMouseMove	CG-N4_exemplos/textura/Program.cs	/^    protected override void OnMouseMove(MouseMoveEventArgs e)$/;"	m	class:textura.Mundo
+OnRenderFrame	CG-N2/Mundo.cs	/^    protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnRenderFrame	CG-N3/Mundo.cs	/^    protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnRenderFrame	CG-N4/Mundo.cs	/^    protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnRenderFrame	CG-N4_exemplos/DisplayList/Program.cs	/^    protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:Mundo.Mundo
+OnRenderFrame	CG-N4_exemplos/Iluminacao/Program.cs	/^    protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:Iluminacao.Mundo
+OnRenderFrame	CG-N4_exemplos/OpenTKminimo/Program.cs	/^    protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:Mundo.Mundo
+OnRenderFrame	CG-N4_exemplos/camera/Program.cs	/^  protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:Mundo.Mundo
+OnRenderFrame	CG-N4_exemplos/textura/Program.cs	/^    protected override void OnRenderFrame(FrameEventArgs e)$/;"	m	class:textura.Mundo
+OnResize	CG-N4/Mundo.cs	/^    protected override void OnResize(EventArgs e)$/;"	m	class:gcgcg.Mundo
+OnResize	CG-N4_exemplos/DisplayList/Program.cs	/^    protected override void OnResize(EventArgs e)$/;"	m	class:Mundo.Mundo
+OnResize	CG-N4_exemplos/Iluminacao/Program.cs	/^    protected override void OnResize(EventArgs e)$/;"	m	class:Iluminacao.Mundo
+OnResize	CG-N4_exemplos/camera/Program.cs	/^  protected override void OnResize(EventArgs e)$/;"	m	class:Mundo.Mundo
+OnResize	CG-N4_exemplos/textura/Program.cs	/^    protected override void OnResize(EventArgs e)$/;"	m	class:textura.Mundo
+OnUnload	CG-N4_exemplos/DisplayList/Program.cs	/^    protected override void OnUnload(EventArgs e)$/;"	m	class:Mundo.Mundo
+OnUnload	CG-N4_exemplos/textura/Program.cs	/^    protected override void OnUnload(EventArgs e)$/;"	m	class:textura.Mundo
+OnUpdateFrame	CG-N2/Mundo.cs	/^    protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnUpdateFrame	CG-N3/Mundo.cs	/^    protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnUpdateFrame	CG-N4/Mundo.cs	/^    protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:gcgcg.Mundo
+OnUpdateFrame	CG-N4_exemplos/DisplayList/Program.cs	/^    protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:Mundo.Mundo
+OnUpdateFrame	CG-N4_exemplos/Iluminacao/Program.cs	/^    protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:Iluminacao.Mundo
+OnUpdateFrame	CG-N4_exemplos/OpenTKminimo/Program.cs	/^    protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:Mundo.Mundo
+OnUpdateFrame	CG-N4_exemplos/camera/Program.cs	/^  protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:Mundo.Mundo
+OnUpdateFrame	CG-N4_exemplos/textura/Program.cs	/^    protected override void OnUpdateFrame(FrameEventArgs e)$/;"	m	class:textura.Mundo
+PanBaixo	CG_Biblioteca/CameraOrtho.cs	/^    public void PanBaixo() { yMin += 2; yMax += 2; }$/;"	m	class:CG_Biblioteca.CameraOrtho
+PanCima	CG_Biblioteca/CameraOrtho.cs	/^    public void PanCima() { yMin -= 2; yMax -= 2; }$/;"	m	class:CG_Biblioteca.CameraOrtho
+PanDireita	CG_Biblioteca/CameraOrtho.cs	/^    public void PanDireita() { xMin -= 2; xMax -= 2; }$/;"	m	class:CG_Biblioteca.CameraOrtho
+PanEsquerda	CG_Biblioteca/CameraOrtho.cs	/^    public void PanEsquerda() { xMin += 2; xMax += 2; }$/;"	m	class:CG_Biblioteca.CameraOrtho
+Poligono	CG-N3/Poligono.cs	/^    public Poligono(string rotulo, Objeto paiRef) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Poligono
+Poligono	CG-N3/Poligono.cs	/^  internal class Poligono : ObjetoGeometria$/;"	c	namespace:gcgcg
+Poligono	CG-N4/Poligono.cs	/^    public Poligono(string rotulo, Objeto paiRef) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Poligono
+Poligono	CG-N4/Poligono.cs	/^  internal class Poligono : ObjetoGeometria$/;"	c	namespace:gcgcg
+Ponto4D	CG_Biblioteca/Ponto4D.cs	/^    public Ponto4D(Ponto4D pto)$/;"	m	class:CG_Biblioteca.Ponto4D
+Ponto4D	CG_Biblioteca/Ponto4D.cs	/^    public Ponto4D(double x = 0.0, double y = 0.0, double z = 0.0, double w = 1.0)$/;"	m	class:CG_Biblioteca.Ponto4D
+Ponto4D	CG_Biblioteca/Ponto4D.cs	/^  public class Ponto4D$/;"	c	namespace:CG_Biblioteca
+PontoToVector	CG-N4/Mundo.cs	/^    private Vector3 PontoToVector(Ponto4D p)$/;"	m	class:gcgcg.Mundo	file:
+PontosAdicionar	CG-N2/ObjetoGeometria.cs	/^    public void PontosAdicionar(Ponto4D pto)$/;"	m	class:gcgcg.ObjetoGeometria
+PontosAdicionar	CG-N3/ObjetoGeometria.cs	/^    public void PontosAdicionar(Ponto4D pto)$/;"	m	class:gcgcg.ObjetoGeometria
+PontosAdicionar	CG-N4/ObjetoGeometria.cs	/^    public void PontosAdicionar(Ponto4D pto)$/;"	m	class:gcgcg.ObjetoGeometria
+PontosRemoverTodos	CG-N2/ObjetoGeometria.cs	/^    protected void PontosRemoverTodos()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosRemoverTodos	CG-N3/ObjetoGeometria.cs	/^    protected void PontosRemoverTodos()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosRemoverTodos	CG-N4/ObjetoGeometria.cs	/^    protected void PontosRemoverTodos()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosRemoverUltimo	CG-N2/ObjetoGeometria.cs	/^    public void PontosRemoverUltimo()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosRemoverUltimo	CG-N3/ObjetoGeometria.cs	/^    public void PontosRemoverUltimo()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosRemoverUltimo	CG-N4/ObjetoGeometria.cs	/^    public void PontosRemoverUltimo()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosUltimo	CG-N2/ObjetoGeometria.cs	/^    public Ponto4D PontosUltimo()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosUltimo	CG-N3/ObjetoGeometria.cs	/^    public Ponto4D PontosUltimo()$/;"	m	class:gcgcg.ObjetoGeometria
+PontosUltimo	CG-N4/ObjetoGeometria.cs	/^    public Ponto4D PontosUltimo()$/;"	m	class:gcgcg.ObjetoGeometria
+PrimitivaTamanho	CG-N2/Objeto.cs	/^    protected float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }$/;"	p	class:gcgcg.Objeto
+PrimitivaTamanho	CG-N3/Objeto.cs	/^    protected float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }$/;"	p	class:gcgcg.Objeto
+PrimitivaTamanho	CG-N4/Objeto.cs	/^    protected float PrimitivaTamanho { get => primitivaTamanho; set => primitivaTamanho = value; }$/;"	p	class:gcgcg.Objeto
+PrimitivaTipo	CG-N2/Objeto.cs	/^    protected PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }$/;"	p	class:gcgcg.Objeto
+PrimitivaTipo	CG-N3/Objeto.cs	/^    protected PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }$/;"	p	class:gcgcg.Objeto
+PrimitivaTipo	CG-N4/Objeto.cs	/^    protected PrimitiveType PrimitivaTipo { get => primitivaTipo; set => primitivaTipo = value; }$/;"	p	class:gcgcg.Objeto
+ProcessarCentro	CG_Biblioteca/BBox.cs	/^    public void ProcessarCentro()$/;"	m	class:CG_Biblioteca.BBox
+Program	CG-N2/Mundo.cs	/^  class Program$/;"	c	namespace:gcgcg
+Program	CG-N3/Mundo.cs	/^  class Program$/;"	c	namespace:gcgcg
+Program	CG-N4/Mundo.cs	/^  class Program$/;"	c	namespace:gcgcg
+Program	CG-N4_exemplos/DisplayList/Program.cs	/^  class Program$/;"	c	namespace:Mundo
+Program	CG-N4_exemplos/Iluminacao/Program.cs	/^  class Program$/;"	c	namespace:Iluminacao
+Program	CG-N4_exemplos/OpenTKminimo/Program.cs	/^  class Program$/;"	c	namespace:Mundo
+Program	CG-N4_exemplos/camera/Program.cs	/^class Program$/;"	c	namespace:Mundo
+Program	CG-N4_exemplos/textura/Program.cs	/^  class Program$/;"	c	namespace:textura
+Retangulo	CG-N2/Retangulo.cs	/^    public Retangulo(string rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Retangulo
+Retangulo	CG-N2/Retangulo.cs	/^  internal class Retangulo : ObjetoGeometria$/;"	c	namespace:gcgcg
+Retangulo	CG-N3/Retangulo.cs	/^    public Retangulo(string rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Retangulo
+Retangulo	CG-N3/Retangulo.cs	/^  internal class Retangulo : ObjetoGeometria$/;"	c	namespace:gcgcg
+Retangulo	CG-N4/Retangulo.cs	/^    public Retangulo(string rotulo, Objeto paiRef, Ponto4D ptoInfEsq, Ponto4D ptoSupDir) : base(rotulo, paiRef)$/;"	m	class:gcgcg.Retangulo
+Retangulo	CG-N4/Retangulo.cs	/^  internal class Retangulo : ObjetoGeometria$/;"	c	namespace:gcgcg
+Rotacao	CG-N4/Objeto.cs	/^    public void Rotacao(double angulo)$/;"	m	class:gcgcg.Objeto
+RotacaoEixo	CG-N4/Objeto.cs	/^    public void RotacaoEixo(double angulo)$/;"	m	class:gcgcg.Objeto
+RotacaoZ	CG-N3/Objeto.cs	/^    public void RotacaoZ(double angulo)$/;"	m	class:gcgcg.Objeto
+RotacaoZBBox	CG-N3/Objeto.cs	/^    public void RotacaoZBBox(double angulo)$/;"	m	class:gcgcg.Objeto
+RotacaoZBBox	CG-N4/Objeto.cs	/^    public void RotacaoZBBox(double angulo)$/;"	m	class:gcgcg.Objeto
+SRU3D	CG-N4_exemplos/Iluminacao/Program.cs	/^    private void SRU3D()$/;"	m	class:Iluminacao.Mundo	file:
+SRU3D	CG-N4_exemplos/textura/Program.cs	/^    private void SRU3D()$/;"	m	class:textura.Mundo	file:
+Sru3D	CG-N2/Mundo.cs	/^    private void Sru3D()$/;"	m	class:gcgcg.Mundo	file:
+Sru3D	CG-N3/Mundo.cs	/^    private void Sru3D()$/;"	m	class:gcgcg.Mundo	file:
+Sru3D	CG-N4/Mundo.cs	/^    private void Sru3D()$/;"	m	class:gcgcg.Mundo	file:
+Sru3D	CG-N4_exemplos/DisplayList/Program.cs	/^    private void Sru3D()$/;"	m	class:Mundo.Mundo	file:
+Sru3D	CG-N4_exemplos/OpenTKminimo/Program.cs	/^private void Sru3D()$/;"	m	class:Mundo.Mundo	file:
+Sru3D	CG-N4_exemplos/camera/Program.cs	/^private void Sru3D()$/;"	m	class:Mundo.Mundo	file:
+ToString	CG-N2/ObjetoGeometria.cs	/^    public override string ToString()$/;"	m	class:gcgcg.ObjetoGeometria
+ToString	CG-N2/Retangulo.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Retangulo
+ToString	CG-N3/ObjetoGeometria.cs	/^    public override string ToString()$/;"	m	class:gcgcg.ObjetoGeometria
+ToString	CG-N3/Poligono.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Poligono
+ToString	CG-N3/Retangulo.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Retangulo
+ToString	CG-N4/Cilindro.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Cilindro
+ToString	CG-N4/Cone.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Cone
+ToString	CG-N4/Cubo.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Cubo
+ToString	CG-N4/Esfera.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Esfera
+ToString	CG-N4/ObjetoGeometria.cs	/^    public override string ToString()$/;"	m	class:gcgcg.ObjetoGeometria
+ToString	CG-N4/Poligono.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Poligono
+ToString	CG-N4/Retangulo.cs	/^    public override string ToString()$/;"	m	class:gcgcg.Retangulo
+ToString	CG_Biblioteca/BBox.cs	/^    public override string ToString()$/;"	m	class:CG_Biblioteca.BBox
+ToString	CG_Biblioteca/CameraOrtho.cs	/^    public override string ToString()$/;"	m	class:CG_Biblioteca.CameraOrtho
+ToString	CG_Biblioteca/CameraPerspective.cs	/^    public override string ToString()$/;"	m	class:CG_Biblioteca.CameraPerspective
+ToString	CG_Biblioteca/Ponto4D.cs	/^    public override string ToString()$/;"	m	class:CG_Biblioteca.Ponto4D
+ToString	CG_Biblioteca/Transformacao4D.cs	/^    public override string ToString()$/;"	m	class:CG_Biblioteca.Transformacao4D
+Transformacao4D	CG_Biblioteca/Transformacao4D.cs	/^    public Transformacao4D()$/;"	m	class:CG_Biblioteca.Transformacao4D
+Transformacao4D	CG_Biblioteca/Transformacao4D.cs	/^  public class Transformacao4D$/;"	c	namespace:CG_Biblioteca
+TranslacaoXY	CG-N3/Objeto.cs	/^    public void TranslacaoXY(double tx, double ty)$/;"	m	class:gcgcg.Objeto
+TranslacaoXYZ	CG-N4/Objeto.cs	/^    public void TranslacaoXYZ(double tx, double ty, double tz)$/;"	m	class:gcgcg.Objeto
+TrocaEixoRotacao	CG-N4/Objeto.cs	/^    public void TrocaEixoRotacao(char eixo) => eixoRotacao = eixo;$/;"	m	class:gcgcg.Objeto
+Up	CG_Biblioteca/CameraPerspective.cs	/^    public Vector3 Up { get => up; }$/;"	p	class:CG_Biblioteca.CameraPerspective
+Utilitario	CG-N2/Utilitario.cs	/^  public abstract class Utilitario$/;"	c	namespace:gcgcg
+Utilitario	CG-N3/Utilitario.cs	/^  public abstract class Utilitario$/;"	c	namespace:gcgcg
+Utilitario	CG-N4/Utilitario.cs	/^  public abstract class Utilitario$/;"	c	namespace:gcgcg
+VectorToPonto	CG-N4/Mundo.cs	/^    private Ponto4D VectorToPonto(Vector3 v)$/;"	m	class:gcgcg.Mundo	file:
+W	CG_Biblioteca/Ponto4D.cs	/^    public double W { get => w; }$/;"	p	class:CG_Biblioteca.Ponto4D
+X	CG_Biblioteca/Ponto4D.cs	/^    public double X { get => x; set => x = value; }$/;"	p	class:CG_Biblioteca.Ponto4D
+Y	CG_Biblioteca/Ponto4D.cs	/^    public double Y { get => y; set => y = value; }$/;"	p	class:CG_Biblioteca.Ponto4D
+Z	CG_Biblioteca/Ponto4D.cs	/^    public double Z { get => z; set => z = value; }$/;"	p	class:CG_Biblioteca.Ponto4D
+ZoomIn	CG_Biblioteca/CameraOrtho.cs	/^    public void ZoomIn()$/;"	m	class:CG_Biblioteca.CameraOrtho
+ZoomOut	CG_Biblioteca/CameraOrtho.cs	/^    public void ZoomOut()$/;"	m	class:CG_Biblioteca.CameraOrtho
+aspect	CG-N4_exemplos/DisplayList/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+aspect	CG-N4_exemplos/camera/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+aspect	CG_Biblioteca/CameraPerspective.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:CG_Biblioteca.CameraPerspective	file:
+at	CG-N4_exemplos/DisplayList/Program.cs	/^    private Vector3 eye, at, up;$/;"	f	class:Mundo.Mundo	file:
+at	CG-N4_exemplos/camera/Program.cs	/^    private Vector3 eye, at, up;$/;"	f	class:Mundo.Mundo	file:
+at	CG_Biblioteca/CameraPerspective.cs	/^    private Vector3 eye, at, up;$/;"	f	class:CG_Biblioteca.CameraPerspective	file:
+bBox	CG-N2/Objeto.cs	/^    private BBox bBox = new BBox();$/;"	f	class:gcgcg.Objeto	file:
+bBox	CG-N3/Objeto.cs	/^    private BBox bBox = new BBox();$/;"	f	class:gcgcg.Objeto	file:
+bBox	CG-N4/Objeto.cs	/^    private BBox bBox = new BBox();$/;"	f	class:gcgcg.Objeto	file:
+bBoxDesenhar	CG-N2/Mundo.cs	/^    private bool bBoxDesenhar = false;$/;"	f	class:gcgcg.Mundo	file:
+bBoxDesenhar	CG-N3/Mundo.cs	/^    private bool bBoxDesenhar = true;$/;"	f	class:gcgcg.Mundo	file:
+bBoxDesenhar	CG-N4/Mundo.cs	/^    private bool bBoxDesenhar = false;$/;"	f	class:gcgcg.Mundo	file:
+bitmap	CG-N4_exemplos/textura/Program.cs	/^    Bitmap bitmap = new Bitmap("logoGCG.png");$/;"	f	class:textura.Mundo	file:
+camera	CG-N2/Mundo.cs	/^    private CameraOrtho camera = new CameraOrtho();$/;"	f	class:gcgcg.Mundo	file:
+camera	CG-N3/Mundo.cs	/^    private CameraOrtho camera = new CameraOrtho();$/;"	f	class:gcgcg.Mundo	file:
+camera	CG-N4/Mundo.cs	/^    private CameraPerspective camera = new CameraPerspective();$/;"	f	class:gcgcg.Mundo	file:
+centro	CG_Biblioteca/BBox.cs	/^    private Ponto4D centro = new Ponto4D();$/;"	f	class:CG_Biblioteca.BBox	file:
+clones	CG-N4_exemplos/DisplayList/Program.cs	/^    private byte clones = 1;$/;"	f	class:Mundo.Mundo	file:
+comDisplayList	CG-N4_exemplos/DisplayList/Program.cs	/^    private bool comDisplayList = true;$/;"	f	class:Mundo.Mundo	file:
+cor	CG-N4_exemplos/Iluminacao/Program.cs	/^    private Color cor = Color.White;$/;"	f	class:Iluminacao.Mundo	file:
+displayLista	CG-N4_exemplos/DisplayList/Program.cs	/^    private int displayLista;$/;"	f	class:Mundo.Mundo	file:
+drawSphere	CG-N4/Esfera.cs	/^    void drawSphere(double r, int lats, int longs)$/;"	m	class:gcgcg.Esfera	file:
+eixoRotacao	CG-N4/Objeto.cs	/^    private char eixoRotacao = 'x';$/;"	f	class:gcgcg.Objeto	file:
+exibeVetorNormal	CG-N4/Cilindro.cs	/^    private bool exibeVetorNormal = false;$/;"	f	class:gcgcg.Cilindro	file:
+exibeVetorNormal	CG-N4/Cone.cs	/^    private bool exibeVetorNormal = false;$/;"	f	class:gcgcg.Cone	file:
+exibeVetorNormal	CG-N4/Cubo.cs	/^    private bool exibeVetorNormal = false;$/;"	f	class:gcgcg.Cubo	file:
+exibeVetorNormal	CG-N4/Esfera.cs	/^    private bool exibeVetorNormal = false;$/;"	f	class:gcgcg.Esfera	file:
+eye	CG-N4_exemplos/DisplayList/Program.cs	/^    private Vector3 eye, at, up;$/;"	f	class:Mundo.Mundo	file:
+eye	CG-N4_exemplos/camera/Program.cs	/^    private Vector3 eye, at, up;$/;"	f	class:Mundo.Mundo	file:
+eye	CG_Biblioteca/CameraPerspective.cs	/^    private Vector3 eye, at, up;$/;"	f	class:CG_Biblioteca.CameraPerspective	file:
+far	CG-N4_exemplos/DisplayList/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+far	CG-N4_exemplos/camera/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+far	CG_Biblioteca/CameraPerspective.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:CG_Biblioteca.CameraPerspective	file:
+fovy	CG-N4_exemplos/DisplayList/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+fovy	CG-N4_exemplos/camera/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+fovy	CG_Biblioteca/CameraPerspective.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:CG_Biblioteca.CameraPerspective	file:
+gcgcg	CG-N2/Mundo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N2/Objeto.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N2/ObjetoGeometria.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N2/Retangulo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N2/Utilitario.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N3/Mundo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N3/Objeto.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N3/ObjetoGeometria.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N3/Poligono.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N3/Retangulo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N3/Utilitario.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Cilindro.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Cone.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Cubo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Esfera.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/ModeloCubo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Mundo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Objeto.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/ObjetoGeometria.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Poligono.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Retangulo.cs	/^namespace gcgcg$/;"	n
+gcgcg	CG-N4/Utilitario.cs	/^namespace gcgcg$/;"	n
+i	CG-N4/Mundo.cs	/^    protected int i;$/;"	f	class:gcgcg.Mundo
+instanciaMundo	CG-N2/Mundo.cs	/^    private static Mundo instanciaMundo = null;$/;"	f	class:gcgcg.Mundo	file:
+instanciaMundo	CG-N3/Mundo.cs	/^    private static Mundo instanciaMundo = null;$/;"	f	class:gcgcg.Mundo	file:
+instanciaMundo	CG-N4/Mundo.cs	/^    private static Mundo instanciaMundo = null;$/;"	f	class:gcgcg.Mundo	file:
+j	CG-N4/Mundo.cs	/^    protected int j;$/;"	f	class:gcgcg.Mundo
+ligaLuz	CG-N4_exemplos/Iluminacao/Program.cs	/^    private bool ligaLuz = true;$/;"	f	class:Iluminacao.Mundo	file:
+listaTopologia	CG-N4/Cilindro.cs	/^    protected List<int> listaTopologia = new List<int>();$/;"	f	class:gcgcg.Cilindro
+listaTopologia	CG-N4/Cone.cs	/^    protected List<int> listaTopologia = new List<int>();$/;"	f	class:gcgcg.Cone
+listaTopologia	CG-N4/Esfera.cs	/^    protected List<int> listaTopologia = new List<int>();$/;"	f	class:gcgcg.Esfera
+maiorX	CG_Biblioteca/BBox.cs	/^    private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;$/;"	f	class:CG_Biblioteca.BBox	file:
+maiorY	CG_Biblioteca/BBox.cs	/^    private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;$/;"	f	class:CG_Biblioteca.BBox	file:
+maiorZ	CG_Biblioteca/BBox.cs	/^    private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;$/;"	f	class:CG_Biblioteca.BBox	file:
+matriz	CG-N3/Objeto.cs	/^    public Transformacao4D matriz = new Transformacao4D();$/;"	f	class:gcgcg.Objeto
+matriz	CG-N4/Objeto.cs	/^    private Transformacao4D matriz = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matriz	CG_Biblioteca/Transformacao4D.cs	/^	  private double[] matriz = {$/;"	f	class:CG_Biblioteca.Transformacao4D	file:
+matrizGlobal	CG-N3/Objeto.cs	/^    private static Transformacao4D matrizGlobal = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizGlobal	CG-N4/Objeto.cs	/^    private static Transformacao4D matrizGlobal = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpEscala	CG-N3/Objeto.cs	/^    private static Transformacao4D matrizTmpEscala = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpEscala	CG-N4/Objeto.cs	/^    private static Transformacao4D matrizTmpEscala = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpRotacao	CG-N3/Objeto.cs	/^    private static Transformacao4D matrizTmpRotacao = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpRotacao	CG-N4/Objeto.cs	/^    private static Transformacao4D matrizTmpRotacao = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpTranslacao	CG-N3/Objeto.cs	/^    private static Transformacao4D matrizTmpTranslacao = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpTranslacao	CG-N4/Objeto.cs	/^    private static Transformacao4D matrizTmpTranslacao = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpTranslacaoInversa	CG-N3/Objeto.cs	/^    private static Transformacao4D matrizTmpTranslacaoInversa = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+matrizTmpTranslacaoInversa	CG-N4/Objeto.cs	/^    private static Transformacao4D matrizTmpTranslacaoInversa = new Transformacao4D();$/;"	f	class:gcgcg.Objeto	file:
+menorX	CG_Biblioteca/BBox.cs	/^    private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;$/;"	f	class:CG_Biblioteca.BBox	file:
+menorY	CG_Biblioteca/BBox.cs	/^    private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;$/;"	f	class:CG_Biblioteca.BBox	file:
+menorZ	CG_Biblioteca/BBox.cs	/^    private double menorX, menorY, menorZ, maiorX, maiorY, maiorZ;$/;"	f	class:CG_Biblioteca.BBox	file:
+mouseMoverPto	CG-N2/Mundo.cs	/^    private bool mouseMoverPto = false;$/;"	f	class:gcgcg.Mundo	file:
+mouseX	CG-N2/Mundo.cs	/^    int mouseX, mouseY;   \/\/TODO: achar método MouseDown para não ter variável Global$/;"	f	class:gcgcg.Mundo	file:
+mouseX	CG-N3/Mundo.cs	/^    int mouseX, mouseY;   \/\/TODO: achar método MouseDown para não ter variável Global$/;"	f	class:gcgcg.Mundo	file:
+mouseX	CG-N4/Mundo.cs	/^    int mouseX, mouseY;   \/\/TODO: achar método MouseDown para não ter variável Global$/;"	f	class:gcgcg.Mundo	file:
+mouseY	CG-N2/Mundo.cs	/^    int mouseX, mouseY;   \/\/TODO: achar método MouseDown para não ter variável Global$/;"	f	class:gcgcg.Mundo	file:
+mouseY	CG-N3/Mundo.cs	/^    int mouseX, mouseY;   \/\/TODO: achar método MouseDown para não ter variável Global$/;"	f	class:gcgcg.Mundo	file:
+mouseY	CG-N4/Mundo.cs	/^    int mouseX, mouseY;   \/\/TODO: achar método MouseDown para não ter variável Global$/;"	f	class:gcgcg.Mundo	file:
+movimentos	CG-N4/Mundo.cs	/^    protected List<Transformacao4D> movimentos = new List<Transformacao4D>();$/;"	f	class:gcgcg.Mundo
+near	CG-N4_exemplos/DisplayList/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+near	CG-N4_exemplos/camera/Program.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:Mundo.Mundo	file:
+near	CG_Biblioteca/CameraPerspective.cs	/^    private float fovy, aspect, near, far;$/;"	f	class:CG_Biblioteca.CameraPerspective	file:
+obj_Cilindro	CG-N4/Mundo.cs	/^    private Cilindro obj_Cilindro;$/;"	f	class:gcgcg.Mundo	file:
+obj_Circulo	CG-N2/Mundo.cs	/^    private Privado_Circulo obj_Circulo;$/;"	f	class:gcgcg.Mundo	file:
+obj_Cone	CG-N4/Mundo.cs	/^    private Cone obj_Cone;$/;"	f	class:gcgcg.Mundo	file:
+obj_Cubo	CG-N4/Mundo.cs	/^    private Cubo obj_Cubo;$/;"	f	class:gcgcg.Mundo	file:
+obj_Esfera	CG-N4/Mundo.cs	/^    private Esfera obj_Esfera;$/;"	f	class:gcgcg.Mundo	file:
+obj_Retangulo	CG-N2/Mundo.cs	/^    private Retangulo obj_Retangulo;$/;"	f	class:gcgcg.Mundo	file:
+obj_Retangulo	CG-N4/Mundo.cs	/^    private Retangulo obj_Retangulo;$/;"	f	class:gcgcg.Mundo	file:
+obj_SegReta	CG-N2/Mundo.cs	/^    private Privado_SegReta obj_SegReta;$/;"	f	class:gcgcg.Mundo	file:
+objetoId	CG-N3/Mundo.cs	/^    private String objetoId = "A";$/;"	f	class:gcgcg.Mundo	file:
+objetoId	CG-N4/Mundo.cs	/^    private String objetoId = "A";$/;"	f	class:gcgcg.Mundo	file:
+objetoNovo	CG-N3/Mundo.cs	/^    private Poligono objetoNovo = null;$/;"	f	class:gcgcg.Mundo	file:
+objetoNovo	CG-N4/Mundo.cs	/^    private Poligono objetoNovo = null;$/;"	f	class:gcgcg.Mundo	file:
+objetoSelecionado	CG-N2/Mundo.cs	/^    private ObjetoGeometria objetoSelecionado = null;$/;"	f	class:gcgcg.Mundo	file:
+objetoSelecionado	CG-N3/Mundo.cs	/^    private ObjetoGeometria objetoSelecionado = null;$/;"	f	class:gcgcg.Mundo	file:
+objetoSelecionado	CG-N4/Mundo.cs	/^    private ObjetoGeometria objetoSelecionado = null;$/;"	f	class:gcgcg.Mundo	file:
+objetosLista	CG-N2/Mundo.cs	/^    protected List<Objeto> objetosLista = new List<Objeto>();$/;"	f	class:gcgcg.Mundo
+objetosLista	CG-N2/Objeto.cs	/^    private List<Objeto> objetosLista = new List<Objeto>();$/;"	f	class:gcgcg.Objeto	file:
+objetosLista	CG-N3/Mundo.cs	/^    protected List<Objeto> objetosLista = new List<Objeto>();$/;"	f	class:gcgcg.Mundo
+objetosLista	CG-N3/Objeto.cs	/^    private List<Objeto> objetosLista = new List<Objeto>();$/;"	f	class:gcgcg.Objeto	file:
+objetosLista	CG-N4/Mundo.cs	/^    protected List<Objeto> objetosLista = new List<Objeto>();$/;"	f	class:gcgcg.Mundo
+objetosLista	CG-N4/Objeto.cs	/^    private List<Objeto> objetosLista = new List<Objeto>();$/;"	f	class:gcgcg.Objeto	file:
+obterCentro	CG_Biblioteca/BBox.cs	/^    public Ponto4D obterCentro => centro;$/;"	f	class:CG_Biblioteca.BBox
+obterMaiorX	CG_Biblioteca/BBox.cs	/^    public double obterMaiorX => maiorX;$/;"	f	class:CG_Biblioteca.BBox
+obterMaiorY	CG_Biblioteca/BBox.cs	/^    public double obterMaiorY => maiorY;$/;"	f	class:CG_Biblioteca.BBox
+obterMaiorZ	CG_Biblioteca/BBox.cs	/^    public double obterMaiorZ => maiorZ;$/;"	f	class:CG_Biblioteca.BBox
+obterMenorX	CG_Biblioteca/BBox.cs	/^    public double obterMenorX => menorX;$/;"	f	class:CG_Biblioteca.BBox
+obterMenorY	CG_Biblioteca/BBox.cs	/^    public double obterMenorY => menorY;$/;"	f	class:CG_Biblioteca.BBox
+obterMenorZ	CG_Biblioteca/BBox.cs	/^    public double obterMenorZ => menorZ;$/;"	f	class:CG_Biblioteca.BBox
+operator +	CG_Biblioteca/Ponto4D.cs	/^    public static Ponto4D operator +(Ponto4D pto1, Ponto4D pto2) => new Ponto4D(pto1.X + pto2.X, pto1.Y + pto2.Y, pto1.Z + pto2.Z);$/;"	m	class:CG_Biblioteca.Ponto4D
+pontosLista	CG-N2/ObjetoGeometria.cs	/^    protected List<Ponto4D> pontosLista = new List<Ponto4D>();$/;"	f	class:gcgcg.ObjetoGeometria
+pontosLista	CG-N3/ObjetoGeometria.cs	/^    protected List<Ponto4D> pontosLista = new List<Ponto4D>();$/;"	f	class:gcgcg.ObjetoGeometria
+pontosLista	CG-N4/ModeloCubo.cs	/^    protected List<Ponto4D> pontosLista = new List<Ponto4D>();$/;"	f	class:gcgcg.ModeloCubo
+pontosLista	CG-N4/ObjetoGeometria.cs	/^    protected List<Ponto4D> pontosLista = new List<Ponto4D>();$/;"	f	class:gcgcg.ObjetoGeometria
+primitivaTamanho	CG-N2/Objeto.cs	/^    private float primitivaTamanho = 2;$/;"	f	class:gcgcg.Objeto	file:
+primitivaTamanho	CG-N3/Objeto.cs	/^    private float primitivaTamanho = 2;$/;"	f	class:gcgcg.Objeto	file:
+primitivaTamanho	CG-N4/Objeto.cs	/^    private float primitivaTamanho = 2;$/;"	f	class:gcgcg.Objeto	file:
+primitivaTipo	CG-N2/Objeto.cs	/^    private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;$/;"	f	class:gcgcg.Objeto	file:
+primitivaTipo	CG-N3/Objeto.cs	/^    private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;$/;"	f	class:gcgcg.Objeto	file:
+primitivaTipo	CG-N4/Objeto.cs	/^    private PrimitiveType primitivaTipo = PrimitiveType.LineLoop;$/;"	f	class:gcgcg.Objeto	file:
+pushMove	CG-N4/Mundo.cs	/^    private void pushMove(float x, float y, float z, int qt)$/;"	m	class:gcgcg.Mundo	file:
+qtMovimentos	CG-N4/Mundo.cs	/^    protected List<Int32> qtMovimentos = new List<Int32>();$/;"	f	class:gcgcg.Mundo
+rotulo	CG-N2/Objeto.cs	/^    protected string rotulo;$/;"	f	class:gcgcg.Objeto
+rotulo	CG-N3/Objeto.cs	/^    protected string rotulo;$/;"	f	class:gcgcg.Objeto
+rotulo	CG-N4/Objeto.cs	/^    protected string rotulo;$/;"	f	class:gcgcg.Objeto
+setMatriz	CG-N3/Objeto.cs	/^    public void setMatriz(Transformacao4D tr)$/;"	m	class:gcgcg.Objeto
+textura	CG-N4_exemplos/textura/Program.cs	/^namespace textura$/;"	n
+texture	CG-N4_exemplos/textura/Program.cs	/^    int texture;$/;"	f	class:textura.Mundo	file:
+trico	CG_Biblioteca/Matematica.cs	/^    public static double GerarPtosCirculoloSimétrico(double raio)$/;"	m	class:CG_Biblioteca.Matematica
+up	CG-N4_exemplos/DisplayList/Program.cs	/^    private Vector3 eye, at, up;$/;"	f	class:Mundo.Mundo	file:
+up	CG-N4_exemplos/camera/Program.cs	/^    private Vector3 eye, at, up;$/;"	f	class:Mundo.Mundo	file:
+up	CG_Biblioteca/CameraPerspective.cs	/^    private Vector3 eye, at, up;$/;"	f	class:CG_Biblioteca.CameraPerspective	file:
+w	CG_Biblioteca/Ponto4D.cs	/^    private readonly double w;$/;"	f	class:CG_Biblioteca.Ponto4D	file:
+x	CG_Biblioteca/Ponto4D.cs	/^    private double x;$/;"	f	class:CG_Biblioteca.Ponto4D	file:
+xMax	CG_Biblioteca/CameraOrtho.cs	/^    private double xMin, xMax, yMin, yMax, zMin, zMax;$/;"	f	class:CG_Biblioteca.CameraOrtho	file:
+xMin	CG_Biblioteca/CameraOrtho.cs	/^    private double xMin, xMax, yMin, yMax, zMin, zMax;$/;"	f	class:CG_Biblioteca.CameraOrtho	file:
+xmax	CG_Biblioteca/CameraOrtho.cs	/^    public double xmax { get => xMax; set => xMax = value; }$/;"	p	class:CG_Biblioteca.CameraOrtho
+xmin	CG_Biblioteca/CameraOrtho.cs	/^    public double xmin { get => xMin; set => xMin = value; }$/;"	p	class:CG_Biblioteca.CameraOrtho
+y	CG_Biblioteca/Ponto4D.cs	/^    private double y;$/;"	f	class:CG_Biblioteca.Ponto4D	file:
+yMax	CG_Biblioteca/CameraOrtho.cs	/^    private double xMin, xMax, yMin, yMax, zMin, zMax;$/;"	f	class:CG_Biblioteca.CameraOrtho	file:
+yMin	CG_Biblioteca/CameraOrtho.cs	/^    private double xMin, xMax, yMin, yMax, zMin, zMax;$/;"	f	class:CG_Biblioteca.CameraOrtho	file:
+ymax	CG_Biblioteca/CameraOrtho.cs	/^    public double ymax { get => yMax; set => yMax = value; }$/;"	p	class:CG_Biblioteca.CameraOrtho
+ymin	CG_Biblioteca/CameraOrtho.cs	/^    public double ymin { get => yMin; set => yMin = value; }$/;"	p	class:CG_Biblioteca.CameraOrtho
+z	CG_Biblioteca/Ponto4D.cs	/^    private double z;$/;"	f	class:CG_Biblioteca.Ponto4D	file:
+zMax	CG_Biblioteca/CameraOrtho.cs	/^    private double xMin, xMax, yMin, yMax, zMin, zMax;$/;"	f	class:CG_Biblioteca.CameraOrtho	file:
+zMin	CG_Biblioteca/CameraOrtho.cs	/^    private double xMin, xMax, yMin, yMax, zMin, zMax;$/;"	f	class:CG_Biblioteca.CameraOrtho	file:
+zmax	CG_Biblioteca/CameraOrtho.cs	/^    public double zmax { get => zMax; set => zMax = value; }$/;"	p	class:CG_Biblioteca.CameraOrtho
+zmin	CG_Biblioteca/CameraOrtho.cs	/^    public double zmin { get => zMin; set => zMin = value; }$/;"	p	class:CG_Biblioteca.CameraOrtho
