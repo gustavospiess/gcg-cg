@@ -84,9 +84,15 @@ namespace gcgcg
       for (var i = 0; i < 5; i++)
         curva(0.2, 'V');
       reta(1);
+      curva(1.0/3, 'T');
+      curva(1.0/3, 'T');
+      curva(1.0/3, 'T');
       curva(-0.05, 'T');
       curva(0.5, 'H');
       curva(-0.05, 'T');
+      curva(-1.0/3, 'T');
+      curva(-1.0/3, 'T');
+      curva(-1.0/3, 'T');
 
       base.OnLoad(e);
       Console.WriteLine(" --- Ajuda / Teclas: ");
@@ -281,19 +287,17 @@ namespace gcgcg
     {
       Transformacao4D tr = new Transformacao4D();
       Transformacao4D trAux = new Transformacao4D();
+      trAux.AtribuirTranslacao(0.3, 0, 0);
       if (d == 'H')
       {
-        trAux.AtribuirTranslacao(0.3, 0, 0);
         tr.AtribuirRotacaoY(Math.PI*i/(10));
       }
       else if (d == 'V')
       {
-        trAux.AtribuirTranslacao(0.3, 0, 0);
         tr.AtribuirRotacaoZ(Math.PI*i/(10));
       }
       else
       {
-        trAux.AtribuirTranslacao(0.3, 0, 0);
         tr.AtribuirRotacaoX(Math.PI*i/(10));
       }
       this.movimentos.Add(trAux.MultiplicarMatriz(tr));
