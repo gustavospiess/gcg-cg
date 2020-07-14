@@ -39,6 +39,8 @@ namespace gcgcg
       return instanciaMundo;
     }
 
+    protected List<Ponto4D> view = new List<Ponto4D>();
+    protected int viewMode = 0;
     protected List<Transformacao4D> movimentos = new List<Transformacao4D>();
     protected List<Int32> qtMovimentos = new List<Int32>();
     protected int i;
@@ -56,6 +58,10 @@ namespace gcgcg
 
     protected override void OnLoad(EventArgs e)
     {
+
+      view.Add(new Ponto4D(-10, 5, 2));
+      view.Add(new Ponto4D(0, 0, 0));
+      view.Add(new Ponto4D(20, 10, 4));
 
       curva(0.1, 'V');
       reta(5);
@@ -92,9 +98,6 @@ namespace gcgcg
 
       objetoSelecionado = obj_Cubo;
 
-      camera.At = new Vector3(0, 0, 0);
-      camera.Eye = new Vector3(2000, 2000, 2000);
-      // camera.Eye = new Vector3(0, 0, 1000);
       camera.Near = 100.0f;
       camera.Far = 8000.0f;
 
@@ -166,6 +169,14 @@ namespace gcgcg
         }
       }
 
+      if (viewMode < view.Count)
+      {
+        Ponto4D pto = objetoSelecionado.Matriz.MultiplicarPonto(new Ponto4D(10, 0, 0)) + new Ponto4D(0, 25, 0);
+        camera.At = new Vector3(Convert.ToSingle(pto.X), Convert.ToSingle(pto.Y), Convert.ToSingle(pto.Z));
+        pto = objetoSelecionado.Matriz.MultiplicarPonto(view[viewMode]) + new Ponto4D(0, 50, 0);
+        camera.Eye = new Vector3(Convert.ToSingle(pto.X), Convert.ToSingle(pto.Y), Convert.ToSingle(pto.Z));
+      }
+
       this.SwapBuffers();
     }
 
@@ -173,72 +184,34 @@ namespace gcgcg
     {
       if (e.Key == Key.Escape)
         Exit();
-      else if (e.Key == Key.E)
+      else if (viewMode == view.Count)
       {
-        Console.WriteLine("--- Objetos / Pontos: ");
-        for (var i = 0; i < objetosLista.Count; i++)
+        if  (e.Key == Key.Space)
         {
-          Console.WriteLine(objetosLista[i]);
+          viewMode = 0;
         }
-      }
-      else if (e.Key == Key.O)
-        bBoxDesenhar = !bBoxDesenhar;
-      else if (e.Key == Key.Left)
-      {
-        this.AtRotateX(-1/2);
-        this.AtRotateY(1);
-      }
-      else if (e.Key == Key.Right)
-      {
-        this.AtRotateX(1/2);
-        this.AtRotateY(-1);
-      }
-      else if (e.Key == Key.Up)
-        this.EyeRotate(1);
-      else if (e.Key == Key.Down)
-        this.EyeRotate(-1);
-      else if (objetoSelecionado != null)
-      {
-        if (e.Key == Key.M)
-          Console.WriteLine(objetoSelecionado.Matriz);
-        else if (e.Key == Key.P)
-          Console.WriteLine(objetoSelecionado);
-        else if (e.Key == Key.I)
+        else if (e.Key == Key.Left)
         {
-          objetoSelecionado.AtribuirIdentidade();
-          this.i = 0;
-          this.j = 0;
+          this.AtRotateX(-1/2);
+          this.AtRotateY(1);
         }
-       else if (e.Key == Key.Number8)
-          objetoSelecionado.TranslacaoXYZ(0, 0, 10);
-        else if (e.Key == Key.Number9)
-          objetoSelecionado.TranslacaoXYZ(0, 0, -10);
-        else if (e.Key == Key.PageUp)
-          objetoSelecionado.EscalaXYZ(2, 2, 2);
-        else if (e.Key == Key.PageDown)
-          objetoSelecionado.EscalaXYZ(0.5, 0.5, 0.5);
-        else if (e.Key == Key.Home)
-          objetoSelecionado.EscalaXYZBBox(0.5, 0.5, 0.5);
-        else if (e.Key == Key.End)
-          objetoSelecionado.EscalaXYZBBox(2, 2, 2);
-        else if (e.Key == Key.Number1)
-          objetoSelecionado.Rotacao(10);
-        else if (e.Key == Key.Number2)
-          objetoSelecionado.Rotacao(-10);
-        else if (e.Key == Key.Number3)
-          objetoSelecionado.RotacaoZBBox(10);
-        else if (e.Key == Key.Number4)
-          objetoSelecionado.RotacaoZBBox(-10);
-        else if (e.Key == Key.Number0)
-          objetoSelecionado = null;
-        else if (e.Key == Key.X)
-          objetoSelecionado.TrocaEixoRotacao('x');
-        else if (e.Key == Key.Y)
-          objetoSelecionado.TrocaEixoRotacao('y');
-        else if (e.Key == Key.Z)
-          objetoSelecionado.TrocaEixoRotacao('z');
+        else if (e.Key == Key.Right)
+        {
+          this.AtRotateX(1/2);
+          this.AtRotateY(-1);
+        }
+        else if (e.Key == Key.Up)
+          this.EyeRotate(1);
+        else if (e.Key == Key.Down)
+          this.EyeRotate(-1);
         else
           Console.WriteLine(" __ Tecla não implementada.");
+      }
+      else if  (e.Key == Key.Space)
+      {
+        viewMode++;
+        camera.At = new Vector3(0, 0, 0);
+        camera.Eye = new Vector3(2000, 2000, 2000);
       }
       else
         Console.WriteLine(" __ Tecla não implementada.");
@@ -299,9 +272,9 @@ namespace gcgcg
     private void reta(int qt)
     {
       Transformacao4D tr = new Transformacao4D();
-      tr.AtribuirTranslacao(1, 0, 0);
+      tr.AtribuirTranslacao(0.25, 0, 0);
       this.movimentos.Add(tr);
-      this.qtMovimentos.Add(qt*5);
+      this.qtMovimentos.Add(qt*20);
     }
 
     private void curva(double i, char d)
